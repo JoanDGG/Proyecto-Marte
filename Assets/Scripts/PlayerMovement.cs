@@ -38,7 +38,16 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidbody2d.AddForce(Vector3.up * jumpValue, ForceMode2D.Impulse);
         }
-        
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            animator.SetBool("attacking", true);
+        }
+        else
+        {
+            animator.SetBool("attacking", false);
+        }
+
         movementValue = Input.GetAxis("Horizontal");
         movVertical = Input.GetAxis("Vertical");
     }
