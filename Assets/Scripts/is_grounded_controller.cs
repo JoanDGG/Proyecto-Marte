@@ -9,13 +9,19 @@ public class is_grounded_controller : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        is_grounded = true;
-        print("Esta en piso");
+        if (other.CompareTag("Piso"))
+        {
+            is_grounded = true;
+            print("Esta en piso");
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        is_grounded = false;
-        print("No esta en piso");
+        if (other.CompareTag("Piso"))
+        {
+            is_grounded = false;
+            print("No esta en piso");
+        }
     }
 }

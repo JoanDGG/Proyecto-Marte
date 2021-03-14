@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public int time = 120;
     private int original_time;
 
+    private bool first_attack = true;
+
     public float movementSpeed = 5;
     public float jumpValue = 5;
 
@@ -33,19 +35,36 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         
-        //if (Input.GetButtonDown("Jump") && Mathf.Abs(rigidbody2d.velocity.y) < 0.01f)
-        if (Input.GetButtonDown("Jump") && is_grounded_controller.is_grounded)
+        if (Input.GetButtonDown("Jump"))
         {
-            rigidbody2d.AddForce(Vector3.up * jumpValue, ForceMode2D.Impulse);
+            Jump(jumpValue);
         }
 
         if (Input.GetMouseButtonDown(0))
         {
-            animator.SetBool("attacking", true);
+            if (first_attack)
+            {
+                animator.SetBool("attacking", true);
+                Debug.Log("Ataque 1");
+                first_attack = false;
+            }
+            else
+            {
+                animator.SetBool("attacking2", true);
+                Debug.Log("Ataque 2");
+                first_attack = true;
+            }
         }
         else
         {
-            animator.SetBool("attacking", false);
+            if (!first_attack)
+            {
+                animator.SetBool("attacking", false);
+            }
+            else
+            {
+                animator.SetBool("attacking2", false);
+            }
         }
 
         movementValue = Input.GetAxis("Horizontal");
@@ -106,8 +125,6 @@ public class PlayerMovement : MonoBehaviour
         time = duration;
         Debug.Log("Moving Right");
         Debug.Log(time);
-
-        //Moverderecha();
     }
 
     public void MoveLeft(int duration)
@@ -116,10 +133,9 @@ public class PlayerMovement : MonoBehaviour
         time = duration;
         Debug.Log("Moving Left");
         Debug.Log(time);
-        //Moverizquierda();
     }
 
-    public void Jump(int force)
+    public void Jump(float force)
     {
         if (is_grounded_controller.is_grounded)
         {
@@ -135,16 +151,4 @@ public class PlayerMovement : MonoBehaviour
         movingLeft = false;
         movingRight = false;
     }
-
-    //IEnumerator Moverderecha()
-    //{
-    //    yield return new WaitForSeconds(2);
-    //    movingRight = false;
-    //}
-
-    //IEnumerator Moverizquierda()
-    //{
-    //    yield return new WaitForSeconds(2);
-    //    movingLeft = false;
-    //}
 }

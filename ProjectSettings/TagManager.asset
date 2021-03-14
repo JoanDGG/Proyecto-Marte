@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Llave
+  - Piso
   layers:
   - Default
   - TransparentFX
