@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public int time = 120;
     private int original_time;
 
+    private bool is_attacking = false;
+
     private bool first_attack = true;
 
     public float movementSpeed = 5;
@@ -40,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
             Jump(jumpValue);
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || is_attacking)
         {
             if (first_attack)
             {
@@ -67,6 +69,10 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        if(is_attacking)
+        {
+            is_attacking = false;
+        }
         movementValue = Input.GetAxis("Horizontal");
         movVertical = Input.GetAxis("Vertical");
     }
@@ -124,7 +130,8 @@ public class PlayerMovement : MonoBehaviour
         movingRight = true;
         time = duration;
         Debug.Log("Moving Right");
-        Debug.Log(time);
+        //Debug.Log(time);
+        //return true;
     }
 
     public void MoveLeft(int duration)
@@ -132,7 +139,13 @@ public class PlayerMovement : MonoBehaviour
         movingLeft = true;
         time = duration;
         Debug.Log("Moving Left");
-        Debug.Log(time);
+        //Debug.Log(time);
+        //return true;
+    }
+
+    public void Attack()
+    {
+        is_attacking = true;
     }
 
     public void Jump(float force)
@@ -142,7 +155,7 @@ public class PlayerMovement : MonoBehaviour
             rigidbody2d.AddForce(Vector3.up * force, ForceMode2D.Impulse);
         }
         Debug.Log("Jump");
-        Debug.Log(force);
+        //Debug.Log(force);
     }
 
     public void Release()
