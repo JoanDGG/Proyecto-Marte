@@ -32,68 +32,51 @@ public class EnviarTexto : MonoBehaviour
 
     public void EnviarInstrucciones()
     {
-        int tiempo = 0;
-        int contador = 0;
-        Debug.Log(instruccionesUsuario);
+        //Debug.Log(instruccionesUsuario);
         string[] lineas = instruccionesUsuario.Split('.');
-        while (contador < lineas.Length-1)
-        {
-            tiempo = EjecutarInstruccion(lineas[contador]);
-            while (tiempo > 0)
-            {
-                --tiempo;
-            }
-            if (tiempo == 0)
-            {
-                ++contador;
-            }
-        }
+        StartCoroutine(EjecutarInstruccion(lineas));
     }
 
-    private int EjecutarInstruccion(string instruccion)
+    IEnumerator EjecutarInstruccion(string[] lineas)
     {
-        int wait = 0;
-        string[] instrucciones = instruccion.Split(' ');
-        for (int i = 0; i < instrucciones.Length; i++)
+        foreach (string comando in lineas)
         {
-            //if(comandos.Contains(letra))
-            //{
-
-            //}
-
-            //string palabra = instrucciones[i];
-            //if(comandos.Contains(palabra[0]))
-
-            if (instrucciones[i] == "mover")
+            Debug.Log(comando);
+            float wait = 0;
+            string[] instrucciones = comando.Split(' ');
+            for (int i = 0; i < instrucciones.Length; i++)
             {
-                if (instrucciones[i + 1] == "derecha")
+                //string palabra = instrucciones[i];
+                //if(comandos.Contains(palabra[0]))
+                if (instrucciones[i].Contains("mover"))
                 {
                     int duracion = Int16.Parse(instrucciones[i + 2]);
-                    player.MoveRight(duracion);
                     wait += duracion;
+                    if (instrucciones[i + 1] == "derecha")
+                    {
+                        player.MoveRight(duracion);   
+                    }
+                    else if (instrucciones[i + 1] == "izquierda")
+                    {
+                        player.MoveLeft(duracion);
+                    }
                 }
-                else if (instrucciones[i + 1] == "izquierda")
+                else if (instrucciones[i].Contains("saltar"))
                 {
-                    int duracion = Int16.Parse(instrucciones[i + 2]);
-                    player.MoveLeft(duracion);
-                    wait += duracion;
+                    var force = Int16.Parse(instrucciones[i + 1]);
+                    player.Jump(force);
+                    wait += 5;
+                }
+                else if (instrucciones[i].Contains("atacar"))
+                {
+                    player.Attack();
+                    wait += 10;
                 }
             }
-            else if (instrucciones[i] == "saltar")
-            {
-                var force = Int16.Parse(instrucciones[i + 1]);
-                player.Jump(force);
-                wait += 5;
-            }
-            else if (instrucciones[i] == "abrir" || instrucciones[i] == "cerrar" || instrucciones[i] == "atacar")
-            {
-                player.Attack();
-                wait += 10;
-            }
+
+            Debug.Log("Esperando...");
+            Debug.Log(wait * 0.1f);
+            yield return new WaitForSeconds(wait * 0.1f);
         }
-        //wait += 10;
-        Debug.Log("Esperando...");
-        Debug.Log(wait);
-        return wait;
     }
 }

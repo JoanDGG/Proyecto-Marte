@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private bool first_attack = true;
 
     public float movementSpeed = 5;
-    public float jumpValue = 5;
+    public float jumpValue = 8;
 
     public float movementValue;
     private float movVertical;
@@ -47,13 +47,13 @@ public class PlayerMovement : MonoBehaviour
             if (first_attack)
             {
                 animator.SetBool("attacking", true);
-                Debug.Log("Ataque 1");
+                //Debug.Log("Ataque 1");
                 first_attack = false;
             }
             else
             {
                 animator.SetBool("attacking2", true);
-                Debug.Log("Ataque 2");
+                //Debug.Log("Ataque 2");
                 first_attack = true;
             }
         }
@@ -129,7 +129,7 @@ public class PlayerMovement : MonoBehaviour
     {
         movingRight = true;
         time = duration;
-        Debug.Log("Moving Right");
+        //Debug.Log("Moving Right");
         //Debug.Log(time);
         //return true;
     }
@@ -138,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
     {
         movingLeft = true;
         time = duration;
-        Debug.Log("Moving Left");
+        //Debug.Log("Moving Left");
         //Debug.Log(time);
         //return true;
     }
@@ -154,13 +154,13 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidbody2d.AddForce(Vector3.up * force, ForceMode2D.Impulse);
         }
-        Debug.Log("Jump");
+        //Debug.Log("Jump");
         //Debug.Log(force);
     }
 
     public void Release()
     {
-        Debug.Log("Stop");
+        //Debug.Log("Stop");
         movingLeft = false;
         movingRight = false;
     }
