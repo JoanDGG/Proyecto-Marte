@@ -19,8 +19,9 @@ public class PlayerMovement : MonoBehaviour
     public float movementSpeed = 5;
     public float jumpValue = 8;
 
-    public float movementValue;
-    private float movVertical;
+    public float inputMove;
+    public bool inputJump;
+    public bool inputAttack;
 
     Vector2 velocity;
     private Animator animator;
@@ -36,13 +37,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (Input.GetButtonDown("Jump"))
+        if (!Game_Controller.is_editing)
         {
-            Jump(jumpValue);
+            inputMove = Input.GetAxis("Horizontal");
+            inputJump = Input.GetButtonDown("Jump");
+            inputAttack = Input.GetMouseButtonDown(0);
         }
 
-        if (Input.GetMouseButtonDown(0) || is_attacking)
+        if (inputAttack || is_attacking)
         {
             if (first_attack)
             {
@@ -69,19 +71,22 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if(is_attacking)
+        if (is_attacking)
         {
             is_attacking = false;
         }
-        movementValue = Input.GetAxis("Horizontal");
-        movVertical = Input.GetAxis("Vertical");
     }
 
     void FixedUpdate()
     {
-        rigidbody2d.velocity = new Vector2(movementValue * movementSpeed, rigidbody2d.velocity.y);
+        if (inputJump)
+        {
+            Jump(jumpValue);
+        }
 
-        if ((movementValue > 0.0f && !facingRight) || (movementValue < 0.0f && facingRight))
+        rigidbody2d.velocity = new Vector2(inputMove * movementSpeed, rigidbody2d.velocity.y);
+
+        if ((inputMove > 0.0f && !facingRight) || (inputMove < 0.0f && facingRight))
         {
             Flip();
         }
@@ -131,7 +136,6 @@ public class PlayerMovement : MonoBehaviour
         time = duration;
         //Debug.Log("Moving Right");
         //Debug.Log(time);
-        //return true;
     }
 
     public void MoveLeft(int duration)
@@ -140,7 +144,6 @@ public class PlayerMovement : MonoBehaviour
         time = duration;
         //Debug.Log("Moving Left");
         //Debug.Log(time);
-        //return true;
     }
 
     public void Attack()
