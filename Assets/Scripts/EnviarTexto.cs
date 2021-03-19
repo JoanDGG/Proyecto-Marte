@@ -10,7 +10,7 @@ public class EnviarTexto : MonoBehaviour
 {
     public Text Instrucciones;
     string instruccionesUsuario;
-    string[] comandos = {"M", "S","A", "Ap"}; //M: Mover, S: Saltar, A: Atacar, Ap: Apagar
+    //string[] comandos = {"M", "S","A", "Ap"}; //M: Mover, S: Saltar, A: Atacar, Ap: Apagar
     private PlayerMovement player;
 
     // Start is called before the first frame update
@@ -22,17 +22,13 @@ public class EnviarTexto : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        instruccionesUsuario = Instrucciones.text.ToLower();
-    }
-
-    public void UpdateText(InputField Resultados)
-    {
-        Resultados.text += "\n" + instruccionesUsuario;
+        
     }
 
     public void EnviarInstrucciones()
     {
         //Debug.Log(instruccionesUsuario);
+        instruccionesUsuario = Instrucciones.text.ToLower();
         string[] lineas = instruccionesUsuario.Split('.');
         StartCoroutine(EjecutarInstruccion(lineas));
     }
@@ -50,6 +46,7 @@ public class EnviarTexto : MonoBehaviour
                 //if(comandos.Contains(palabra[0]))
                 if (instrucciones[i].Contains("mover"))
                 {
+                    Debug.Log("Moviendo...");
                     int duracion = Int16.Parse(instrucciones[i + 2]);
                     wait += duracion;
                     if (instrucciones[i + 1] == "derecha")
@@ -64,17 +61,19 @@ public class EnviarTexto : MonoBehaviour
                 else if (instrucciones[i].Contains("saltar"))
                 {
                     var force = Int16.Parse(instrucciones[i + 1]);
+                    while (!is_grounded_controller.is_grounded) yield return null;
+                    Debug.Log("Saltando...");
                     player.Jump(force);
-                    wait += 5;
                 }
                 else if (instrucciones[i].Contains("atacar"))
                 {
+                    while (!is_grounded_controller.is_grounded) yield return null;
+                    Debug.Log("Atacando...");
                     player.Attack();
-                    wait += 10;
+                    wait += 5;
                 }
             }
-
-            Debug.Log("Esperando...");
+            
             Debug.Log(wait * 0.1f);
             yield return new WaitForSeconds(wait * 0.1f);
         }
