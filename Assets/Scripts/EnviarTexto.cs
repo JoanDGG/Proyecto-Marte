@@ -61,9 +61,12 @@ public class EnviarTexto : MonoBehaviour
                 else if (instrucciones[i].Contains("saltar"))
                 {
                     var force = Int16.Parse(instrucciones[i + 1]);
+                    Debug.Log("Esperando...");
                     while (!is_grounded_controller.is_grounded) yield return null;
+                    yield return new WaitForSeconds(0.1f);
                     Debug.Log("Saltando...");
                     player.Jump(force);
+                    wait += 5;
                 }
                 else if (instrucciones[i].Contains("atacar"))
                 {

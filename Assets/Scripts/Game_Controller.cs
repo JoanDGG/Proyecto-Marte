@@ -21,6 +21,6 @@ public class Game_Controller : MonoBehaviour
     public void Edit()
     {
         is_editing = !is_editing;
-        //Debug.Log("Cambio");
+        Debug.Log("Cambio");
     }
 }

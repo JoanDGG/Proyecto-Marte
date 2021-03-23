@@ -44,6 +44,11 @@ public class PlayerMovement : MonoBehaviour
             inputAttack = Input.GetMouseButtonDown(0);
         }
 
+        if (inputJump)
+        {
+            Jump(jumpValue);
+        }
+
         if (inputAttack || is_attacking)
         {
             if (first_attack)
@@ -79,10 +84,6 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (inputJump)
-        {
-            Jump(jumpValue);
-        }
 
         rigidbody2d.velocity = new Vector2(inputMove * movementSpeed, rigidbody2d.velocity.y);
 
@@ -156,15 +157,16 @@ public class PlayerMovement : MonoBehaviour
         if (is_grounded_controller.is_grounded)
         {
             rigidbody2d.AddForce(Vector3.up * force, ForceMode2D.Impulse);
+            Debug.Log("Jump");
+            Debug.Log(force);
         }
-        //Debug.Log("Jump");
-        //Debug.Log(force);
+
     }
 
     public void Release()
     {
-        //Debug.Log("Stop");
         movingLeft = false;
         movingRight = false;
+        //Debug.Log("Stop");
     }
 }
