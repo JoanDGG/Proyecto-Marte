@@ -8,6 +8,5 @@ public class LevelGateAnimation : MonoBehaviour
     {
         GetComponent<Animator>().SetTrigger("Open");
         print("Nivel terminado!");
-        gameObject.SetActive(false);
     }
 }

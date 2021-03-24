@@ -5,12 +5,12 @@ using UnityEngine;
 public class GateAnimation : MonoBehaviour
 {
     public static bool is_open;
-    private LevelGateAnimation level_gate;
+    private Game_Controller game_controller;
     // Start is called before the first frame update
     void Start()
     {
         is_open = false;
-        level_gate = FindObjectOfType<LevelGateAnimation>();
+        game_controller = FindObjectOfType<Game_Controller>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -28,7 +28,7 @@ public class GateAnimation : MonoBehaviour
                 GetComponent<Animator>().SetTrigger("Close");
                 print("Cerrad!");
                 is_open = false;
-                level_gate.Open();
+                game_controller.Desbloquear(1);
             }
         }
     }

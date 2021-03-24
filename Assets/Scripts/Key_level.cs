@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Key_level : MonoBehaviour
 {
-    public int id=1;
+    public LevelGateAnimation level_gate;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,6 +14,7 @@ public class Key_level : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = false;
 
             Debug.Log("Llave encontrada!!");
+            level_gate.Open();
             Destroy(gameObject);
         }
     }
