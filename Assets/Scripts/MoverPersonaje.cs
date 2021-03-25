@@ -13,6 +13,7 @@ public class MoverPersonaje : MonoBehaviour
     public GameObject go;
     public GameObject osc;
     public GameObject tor;
+    public GameObject alarma;
     //public GameObject[] evento;
     public float velocidad = 7;
 
@@ -24,6 +25,7 @@ public class MoverPersonaje : MonoBehaviour
         sprRenderer = GetComponent<SpriteRenderer>();
         osc.GetComponent<Image>().enabled = false;
         //GameObject tor = evento[GameManager.clima];
+        alarma.GetComponent<Image>().enabled = false;
         StartCoroutine(reloj());
     }
 
@@ -68,8 +70,10 @@ public class MoverPersonaje : MonoBehaviour
             print(GameManager.tiempo);
             yield return new WaitForSeconds(1.0f);
             GameManager.tiempo += 1;
+            alarma.GetComponent<Image>().enabled = (GameManager.tiempo == GameManager.tiempoLimite - 5) ? true : (GameManager.tiempo == GameManager.tiempoLimite - 3) ? true : (GameManager.tiempo == GameManager.tiempoLimite - 1) ? true : false;
             if (GameManager.tiempo >= GameManager.tiempoLimite && !GameManager.evento)
             {
+                alarma.GetComponent<Image>().enabled = false;
                 osc.GetComponent<Image>().enabled = true;
                 yield return new WaitForSeconds(0.25f);
                 go.transform.position = new Vector3(-1.5f, 1.5f, 0.0f);
