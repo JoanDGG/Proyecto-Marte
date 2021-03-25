@@ -12,6 +12,8 @@ public class MoverPersonaje : MonoBehaviour
     private Image img;
     public GameObject go;
     public GameObject osc;
+    public GameObject tor;
+    //public GameObject[] evento;
     public float velocidad = 7;
 
     // Start is called before the first frame update
@@ -21,6 +23,7 @@ public class MoverPersonaje : MonoBehaviour
         anim = GetComponent<Animator>();
         sprRenderer = GetComponent<SpriteRenderer>();
         osc.GetComponent<Image>().enabled = false;
+        //GameObject tor = evento[GameManager.clima];
         StartCoroutine(reloj());
     }
 
@@ -53,6 +56,9 @@ public class MoverPersonaje : MonoBehaviour
         {
             SceneManager.LoadScene("Laboratorio");
         }
+        else if(other.gameObject.CompareTag("Tormenta")){
+            print("TORMENTA!!!!!!!!!!!!");
+        }
     }
 
     IEnumerator reloj()
@@ -67,6 +73,7 @@ public class MoverPersonaje : MonoBehaviour
                 osc.GetComponent<Image>().enabled = true;
                 yield return new WaitForSeconds(0.25f);
                 go.transform.position = new Vector3(-1.5f, 1.5f, 0.0f);
+                Instantiate(tor);
                 yield return new WaitForSeconds(0.25f);
                 GameManager.tiempo = 0;
                 GameManager.evento = true;

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Llave
   - Piso
+  - Puerta
+  - Tormenta
   layers:
   - Default
   - TransparentFX

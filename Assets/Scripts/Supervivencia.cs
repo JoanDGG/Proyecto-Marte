@@ -22,6 +22,7 @@ public class Supervivencia : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Tormenta") && !GameManager.resTor)
         {
+            print("Tormenta");
             anim.SetBool("Vida", false);
             GameManager.perder = true;
         }
