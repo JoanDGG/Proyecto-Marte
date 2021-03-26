@@ -8,6 +8,9 @@ TagManager:
   - Piso
   - Puerta
   - Tormenta
+  - Calor
+  - Frio
+  - Sequia
   layers:
   - Default
   - TransparentFX

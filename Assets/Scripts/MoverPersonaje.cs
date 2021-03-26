@@ -12,10 +12,12 @@ public class MoverPersonaje : MonoBehaviour
     private Image img;
     public GameObject go;
     public GameObject osc;
-    public GameObject tor;
+    //public GameObject tor;
     public GameObject alarma;
-    //public GameObject[] evento;
+    public GameObject[] evento = new GameObject[4];
+    public Text tempo;
     public float velocidad = 7;
+    private GameObject tor;
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +26,11 @@ public class MoverPersonaje : MonoBehaviour
         anim = GetComponent<Animator>();
         sprRenderer = GetComponent<SpriteRenderer>();
         osc.GetComponent<Image>().enabled = false;
-        //GameObject tor = evento[GameManager.clima];
+        int clima = Random.Range(0, evento.Length);
+        tor = evento[clima];
+        print("Elegi "+ clima.ToString());
         alarma.GetComponent<Image>().enabled = false;
+        tempo.GetComponent<Text>().text = (GameManager.reloj >= 0) ? GameManager.reloj.ToString() : "0";
         StartCoroutine(reloj());
     }
 
@@ -70,7 +75,9 @@ public class MoverPersonaje : MonoBehaviour
             print(GameManager.tiempo);
             yield return new WaitForSeconds(1.0f);
             GameManager.tiempo += 1;
-            alarma.GetComponent<Image>().enabled = (GameManager.tiempo == GameManager.tiempoLimite - 5) ? true : (GameManager.tiempo == GameManager.tiempoLimite - 3) ? true : (GameManager.tiempo == GameManager.tiempoLimite - 1) ? true : false;
+            GameManager.reloj = GameManager.evento ? (GameManager.tiempoEvento - GameManager.tiempo) : (GameManager.tiempoLimite - GameManager.tiempo);
+            tempo.GetComponent<Text>().text = (GameManager.reloj >= 0) ? GameManager.reloj.ToString() : "0";
+            alarma.GetComponent<Image>().enabled = (GameManager.tiempo == GameManager.tiempoLimite - 6) ? true : (GameManager.tiempo == GameManager.tiempoLimite - 4) ? true : (GameManager.tiempo == GameManager.tiempoLimite - 2) ? true : false;
             if (GameManager.tiempo >= GameManager.tiempoLimite && !GameManager.evento)
             {
                 alarma.GetComponent<Image>().enabled = false;
