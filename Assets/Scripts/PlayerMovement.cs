@@ -157,8 +157,8 @@ public class PlayerMovement : MonoBehaviour
         if (is_grounded_controller.is_grounded)
         {
             rigidbody2d.AddForce(Vector3.up * force, ForceMode2D.Impulse);
-            Debug.Log("Jump");
-            Debug.Log(force);
+            //Debug.Log("Jump");
+            //Debug.Log(force);
         }
 
     }

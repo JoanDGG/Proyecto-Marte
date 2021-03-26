@@ -13,12 +13,21 @@ public class GateAnimation : MonoBehaviour
         game_controller = FindObjectOfType<Game_Controller>();
     }
 
+    public void Open()
+    {
+        if (!is_open)
+        {
+            GetComponent<Animator>().SetTrigger("Open");
+            is_open = true;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Llave"))
         {
             if (!is_open)
-            { 
+            {
                 GetComponent<Animator>().SetTrigger("Open");
                 print("Abrid!");
                 is_open = true;
@@ -28,7 +37,10 @@ public class GateAnimation : MonoBehaviour
                 GetComponent<Animator>().SetTrigger("Close");
                 print("Cerrad!");
                 is_open = false;
-                game_controller.Desbloquear(1);
+                if (gameObject.name == "Gate")
+                {
+                    game_controller.FaseUno();
+                }
             }
         }
     }

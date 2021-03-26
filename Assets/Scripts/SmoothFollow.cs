@@ -5,7 +5,7 @@ using UnityEngine;
 public class SmoothFollow : MonoBehaviour
 {
     public float xMargin = 1.0f;
-    public float yMargin = 1.0f;
+    public float yMargin = 3.0f;
 
     public float xSmooth = 10.0f;
     public float ySmooth = 10.0f;

@@ -12,7 +12,7 @@ public class is_grounded_controller : MonoBehaviour
         if (other.CompareTag("Piso"))
         {
             is_grounded = true;
-            print("Esta en piso");
+            //print("Esta en piso");
         }
     }
 
@@ -21,7 +21,7 @@ public class is_grounded_controller : MonoBehaviour
         if (other.CompareTag("Piso"))
         {
             is_grounded = false;
-            print("No esta en piso");
+            //print("No esta en piso");
         }
     }
 }
