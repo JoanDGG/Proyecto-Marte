@@ -152,6 +152,12 @@ public class PlayerMovement : MonoBehaviour
         is_attacking = true;
     }
 
+    public void Fire()
+    {
+        animator.SetTrigger("Fire");
+        Debug.Log("Turning off Fire");
+    }
+
     public void Jump(float force)
     {
         if (is_grounded_controller.is_grounded)
