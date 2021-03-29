@@ -11,6 +11,7 @@ TagManager:
   - Calor
   - Frio
   - Sequia
+  - Enemy
   layers:
   - Default
   - TransparentFX
