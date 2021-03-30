@@ -26,7 +26,7 @@ public class Game_Controller : MonoBehaviour
 
     public GameObject player;
 
-    private int constante = 420;
+    private int constante = 300;
     private int constante_original;
     // Start is called before the first frame update
     void Start()
@@ -36,10 +36,10 @@ public class Game_Controller : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-                            //Normal=95%, Fuego = .75%, Puertas = 0.6%
-        float[] problemas = {        0.95f,         0.0075f,           0.006f};
+                            //Normal=99%, Fuego = .55%, Puertas = 0.35%
+        float[] problemas = {        0.99f,         0.0055f,           0.0035f};
 
         if (oleada)
         {

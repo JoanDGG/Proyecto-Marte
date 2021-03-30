@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rigidbody2d;
 
-    private bool facingRight = true;
+    public bool facingRight = true;
     private bool movingRight = false;
     private bool movingLeft = false;
     public int time = 120;

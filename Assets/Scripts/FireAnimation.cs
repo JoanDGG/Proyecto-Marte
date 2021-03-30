@@ -6,7 +6,7 @@ public class FireAnimation : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Extintor"))
+        if (other.gameObject.CompareTag("Extintor") || other.gameObject.CompareTag("Piso"))
         {
             Destroy(gameObject);
             Debug.Log("Fuego apagado!");
