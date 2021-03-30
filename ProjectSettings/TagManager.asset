@@ -12,6 +12,7 @@ TagManager:
   - Frio
   - Sequia
   - Enemy
+  - BlackHole
   layers:
   - Default
   - TransparentFX
