@@ -524,12 +524,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 551881001}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 57d899f85ca6a7d4d99950e1158b5cc5, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -21378,46 +21378,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1143156736686183101, guid: f4df1d12b7d81cc4c9f795bfc8346859, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4174998435982155810, guid: f4df1d12b7d81cc4c9f795bfc8346859, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4174998435982155820, guid: f4df1d12b7d81cc4c9f795bfc8346859, type: 3}
-      propertyPath: m_Size.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4174998435982155820, guid: f4df1d12b7d81cc4c9f795bfc8346859, type: 3}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4174998435982155820, guid: f4df1d12b7d81cc4c9f795bfc8346859, type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4174998435982155820, guid: f4df1d12b7d81cc4c9f795bfc8346859, type: 3}
-      propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4174998437274165195, guid: f4df1d12b7d81cc4c9f795bfc8346859, type: 3}
-      propertyPath: m_Size.x
-      value: 0.6544115
-      objectReference: {fileID: 0}
-    - target: {fileID: 4174998437274165195, guid: f4df1d12b7d81cc4c9f795bfc8346859, type: 3}
-      propertyPath: m_Size.y
-      value: 0.060742438
-      objectReference: {fileID: 0}
-    - target: {fileID: 4174998437274165195, guid: f4df1d12b7d81cc4c9f795bfc8346859, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.10627402
-      objectReference: {fileID: 0}
-    - target: {fileID: 4174998437274165195, guid: f4df1d12b7d81cc4c9f795bfc8346859, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.012220126
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4df1d12b7d81cc4c9f795bfc8346859, type: 3}
 --- !u!1001 &7975439206412630009
@@ -22761,7 +22721,8 @@ MonoBehaviour:
   key1: {fileID: 482684943}
   key2: {fileID: 776355762}
   key3: {fileID: 936352506}
-  FireEffect: {fileID: 1648385473056583240, guid: 9366f4d69c70c9341b86e55ce8682486, type: 3}
+  FireEffect: {fileID: 2251256166764680378, guid: 15583edac44be9940bd790263e73621e, type: 3}
+  player: {fileID: 3904018395317778568}
 --- !u!222 &8493474764747471409
 CanvasRenderer:
   m_ObjectHideFlags: 0

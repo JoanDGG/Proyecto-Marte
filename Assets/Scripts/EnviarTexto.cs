@@ -75,6 +75,12 @@ public class EnviarTexto : MonoBehaviour
                     player.Attack();
                     wait += 5;
                 }
+                else if (instrucciones[i].Contains("fuego"))
+                {
+                    Debug.Log("Apagando fuego...");
+                    player.Fire();
+                    wait += 2;
+                }
             }
             
             Debug.Log(wait * 0.1f);

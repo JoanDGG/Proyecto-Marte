@@ -11,6 +11,7 @@ TagManager:
   - Calor
   - Frio
   - Sequia
+  - Extintor
   layers:
   - Default
   - TransparentFX

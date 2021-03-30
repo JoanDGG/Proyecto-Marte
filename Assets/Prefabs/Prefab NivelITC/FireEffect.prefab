@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4663145304066226564}
   - component: {fileID: 1115777455916771302}
   - component: {fileID: 8279714}
+  - component: {fileID: 7968821976477166116}
   m_Layer: 0
   m_Name: FireEffect
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8746809842147390411}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 1.1814222, y: -0.6471146, z: -423.953}
+  m_LocalPosition: {x: 1.1814222, y: -0.6471146, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3797,7 +3798,7 @@ ParticleSystem:
     serializedVersion: 2
     inside: 1
     outside: 0
-    enter: 0
+    enter: 1
     exit: 0
     colliderQueryMode: 0
     radiusScale: 1
@@ -4819,6 +4820,18 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -3756600.5}
+  m_Offset: {x: 0, y: -6032216}
   serializedVersion: 2
-  m_Radius: 0.6156241
+  m_Radius: 1.3788949
+--- !u!114 &7968821976477166116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8746809842147390411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f1cd4ce92225a498ceeca4b1ab1fb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

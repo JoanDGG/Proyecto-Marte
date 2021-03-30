@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private int original_time;
 
     private bool is_attacking = false;
+    private bool fire_active = false;
 
     private bool first_attack = true;
 
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float inputMove;
     public bool inputJump;
+    public bool inputFire;
     public bool inputAttack;
 
     Vector2 velocity;
@@ -42,11 +44,22 @@ public class PlayerMovement : MonoBehaviour
             inputMove = Input.GetAxis("Horizontal");
             inputJump = Input.GetButtonDown("Jump");
             inputAttack = Input.GetMouseButtonDown(0);
+            inputFire = Input.GetMouseButtonDown(1);
         }
 
         if (inputJump)
         {
             Jump(jumpValue);
+        }
+
+        if(inputFire || fire_active)
+        {
+            animator.SetBool("extintor", true);
+            //Debug.Log("Apagando fuego...");
+        }
+        else
+        {
+            animator.SetBool("extintor", false);
         }
 
         if (inputAttack || is_attacking)
@@ -76,9 +89,10 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (is_attacking)
+        if (is_attacking || fire_active)
         {
             is_attacking = false;
+            fire_active = false;
         }
     }
 
@@ -154,8 +168,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Fire()
     {
-        animator.SetTrigger("Fire");
-        Debug.Log("Turning off Fire");
+        fire_active = true;
+        //Debug.Log("Turning off Fire");
     }
 
     public void Jump(float force)

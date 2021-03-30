@@ -22,22 +22,24 @@ public class Game_Controller : MonoBehaviour
     public GameObject key2;
     public GameObject key3;
 
-    public Transform FireEffect;
+    public GameObject FireEffect;
 
-    private PlayerMovement player;
+    public GameObject player;
+
+    private int constante = 420;
+    private int constante_original;
     // Start is called before the first frame update
     void Start()
     {
         is_editing = false;
-        player = FindObjectOfType<PlayerMovement>();
-
+        constante_original = constante;
     }
 
     // Update is called once per frame
     void Update()
     {
-                            //Normal=95%, Fuego = 0.1%, Puertas = 0.8%
-        float[] problemas = {        0.95f,         0.001f,           0.0008f};
+                            //Normal=95%, Fuego = .75%, Puertas = 0.6%
+        float[] problemas = {        0.95f,         0.0075f,           0.006f};
 
         if (oleada)
         {
@@ -52,6 +54,14 @@ public class Game_Controller : MonoBehaviour
                 Puerta(nivel);
             }
         }
+        --constante;
+        if(constante == 0)
+        {
+            Fuego(nivel);
+            constante = constante_original;
+            print("Constante");
+        }
+
     }
 
     public void Fuego(int nivel)
@@ -73,7 +83,7 @@ public class Game_Controller : MonoBehaviour
         float y = player.transform.position.y + Random.Range(0.0f, 2.0f);
 
         Vector3 spawn = new Vector3(x, y, 0);
-        Instantiate(FireEffect, spawn, player.transform.rotation);
+        Instantiate(FireEffect.transform, spawn, player.transform.rotation);
         Debug.Log("Fuego!!");
     }
 
