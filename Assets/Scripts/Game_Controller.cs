@@ -44,11 +44,13 @@ public class Game_Controller : MonoBehaviour
     private Color Mincolor = Color.red;
     private bool pausa = false;
     public GameObject texto;
+    private Text aviso;
 
     // Start is called before the first frame update
     void Start()
     {
         constante_original = constante;
+        aviso = GameObject.Find("Aviso").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -82,19 +84,26 @@ public class Game_Controller : MonoBehaviour
             oleada = false;
             if (integridad > 0 && fuegos_activos <= 0 && puertas_abiertas <= 0)
             {
-                //print("Nivel terminado!!");
+                print("Nivel terminado!!");
                 Desbloquear(nivel);
             }
         }
-
-        if (fuegos_activos > 0 || puertas_abiertas > 0)
+        else
         {
-            integridad--;
-            //print(fuegos_activos);
-        }
-        if(integridad <= 0)
-        {
-            print("Perdiste!!");
+            if (fuegos_activos > 0 || puertas_abiertas > 0)
+            {
+                integridad--;
+                //print(fuegos_activos);
+            }
+            else
+            {
+                aviso.text = "Estable";
+            }
+            if (integridad <= 0)
+            {
+                //print("Perdiste!!");
+                aviso.text = "Perdiste!";
+            }
         }
 
         ActualizarBarra();
@@ -129,7 +138,8 @@ public class Game_Controller : MonoBehaviour
         Vector3 spawn = new Vector3(x, y, 0);
         Instantiate(FireEffect.transform, spawn, player.transform.rotation);
         fuegos_activos++;
-        Debug.Log("Fuego!!");
+        //Debug.Log("Fuego!!");
+        aviso.text = "Fuego!!";
     }
 
     public void Puerta(int nivel)
@@ -159,6 +169,7 @@ public class Game_Controller : MonoBehaviour
                 Debug.Log("Puerta 4 Abierta!");
             }
         }
+        aviso.text = "Puerta Abierta!";
     }
 
     public float Choose(float[] probs)
@@ -196,6 +207,7 @@ public class Game_Controller : MonoBehaviour
             accidentes = 25;
             integridad = 6000.0f;
             puertas_abiertas = 0;
+            fuegos_activos = 0;
         }
         else if (llave == 2)
         {
@@ -203,10 +215,12 @@ public class Game_Controller : MonoBehaviour
             accidentes = 45;
             integridad = 6000.0f;
             puertas_abiertas = 0;
+            fuegos_activos = 0;
         }
         else if(llave == 3)
         {
             key3.SetActive(true);
+            integridad = 6000.0f;
         }
         nivel += 1;
     }
