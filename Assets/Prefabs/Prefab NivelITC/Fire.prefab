@@ -9,9 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2006262775176364424}
+  - component: {fileID: 4154938961280550305}
+  - component: {fileID: 7256834982178810236}
   m_Layer: 0
   m_Name: Fire
-  m_TagString: Untagged
+  m_TagString: Fuego
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,6 +33,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &4154938961280550305
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2251256166764680378}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.7115108}
+  serializedVersion: 2
+  m_Radius: 1.374452
+--- !u!114 &7256834982178810236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2251256166764680378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f1cd4ce92225a498ceeca4b1ab1fb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game_controller: {fileID: 0}
 --- !u!1001 &3125298932013475601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -86,7 +117,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireEffect
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7968821976477166116, guid: 9366f4d69c70c9341b86e55ce8682486, type: 3}
+    - {fileID: 8279714, guid: 9366f4d69c70c9341b86e55ce8682486, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9366f4d69c70c9341b86e55ce8682486, type: 3}
 --- !u!4 &4449405847568746841 stripped
 Transform:

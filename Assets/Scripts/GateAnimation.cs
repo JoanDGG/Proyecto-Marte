@@ -19,6 +19,7 @@ public class GateAnimation : MonoBehaviour
         {
             GetComponent<Animator>().SetTrigger("Open");
             is_open = true;
+            game_controller.puertas_abiertas += 1;
         }
     }
 
@@ -29,18 +30,16 @@ public class GateAnimation : MonoBehaviour
             if (!is_open)
             {
                 GetComponent<Animator>().SetTrigger("Open");
-                print("Abrid!");
+                //print("Abrid!");
                 is_open = true;
+                game_controller.puertas_abiertas += 1;
             }
             else
             {
                 GetComponent<Animator>().SetTrigger("Close");
-                print("Cerrad!");
+                //print("Cerrad!");
                 is_open = false;
-                if (gameObject.name == "Gate")
-                {
-                    game_controller.FaseUno();
-                }
+                game_controller.puertas_abiertas -= 1;
             }
         }
     }

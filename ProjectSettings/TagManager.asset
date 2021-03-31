@@ -12,14 +12,16 @@ TagManager:
   - Frio
   - Sequia
   - Extintor
+  - Enemy
+  - Fuego
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Laboratorio
   - Water
   - UI
-  - 
+  - Personaje
   - 
   - 
   - 

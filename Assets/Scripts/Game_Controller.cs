@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Game_Controller : MonoBehaviour
 {
-    public static bool is_editing;
-    public static bool oleada = true;
+    public static bool is_editing = false;
+    public bool oleada = true;
+    public int puertas_abiertas = 0;
+    public int fuegos_activos = 0;
     private int nivel = 1;
     //Puertas nivel 1
     public GameObject puerta1;
@@ -26,42 +29,81 @@ public class Game_Controller : MonoBehaviour
 
     public GameObject player;
 
+    public Slider barra;
+
     private int constante = 300;
     private int constante_original;
+
+                           //Normal=99%, Fuego = 0.55%, Puertas = 0.35%
+    private float[] problemas = { 0.99f,       0.0055f,         0.0035f };
+    private float problema;
+    private int accidentes = 15;
+    private float integridad = 6000.0f;
+    private float valor;
+    private Color Maxcolor = Color.green;
+    private Color Mincolor = Color.red;
+
     // Start is called before the first frame update
     void Start()
     {
-        is_editing = false;
         constante_original = constante;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-                            //Normal=99%, Fuego = .55%, Puertas = 0.35%
-        float[] problemas = {        0.99f,         0.0055f,           0.0035f};
-
-        if (oleada)
+        if (oleada && accidentes > 0)
         {
             //Llamada aleatoria para crear fuego o abrir puertas solo en estados de emergencia
-            float problema = Choose(problemas);
+            problema = Choose(problemas);
             if (problema == 1)
             {
                 Fuego(nivel);
+                --accidentes;
             }
             else if (problema == 2)
             {
                 Puerta(nivel);
+                --accidentes;
+            }
+            --constante;
+            if (constante == 0)
+            {
+                Fuego(nivel);
+                --accidentes;
+                constante = constante_original;
+                //print("Constante");
             }
         }
-        --constante;
-        if(constante == 0)
+        if (accidentes <= 0)
         {
-            Fuego(nivel);
-            constante = constante_original;
-            print("Constante");
+            oleada = false;
+            if (integridad > 0 && fuegos_activos <= 0 && puertas_abiertas <= 0)
+            {
+                //print("Nivel terminado!!");
+                Desbloquear(nivel);
+            }
         }
 
+        if (fuegos_activos > 0 || puertas_abiertas > 0)
+        {
+            integridad--;
+            //print(fuegos_activos);
+        }
+        if(integridad <= 0)
+        {
+            print("Perdiste!!");
+        }
+
+        ActualizarBarra();
+    }
+
+    private void ActualizarBarra()
+    {
+        valor = integridad / 6000;
+        barra.value = valor;
+        barra.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color =
+                Color.Lerp(Mincolor, Maxcolor, valor);
     }
 
     public void Fuego(int nivel)
@@ -75,7 +117,7 @@ public class Game_Controller : MonoBehaviour
         }
         else if(nivel == 3)
         {
-            xMin = 27.5f;
+            xMin = 35.0f;
             xMax = 50.0f;
         }
 
@@ -84,6 +126,7 @@ public class Game_Controller : MonoBehaviour
 
         Vector3 spawn = new Vector3(x, y, 0);
         Instantiate(FireEffect.transform, spawn, player.transform.rotation);
+        fuegos_activos++;
         Debug.Log("Fuego!!");
     }
 
@@ -144,25 +187,26 @@ public class Game_Controller : MonoBehaviour
 
     public void Desbloquear(int llave)
     {
-        Debug.Log("Desbloquear " + llave.ToString());
+        //Debug.Log("Desbloquear " + llave.ToString());
         if (llave == 1)
         {
             key1.SetActive(true);
+            accidentes = 25;
+            integridad = 6000.0f;
+            puertas_abiertas = 0;
         }
         else if (llave == 2)
         {
             key2.SetActive(true);
+            accidentes = 45;
+            integridad = 6000.0f;
+            puertas_abiertas = 0;
         }
         else if(llave == 3)
         {
             key3.SetActive(true);
         }
         nivel += 1;
-    }
-
-    public void FaseUno()
-    {
-        Desbloquear(1);
     }
 
     public void Edit()
