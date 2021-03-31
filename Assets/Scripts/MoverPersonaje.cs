@@ -18,6 +18,7 @@ public class MoverPersonaje : MonoBehaviour
     public Text tempo;
     public float velocidad = 7;
     private GameObject tor;
+    private AudioSource audio;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,8 @@ public class MoverPersonaje : MonoBehaviour
         print("Elegi "+ clima.ToString());
         alarma.GetComponent<Image>().enabled = false;
         tempo.GetComponent<Text>().text = (GameManager.reloj >= 0) ? GameManager.reloj.ToString() : "0";
+        audio = alarma.GetComponent<AudioSource>();
+        audio.mute = true;
         StartCoroutine(reloj());
     }
 
@@ -77,7 +80,9 @@ public class MoverPersonaje : MonoBehaviour
             GameManager.tiempo += 1;
             GameManager.reloj = GameManager.evento ? (GameManager.tiempoEvento - GameManager.tiempo) : (GameManager.tiempoLimite - GameManager.tiempo);
             tempo.GetComponent<Text>().text = (GameManager.reloj >= 0) ? GameManager.reloj.ToString() : "0";
+            bool Audio = ((GameManager.tiempo >= GameManager.tiempoLimite - 6) || GameManager.evento) ? false : true;
             alarma.GetComponent<Image>().enabled = (GameManager.tiempo == GameManager.tiempoLimite - 6) ? true : (GameManager.tiempo == GameManager.tiempoLimite - 4) ? true : (GameManager.tiempo == GameManager.tiempoLimite - 2) ? true : false;
+            audio.mute = Audio;
             if (GameManager.tiempo >= GameManager.tiempoLimite && !GameManager.evento)
             {
                 alarma.GetComponent<Image>().enabled = false;

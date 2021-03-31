@@ -8,6 +8,9 @@ public class SalirHabitat : MonoBehaviour
 {
 
     public Dropdown[] listas = new Dropdown[3];
+    public GameObject adn;
+    public GameObject info;
+    public GameObject main;
 
     public void Salir()
     {
@@ -52,5 +55,27 @@ public class SalirHabitat : MonoBehaviour
         {
             GameManager.resSeqAux = true;
         }
+    }
+
+    public void ADN()
+    {
+        print("ADN");
+        adn.SetActive(true);
+        main.SetActive(false);
+    }
+
+    public void INFO()
+    {
+        print("INFO");
+        info.SetActive(true);
+        main.SetActive(false);
+    }
+
+    public void CerrarVentana()
+    {
+        print("MAIN");
+        adn.SetActive(false);
+        info.SetActive(false);
+        main.SetActive(true);
     }
 }
