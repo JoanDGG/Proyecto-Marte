@@ -42,6 +42,8 @@ public class Game_Controller : MonoBehaviour
     private float valor;
     private Color Maxcolor = Color.green;
     private Color Mincolor = Color.red;
+    private bool pausa = false;
+    public GameObject texto;
 
     // Start is called before the first frame update
     void Start()
@@ -213,5 +215,13 @@ public class Game_Controller : MonoBehaviour
     {
         is_editing = !is_editing;
         //Debug.Log("Cambio");
+    }
+
+    public void Pausar()
+    {
+        pausa = !pausa;
+
+        texto.SetActive(pausa);
+        Time.timeScale = pausa ? 0 : 1;
     }
 }
