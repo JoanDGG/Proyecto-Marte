@@ -14,4 +14,5 @@ public class GameManager
     public static bool resTorAux = false;
     public static bool resSeqAux = false;
     public static bool perder = false;
+    public static int pagina = 0;
 }

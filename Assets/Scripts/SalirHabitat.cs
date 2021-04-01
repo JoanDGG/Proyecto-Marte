@@ -11,6 +11,7 @@ public class SalirHabitat : MonoBehaviour
     public GameObject adn;
     public GameObject info;
     public GameObject main;
+    public GameObject[] paginas = new GameObject[2];
 
     public void Salir()
     {
@@ -68,6 +69,7 @@ public class SalirHabitat : MonoBehaviour
     {
         print("INFO");
         info.SetActive(true);
+        GameManager.pagina = 0;
         main.SetActive(false);
     }
 
@@ -77,5 +79,19 @@ public class SalirHabitat : MonoBehaviour
         adn.SetActive(false);
         info.SetActive(false);
         main.SetActive(true);
+    }
+
+    public void Siguiente()
+    {
+        paginas[GameManager.pagina].SetActive(false);
+        GameManager.pagina = (GameManager.pagina == paginas.Length - 1) ? 0 : GameManager.pagina + 1;
+        paginas[GameManager.pagina].SetActive(true);
+    }
+
+    public void Anterior()
+    {
+        paginas[GameManager.pagina].SetActive(false);
+        GameManager.pagina = (GameManager.pagina == 0) ? paginas.Length - 1 : GameManager.pagina - 1;
+        paginas[GameManager.pagina].SetActive(true);
     }
 }
