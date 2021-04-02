@@ -301,6 +301,31 @@ PrefabInstance:
       objectReference: {fileID: 1870679491}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34c6c21b2c36f41f8986e71e8e4845f2, type: 3}
+--- !u!1 &765978272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7441542071207974793, guid: eeeb0701e66aa4a05bc7f1ccbe7c5085, type: 3}
+  m_PrefabInstance: {fileID: 7441542072408882998}
+  m_PrefabAsset: {fileID: 0}
+--- !u!250 &765978274
+PointEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765978272}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceMagnitude: -8
+  m_ForceVariation: 0
+  m_DistanceScale: 1
+  m_ForceSource: 1
+  m_ForceTarget: 0
+  m_ForceMode: 0
+  m_Drag: 0
+  m_AngularDrag: 0
 --- !u!1 &930429466 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5524630927451167454, guid: 34c6c21b2c36f41f8986e71e8e4845f2, type: 3}
@@ -1020,5 +1045,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7441542071207974898, guid: eeeb0701e66aa4a05bc7f1ccbe7c5085, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441542071207974901, guid: eeeb0701e66aa4a05bc7f1ccbe7c5085, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7441542071207974898, guid: eeeb0701e66aa4a05bc7f1ccbe7c5085, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: eeeb0701e66aa4a05bc7f1ccbe7c5085, type: 3}
