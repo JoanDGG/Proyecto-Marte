@@ -14,7 +14,7 @@ public class Rocket : MonoBehaviour
 
     void Update()
     {
-    
+
         if (isPressed){
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -59,6 +59,8 @@ public class Rocket : MonoBehaviour
 
         if (nextRocket != null) {
             nextRocket.SetActive(true); 
+            RocketLifes.instance.vidas--;
+            HUDMisionCohete.instance.UpdateLifes();
         } else {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
