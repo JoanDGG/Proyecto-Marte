@@ -25,6 +25,10 @@ public class SalirHabitat : MonoBehaviour
         GameManager.resFrioAux = false;
         GameManager.resCalorAux = false;
         GameManager.resSeqAux = false;
+        for(int i = 0; i<3; i++)
+        {
+            listas[i].value = 0;
+        }
     }
 
     public void Confirmar()
@@ -34,6 +38,10 @@ public class SalirHabitat : MonoBehaviour
         GameManager.resFrio = GameManager.resFrioAux;
         GameManager.resCalor = GameManager.resCalorAux;
         GameManager.resSeq = GameManager.resSeqAux;
+        for(int i = 0; i < 3; i++)
+        {
+            GameManager.genes[i] = listas[i].value;
+        }
     }
 
     public void Resistencia(int gen)
@@ -63,6 +71,10 @@ public class SalirHabitat : MonoBehaviour
         print("ADN");
         adn.SetActive(true);
         main.SetActive(false);
+        for (int i = 0; i < 3; i++)
+        {
+            listas[i].value = GameManager.genes[i];
+        }
     }
 
     public void INFO()

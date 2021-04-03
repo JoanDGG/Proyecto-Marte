@@ -12,6 +12,8 @@ public class RelojLab : MonoBehaviour
     private AudioSource audio;
     public GameObject camara;
     private AudioSource musica;
+    public GameObject Imagen;
+    public Sprite[] eventos = new Sprite[4];
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,7 @@ public class RelojLab : MonoBehaviour
         musica = camara.GetComponent<AudioSource>();
         musica.mute = false;
         audio.mute = true;
+        Imagen.GetComponent<Image>().sprite = eventos[GameManager.clima];
     }
 
     // Update is called once per frame
