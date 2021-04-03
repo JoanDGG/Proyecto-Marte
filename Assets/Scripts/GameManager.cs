@@ -17,4 +17,5 @@ public class GameManager
     public static bool perder = false;
     public static int pagina = 0;
     public static int clima = 0;
+    public static int[] genes = new int[3];
 }
