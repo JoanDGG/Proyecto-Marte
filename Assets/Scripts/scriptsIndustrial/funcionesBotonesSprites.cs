@@ -33,7 +33,7 @@ public class funcionesBotonesSprites : MonoBehaviour
                 automovil.transform.GetChild(3).GetChild(0).localPosition = new Vector3(2.4f, -1.6f, 0);
                 automovil.transform.GetChild(3).GetChild(1).localPosition = new Vector3(-2.4f, -1.6f, 0);
             }
-            else {
+            else if (indiceParte == 0 && indiceSprite == 0){
                 automovil.transform.GetChild(1).GetChild(0).localPosition = new Vector3(1.6f, -1.6f, 0);
                 automovil.transform.GetChild(1).GetChild(1).localPosition = new Vector3(-1.6f, -1.6f, 0);
 
@@ -43,9 +43,12 @@ public class funcionesBotonesSprites : MonoBehaviour
                 automovil.transform.GetChild(3).GetChild(0).localPosition = new Vector3(1.6f, -1.6f, 0);
                 automovil.transform.GetChild(3).GetChild(1).localPosition = new Vector3(-1.6f, -1.6f, 0);
             }
+
+            // Cambio de sprite.
             automovil.transform.GetChild(indiceParte).GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(1).GetChild(indiceParte * 3 + indiceSprite).gameObject.GetComponent<Image>().sprite;
         }
         else if (indiceParte >= 1 && indiceParte <= 3) {
+            // Cambio de sprites.
             automovil.transform.GetChild(indiceParte).GetChild(0).GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(1).GetChild(indiceParte * 3 + indiceSprite).GetComponent<Image>().sprite;
             automovil.transform.GetChild(indiceParte).GetChild(1).GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(1).GetChild(indiceParte * 3 + indiceSprite).GetComponent<Image>().sprite;
         }
