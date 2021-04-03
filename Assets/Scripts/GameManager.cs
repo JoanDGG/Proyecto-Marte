@@ -1,5 +1,6 @@
 public class GameManager
 {
+    public static bool primero = true;
     public static int tiempo = 0;
     public static int tiempoLimite = 15;
     public static bool evento = false;
@@ -15,4 +16,5 @@ public class GameManager
     public static bool resSeqAux = false;
     public static bool perder = false;
     public static int pagina = 0;
+    public static int clima = 0;
 }

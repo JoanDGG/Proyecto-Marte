@@ -19,6 +19,10 @@ public class MoverPersonaje : MonoBehaviour
     public float velocidad = 7;
     private GameObject tor;
     private AudioSource audio;
+    public GameObject Imagen;
+    public Sprite[] eventos = new Sprite[4];
+    public GameObject camara;
+    private AudioSource musica;
 
     // Start is called before the first frame update
     void Start()
@@ -27,24 +31,26 @@ public class MoverPersonaje : MonoBehaviour
         anim = GetComponent<Animator>();
         sprRenderer = GetComponent<SpriteRenderer>();
         osc.GetComponent<Image>().enabled = false;
-        int clima = Random.Range(0, evento.Length);
-        tor = evento[clima];
-        print("Elegi "+ clima.ToString());
         alarma.GetComponent<Image>().enabled = false;
         tempo.GetComponent<Text>().text = (GameManager.reloj >= 0) ? GameManager.reloj.ToString() : "0";
+        musica = camara.GetComponent<AudioSource>();
+        musica.mute = false;
         audio = alarma.GetComponent<AudioSource>();
         audio.mute = true;
         StartCoroutine(reloj());
+        if (GameManager.primero)
+        {
+            GameManager.clima = Random.Range(0, evento.Length);
+            print("Elegi " + GameManager.clima.ToString());
+            GameManager.primero = false;
+        }
+        tor = evento[GameManager.clima];
+        Imagen.GetComponent<Image>().sprite = eventos[GameManager.clima];
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.perder)
-        {
-            print("Perdiste, tus patatas murieron");
-            Application.Quit();
-        }
         float movHorizontal = Input.GetAxis("Horizontal");
         float movVertical = Input.GetAxis("Vertical");
         rigidbody.velocity = new Vector2(movHorizontal * velocidad, movVertical * velocidad);
@@ -83,6 +89,7 @@ public class MoverPersonaje : MonoBehaviour
             bool Audio = ((GameManager.tiempo >= GameManager.tiempoLimite - 6) || GameManager.evento) ? false : true;
             alarma.GetComponent<Image>().enabled = (GameManager.tiempo == GameManager.tiempoLimite - 6) ? true : (GameManager.tiempo == GameManager.tiempoLimite - 4) ? true : (GameManager.tiempo == GameManager.tiempoLimite - 2) ? true : false;
             audio.mute = Audio;
+            musica.mute = !Audio;
             if (GameManager.tiempo >= GameManager.tiempoLimite && !GameManager.evento)
             {
                 alarma.GetComponent<Image>().enabled = false;
@@ -104,6 +111,15 @@ public class MoverPersonaje : MonoBehaviour
                 GameManager.tiempo = 0;
                 GameManager.evento = false;
                 osc.GetComponent<Image>().enabled = false;
+                GameManager.clima = Random.Range(0, evento.Length);
+                print("Elegi " + GameManager.clima.ToString());
+                tor = evento[GameManager.clima];
+                Imagen.GetComponent<Image>().sprite = eventos[GameManager.clima];
+            }
+            if (GameManager.perder)
+            {
+                print("Perdiste, tus patatas murieron");
+                Application.Quit();
             }
         }
     }
