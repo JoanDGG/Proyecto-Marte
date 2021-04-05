@@ -7,7 +7,7 @@ using UnityEngine.UI;
 /*
  Script que hace que cambien los sprites del automovil cuando el usuario haga click entre las opciones
 Autor: Luis Ignacio Ferro Salinas A01378248
-Última actualización: 2 de abril 
+Última actualización: 5 de abril 
  */
 
 public class funcionesBotonesSprites : MonoBehaviour
@@ -24,24 +24,36 @@ public class funcionesBotonesSprites : MonoBehaviour
         {
             // Movemos las partes necesarias si el cuerpo se alarga
             if (indiceParte == 0 && indiceSprite != 0) {
+                // Llantas.
                 automovil.transform.GetChild(1).GetChild(0).localPosition = new Vector3(2.4f, -1.6f, 0);
                 automovil.transform.GetChild(1).GetChild(1).localPosition = new Vector3(-2.4f, -1.6f, 0);
 
+                // Frenos.
                 automovil.transform.GetChild(2).GetChild(0).localPosition = new Vector3(2.4f, -1.6f, 0);
                 automovil.transform.GetChild(2).GetChild(1).localPosition = new Vector3(-2.4f, -1.6f, 0);
 
+                // Suspensiones.
                 automovil.transform.GetChild(3).GetChild(0).localPosition = new Vector3(2.4f, -1.6f, 0);
                 automovil.transform.GetChild(3).GetChild(1).localPosition = new Vector3(-2.4f, -1.6f, 0);
+
+                // Motor.
+                automovil.transform.GetChild(5).localPosition = new Vector3(3.2f, -0.8f, 0);
             }
             else if (indiceParte == 0 && indiceSprite == 0){
+                // Llantas.
                 automovil.transform.GetChild(1).GetChild(0).localPosition = new Vector3(1.6f, -1.6f, 0);
                 automovil.transform.GetChild(1).GetChild(1).localPosition = new Vector3(-1.6f, -1.6f, 0);
 
+                // Frenos.
                 automovil.transform.GetChild(2).GetChild(0).localPosition = new Vector3(1.6f, -1.6f, 0);
                 automovil.transform.GetChild(2).GetChild(1).localPosition = new Vector3(-1.6f, -1.6f, 0);
 
+                // Suspensiones.
                 automovil.transform.GetChild(3).GetChild(0).localPosition = new Vector3(1.6f, -1.6f, 0);
                 automovil.transform.GetChild(3).GetChild(1).localPosition = new Vector3(-1.6f, -1.6f, 0);
+
+                // Motor.
+                automovil.transform.GetChild(5).localPosition = new Vector3(1.6f, -0.8f, 0);
             }
 
             // Cambio de sprite.
