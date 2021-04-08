@@ -1,3 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class GameManager
 {
     public static bool primero = true;
@@ -18,4 +22,11 @@ public class GameManager
     public static int pagina = 0;
     public static int clima = 0;
     public static int[] genes = new int[3];
+    // variables estáticas de nivel industrial, indican las partes escogidas del automovil.
+    public static Sprite spriteCuerpo;
+    public static Sprite spriteLlantas;
+    public static Sprite spriteFrenos;
+    public static Sprite spriteSuspensiones;
+    public static Sprite spriteChasis;
+    public static Sprite spriteMotor;
 }

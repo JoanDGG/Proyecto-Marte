@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Game_Controller : MonoBehaviour
 {
     public static bool is_editing = false;
-    public bool oleada = true;
+    public bool oleada = false;
     public int puertas_abiertas = 0;
     public int fuegos_activos = 0;
     private int nivel = 1;
@@ -51,6 +51,7 @@ public class Game_Controller : MonoBehaviour
     {
         constante_original = constante;
         aviso = GameObject.Find("Aviso").GetComponent<Text>();
+        Pausar();
     }
 
     // Update is called once per frame
