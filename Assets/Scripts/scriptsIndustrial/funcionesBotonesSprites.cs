@@ -17,7 +17,7 @@ public class funcionesBotonesSprites : MonoBehaviour
     public GameObject automovil;
 
     // El chasis del automóvil necesario para saber cuál poner si cambia el cuerpo.
-    public int spriteChasis = 12;
+    private int spriteChasis = 12;
 
     public void CambiaParte(int indiceParte, int indiceSprite) {
         // Función para cambiar todas las partes del automóvil, teniendo una opción de sprite seleccionada.
@@ -43,9 +43,13 @@ public class funcionesBotonesSprites : MonoBehaviour
                 automovil.transform.GetChild(5).localPosition = new Vector3(3.2f, -0.8f, 0);
 
                 // Chasis.
-                automovil.transform.GetChild(4).gameObject.GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(1).GetChild(spriteChasis).gameObject.GetComponent<Image>().sprite;
-
-                
+                if (indiceSprite == 1)
+                {
+                    automovil.transform.GetChild(4).gameObject.GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(1).GetChild(15 + (spriteChasis % 3)).gameObject.GetComponent<Image>().sprite;
+                }
+                else {
+                    automovil.transform.GetChild(4).gameObject.GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(1).GetChild(18 + (spriteChasis % 3)).gameObject.GetComponent<Image>().sprite;
+                }
             }
             else if (indiceParte == 0 && indiceSprite == 0){
                 // Llantas.
@@ -64,7 +68,7 @@ public class funcionesBotonesSprites : MonoBehaviour
                 automovil.transform.GetChild(5).localPosition = new Vector3(1.6f, -0.8f, 0);
 
                 // Chasis.
-                automovil.transform.GetChild(4).gameObject.GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(1).GetChild(spriteChasis).gameObject.GetComponent<Image>().sprite;
+                automovil.transform.GetChild(4).gameObject.GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(1).GetChild(12 + (spriteChasis % 3)).gameObject.GetComponent<Image>().sprite;
 
             }
 
@@ -73,8 +77,8 @@ public class funcionesBotonesSprites : MonoBehaviour
         }
         else if (indiceParte >= 1 && indiceParte <= 3) {
             // Cambio de sprites.
-            automovil.transform.GetChild(indiceParte).GetChild(0).GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(1).GetChild(indiceParte * 3 + indiceSprite).GetComponent<Image>().sprite;
-            automovil.transform.GetChild(indiceParte).GetChild(1).GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(1).GetChild(indiceParte * 3 + indiceSprite).GetComponent<Image>().sprite;
+            automovil.transform.GetChild(indiceParte).GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(1).GetChild(indiceParte * 3 + indiceSprite).gameObject.GetComponent<Image>().sprite;
+            automovil.transform.GetChild(indiceParte).GetChild(1).gameObject.GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(1).GetChild(indiceParte * 3 + indiceSprite).gameObject.GetComponent<Image>().sprite;
         }
     }
 
