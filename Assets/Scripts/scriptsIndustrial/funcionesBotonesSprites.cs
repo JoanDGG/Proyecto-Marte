@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 
 /*
- Script que hace que cambien los sprites del automovil cuando el usuario haga click entre las opciones
+Script que hace que cambien los sprites del automovil cuando el usuario haga click entre las opciones
 Autor: Luis Ignacio Ferro Salinas A01378248
-Última actualización: 7 de abril 
- */
+Última actualización: 8 de abril 
+*/
 
 public class funcionesBotonesSprites : MonoBehaviour
 {
