@@ -12,7 +12,6 @@ Autor: Luis Ignacio Ferro Salinas A01378248
 
 public class funcionesBotonesSprites : MonoBehaviour
 {
-
     // El GameObject que contiene al automóvil que se muestra en pantalla.
     public GameObject automovil;
 
