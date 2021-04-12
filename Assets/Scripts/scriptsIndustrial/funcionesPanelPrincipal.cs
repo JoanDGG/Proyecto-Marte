@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- Este script contiene las funciones que se asociarán con los botones del panel principal.
- Autor: Luis Ignacio Ferro Salinas A01378248
- Última actualización: 2 de abril.
- */
+Este script contiene las funciones que se asociarán con los botones del panel principal.
+Autor: Luis Ignacio Ferro Salinas A01378248
+Última actualización: 2 de abril.
+*/
 
 
 public class funcionesPanelPrincipal : MonoBehaviour
