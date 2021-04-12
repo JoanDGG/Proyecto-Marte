@@ -45,12 +45,17 @@ public class Game_Controller : MonoBehaviour
     private bool pausa = false;
     public GameObject texto;
     private Text aviso;
+    public Transform spawn1;
+    public Transform spawn2;
+    public Transform spawn3;
+
 
     // Start is called before the first frame update
     void Start()
     {
         constante_original = constante;
         aviso = GameObject.Find("Aviso").GetComponent<Text>();
+        Spawn(PlayerPrefs.GetInt("Nivel3", 1));
         Pausar();
     }
 
@@ -206,7 +211,6 @@ public class Game_Controller : MonoBehaviour
         {
             key1.SetActive(true);
             accidentes = 25;
-            integridad = 6000.0f;
             puertas_abiertas = 0;
             fuegos_activos = 0;
         }
@@ -214,16 +218,17 @@ public class Game_Controller : MonoBehaviour
         {
             key2.SetActive(true);
             accidentes = 45;
-            integridad = 6000.0f;
             puertas_abiertas = 0;
             fuegos_activos = 0;
         }
         else if(llave == 3)
         {
             key3.SetActive(true);
-            integridad = 6000.0f;
         }
+        integridad = 6000.0f;
         nivel += 1;
+        PlayerPrefs.SetInt("Nivel3", nivel);
+        PlayerPrefs.Save();
     }
 
     public void Edit()
@@ -238,5 +243,31 @@ public class Game_Controller : MonoBehaviour
 
         texto.SetActive(pausa);
         Time.timeScale = pausa ? 0 : 1;
+    }
+
+    public void Spawn(int lugar)
+    {
+        nivel = lugar;
+        integridad = 6000.0f;
+        if (lugar == 1)
+        {
+            player.transform.position = spawn1.position;
+        }
+        else if(lugar == 2)
+        {
+            accidentes = 25;
+            oleada = false;
+            player.transform.position = spawn2.position;
+            puertas_abiertas = 0;
+            fuegos_activos = 0;
+        }
+        else if (lugar == 3)
+        {
+            accidentes = 45;
+            oleada = false;
+            player.transform.position = spawn3.position;
+            puertas_abiertas = 0;
+            fuegos_activos = 0;
+        }
     }
 }
