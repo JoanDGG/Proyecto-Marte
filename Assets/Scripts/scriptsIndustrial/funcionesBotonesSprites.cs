@@ -81,34 +81,66 @@ public class funcionesBotonesSprites : MonoBehaviour
         }
     }
 
+    private void UpdateBudget(string parteYSprite) {
 
-    // Funciones para cambiar todas las partes posibles del automóvil
+        Hashtable partesAPrecios = new Hashtable()
+        {
+            {"cuerpoSmart", 21},
+            {"cuerpoChallenger", 29},
+            {"cuerpoCybertruck", 35},
+            {"llantas1", 10},
+            {"llantas2", 14},
+            {"llantas3", 24},
+            {"frenos1", 8},
+            {"frenos2", 14},
+            {"frenos3", 22},
+            {"suspension1", 5},
+            {"suspension2", 14},
+            {"suspension3", 20},
+            {"chasis1", 10},
+            {"chasis2", 14},
+            {"chasis3", 25},
+            {"motor1", 8},
+            {"motor2", 14},
+            {"motor3", 20}
+        };
+
+    }
+
+    // Funciones para cambiar todas las partes posibles del automóvil y actualizar el presupuesto.
     public void CambiaCuerpoSmart() {
         CambiaParte(0, 0);
+        GameManager.budget -= 21;
     }
 
     public void CambiaCuerpoChallenger() {
         CambiaParte(0, 1);
+        ;
     }
 
     public void CambiaCuerpoCybertruck() {
         CambiaParte(0, 2);
+        GameManager.budget -= 35;
     }
 
     public void CambiaLlantas1() {
         CambiaParte(1, 0);
+        GameManager.budget -= 10;
     }
 
     public void CambiaLlantas2() {
         CambiaParte(1, 1);
+        GameManager.budget -= 14;
     }
 
     public void CambiaLlantas3() {
         CambiaParte(1, 2);
+        GameManager.budget -= 24;
     }
 
     public void CambiaFrenos1() {
         CambiaParte(2, 0);
+        GameManager
     }
 
     public void CambiaFrenos2()

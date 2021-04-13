@@ -17,11 +17,13 @@ public class GameManager
     public static int[] clima = new int[3];
     public static int[] genes = new int[3];
     public static int oleada = 1;
-    // variables estáticas de nivel industrial, indican las partes escogidas del automovil.
-    public static Sprite spriteCuerpo;
-    public static Sprite spriteLlantas;
-    public static Sprite spriteFrenos;
-    public static Sprite spriteSuspensiones;
-    public static Sprite spriteChasis;
-    public static Sprite spriteMotor;
+    // variables estáticas de nivel industrial.
+    int precioCuerpo;
+    int precioLlantas;
+    int precioFrenos;
+    int precioSuspension;
+    int precioChasis;
+    int precioMotor;
+    public static int budget = 100;
+
 }
