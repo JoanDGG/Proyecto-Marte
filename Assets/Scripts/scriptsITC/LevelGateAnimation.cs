@@ -14,6 +14,7 @@ Autor: Joan Daniel Guerrero Garcia
 public class LevelGateAnimation : MonoBehaviour
 {
     private Game_Controller game_controller;        // GameObject del controlador
+    public GameObject aviso_nivel;
 
     void Start()
     {
@@ -39,14 +40,16 @@ public class LevelGateAnimation : MonoBehaviour
             if (gameObject.name == "Level_gate 1-2") {
                 GameObject.Find("Level_gate 1").GetComponent<LevelGateAnimation>().Close();
                 GetComponent<Animator>().SetTrigger("Open");
-                print("Empieza el nivel!");
+                print("Empieza el nivel 2!");
                 game_controller.oleada = true;
+                aviso_nivel.SetActive(false);
             }
             else if (gameObject.name == "Level_gate 2-3") {
                 GameObject.Find("Level_gate 2").GetComponent<LevelGateAnimation>().Close();
                 GetComponent<Animator>().SetTrigger("Open");
-                print("Empieza el nivel!");
+                print("Empieza el nivel 3!");
                 game_controller.oleada = true;
+                aviso_nivel.SetActive(false);
             }
         }
     }

@@ -37,18 +37,25 @@ public class Game_Controller : MonoBehaviour
                            //Normal=99%, Fuego = 0.55%, Puertas = 0.35%
     private float[] problemas = { 0.99f,       0.0055f,         0.0035f };
     private float problema;
-    private int accidentes = 15;
-    private float integridad = 6000.0f;
+    private int accidentes = 10;
+    private float integridad = 7000.0f;
     private float valor;
     private Color Maxcolor = Color.green;
     private Color Mincolor = Color.red;
     private bool pausa = false;
     public GameObject texto;
     private Text aviso;
+    public GameObject aviso_nivel;
     public Transform spawn1;
     public Transform spawn2;
     public Transform spawn3;
 
+    public static Game_Controller instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -91,6 +98,7 @@ public class Game_Controller : MonoBehaviour
             if (integridad > 0 && fuegos_activos <= 0 && puertas_abiertas <= 0)
             {
                 print("Nivel terminado!!");
+                aviso_nivel.SetActive(true);
                 Desbloquear(nivel);
             }
         }
@@ -117,7 +125,7 @@ public class Game_Controller : MonoBehaviour
 
     private void ActualizarBarra()
     {
-        valor = integridad / 6000;
+        valor = integridad / 7000;
         barra.value = valor;
         barra.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color =
                 Color.Lerp(Mincolor, Maxcolor, valor);
@@ -210,14 +218,14 @@ public class Game_Controller : MonoBehaviour
         if (llave == 1)
         {
             key1.SetActive(true);
-            accidentes = 25;
+            accidentes = 15;
             puertas_abiertas = 0;
             fuegos_activos = 0;
         }
         else if (llave == 2)
         {
             key2.SetActive(true);
-            accidentes = 45;
+            accidentes = 20;
             puertas_abiertas = 0;
             fuegos_activos = 0;
         }
@@ -225,10 +233,9 @@ public class Game_Controller : MonoBehaviour
         {
             key3.SetActive(true);
         }
-        integridad = 6000.0f;
+        integridad = 7000.0f;
         nivel += 1;
-        PlayerPrefs.SetInt("Nivel3", nivel);
-        PlayerPrefs.Save();
+        Guardar();
     }
 
     public void Edit()
@@ -245,17 +252,24 @@ public class Game_Controller : MonoBehaviour
         Time.timeScale = pausa ? 0 : 1;
     }
 
+    public void Guardar()
+    {
+        PlayerPrefs.SetInt("Nivel3", nivel);
+        PlayerPrefs.Save();
+    }
+
     public void Spawn(int lugar)
     {
         nivel = lugar;
-        integridad = 6000.0f;
+        integridad = 7000.0f;
         if (lugar == 1)
         {
+            oleada = true;
             player.transform.position = spawn1.position;
         }
         else if(lugar == 2)
         {
-            accidentes = 25;
+            accidentes = 15;
             oleada = false;
             player.transform.position = spawn2.position;
             puertas_abiertas = 0;
@@ -263,7 +277,7 @@ public class Game_Controller : MonoBehaviour
         }
         else if (lugar == 3)
         {
-            accidentes = 45;
+            accidentes = 20;
             oleada = false;
             player.transform.position = spawn3.position;
             puertas_abiertas = 0;

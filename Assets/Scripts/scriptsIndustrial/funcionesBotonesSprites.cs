@@ -140,7 +140,7 @@ public class funcionesBotonesSprites : MonoBehaviour
 
     public void CambiaFrenos1() {
         CambiaParte(2, 0);
-        GameManager
+        //GameManager
     }
 
     public void CambiaFrenos2()

@@ -12,18 +12,11 @@ Autor: Joan Daniel Guerrero Garcia
 
 public class FireAnimation : MonoBehaviour
 {
-    private Game_Controller game_controller;    // GameObject que administra la cantidad de fuego presente
-
-    void Start()
-    {
-        game_controller = FindObjectOfType<Game_Controller>();
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
+   private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Extintor") || other.gameObject.CompareTag("Piso"))
         {
-            game_controller.fuegos_activos -= 1;
+            Game_Controller.instance.fuegos_activos -= 1;
             Destroy(gameObject);
             //Debug.Log("Fuego apagado!");
         }
