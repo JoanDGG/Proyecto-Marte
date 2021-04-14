@@ -38,14 +38,18 @@ public class Game_Controller : MonoBehaviour
     private float[] problemas = { 0.99f,       0.0055f,         0.0035f };
     private float problema;
     private int accidentes = 10;
-    private float integridad = 7000.0f;
+    private float integridad = 5000.0f;
     private float valor;
     private Color Maxcolor = Color.green;
     private Color Mincolor = Color.red;
     private bool pausa = false;
+    private string final = "false";
     public GameObject texto;
     private Text aviso;
     public GameObject aviso_nivel;
+    public GameObject imagen_alerta;
+    public AudioSource Alerta;
+
     public Transform spawn1;
     public Transform spawn2;
     public Transform spawn3;
@@ -62,7 +66,14 @@ public class Game_Controller : MonoBehaviour
     {
         constante_original = constante;
         aviso = GameObject.Find("Aviso").GetComponent<Text>();
-        Spawn(PlayerPrefs.GetInt("Nivel3", 1));
+        nivel = PlayerPrefs.GetInt("Nivel3", 1);
+        final = PlayerPrefs.GetString("Nivel3Fin", "false");
+        if(final == "true")
+        {
+            final = "false";
+            nivel = 1;
+        }
+        Spawn(PlayerPrefs.GetInt("Nivel3", nivel));
         Pausar();
     }
 
@@ -92,43 +103,47 @@ public class Game_Controller : MonoBehaviour
                 //print("Constante");
             }
         }
-        if (accidentes <= 0)
+        else if (accidentes <= 0)
         {
             oleada = false;
             if (integridad > 0 && fuegos_activos <= 0 && puertas_abiertas <= 0)
             {
-                print("Nivel terminado!!");
-                aviso_nivel.SetActive(true);
-                Desbloquear(nivel);
+                if (final == "false")
+                {
+                    print("Nivel terminado!!");
+                    aviso_nivel.SetActive(true);
+                    Desbloquear(nivel);
+                }
             }
         }
-        else
+        if (fuegos_activos <= 0 && puertas_abiertas <= 0)
         {
-            if (fuegos_activos > 0 || puertas_abiertas > 0)
-            {
-                integridad--;
-                //print(fuegos_activos);
-            }
-            else
-            {
                 aviso.text = "Estable";
-            }
-            if (integridad <= 0)
-            {
-                //print("Perdiste!!");
-                aviso.text = "Perdiste!";
-            }
         }
-
+        if ((fuegos_activos > 0 || puertas_abiertas > 0) && integridad >= 0)
+        {
+            integridad--;
+            print(integridad);
+        }
+        if (integridad <= 0)
+        {
+            print("Perdiste!!");
+            aviso.text = "Perdiste!";
+        }
         ActualizarBarra();
     }
 
     private void ActualizarBarra()
     {
-        valor = integridad / 7000;
+        valor = integridad / 5000;
         barra.value = valor;
         barra.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color =
                 Color.Lerp(Mincolor, Maxcolor, valor);
+        if(integridad < 2000)
+        {
+            imagen_alerta.SetActive(true);
+            Alerta.enabled = true;
+        }
     }
 
     public void Fuego(int nivel)
@@ -233,8 +248,15 @@ public class Game_Controller : MonoBehaviour
         {
             key3.SetActive(true);
         }
-        integridad = 7000.0f;
+        print(nivel);
+        if (nivel >= 3)
+        {
+            final = "true";
+        }
         nivel += 1;
+        integridad = 5000.0f;
+        imagen_alerta.SetActive(false);
+        Alerta.enabled = false;
         Guardar();
     }
 
@@ -254,6 +276,8 @@ public class Game_Controller : MonoBehaviour
 
     public void Guardar()
     {
+        print("guardar" + nivel);
+        PlayerPrefs.SetString("Nivel3Fin", final);
         PlayerPrefs.SetInt("Nivel3", nivel);
         PlayerPrefs.Save();
     }
@@ -261,7 +285,8 @@ public class Game_Controller : MonoBehaviour
     public void Spawn(int lugar)
     {
         nivel = lugar;
-        integridad = 7000.0f;
+        integridad = 5000.0f;
+        imagen_alerta.SetActive(false);
         if (lugar == 1)
         {
             oleada = true;
