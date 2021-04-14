@@ -22,6 +22,7 @@ public class MoverPersonaje : MonoBehaviour
     public Sprite[] eventos = new Sprite[4];
     public GameObject camara;
     private AudioSource musica;
+    public GameObject arena;
 
     // Start is called before the first frame update
     void Start()
@@ -36,10 +37,13 @@ public class MoverPersonaje : MonoBehaviour
         musica.mute = false;
         audio = alarma.GetComponent<AudioSource>();
         audio.mute = true;
+        if(GameManager.tiempo < GameManager.tiempoLimite - 6)
+        {
+            musica.Play();
+        }
         StartCoroutine(reloj());
         if (GameManager.primero)
         {
-            musica.Play();
             for (int i = 0; i < GameManager.oleada; i++)
             {
                 GameManager.clima[i] = Random.Range(0, evento.Length);
@@ -93,7 +97,7 @@ public class MoverPersonaje : MonoBehaviour
             GameManager.tiempo += 1;
             GameManager.reloj = GameManager.evento ? (GameManager.tiempoEvento - GameManager.tiempo) : (GameManager.tiempoLimite - GameManager.tiempo);
             tempo.GetComponent<Text>().text = (GameManager.reloj >= 0) ? GameManager.reloj.ToString() : "0";
-            bool Audio = ((GameManager.tiempo >= GameManager.tiempoLimite - 6) || GameManager.evento) ? false : true;
+            bool Audio = ((GameManager.tiempo >= GameManager.tiempoLimite - 6) && !GameManager.evento) ? false : true;
             alarma.GetComponent<Image>().enabled = (GameManager.tiempo == GameManager.tiempoLimite - 6) ? true : (GameManager.tiempo == GameManager.tiempoLimite - 4) ? true : (GameManager.tiempo == GameManager.tiempoLimite - 2) ? true : false;
             audio.mute = Audio;
             musica.mute = !Audio;
@@ -133,6 +137,12 @@ public class MoverPersonaje : MonoBehaviour
                         yield return new WaitForSeconds(2.0f);
                         image.CrossFadeAlpha(0, 3, false);
                         yield return new WaitForSeconds(2.0f);
+                    }
+                    else if (tor[i].tag == "Sequia")
+                    {
+                        arena.SetActive(true);
+                        yield return new WaitForSeconds(4.0f);
+                        arena.SetActive(false);
                     }
                     else
                     {
