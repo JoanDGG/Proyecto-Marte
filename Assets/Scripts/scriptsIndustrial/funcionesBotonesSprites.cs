@@ -7,7 +7,7 @@ using UnityEngine.UI;
 /*
 Script que hace que cambien los sprites del automovil cuando el usuario haga click entre las opciones
 Autor: Luis Ignacio Ferro Salinas A01378248
-Última actualización: 8 de abril 
+Última actualización: 13 de abril 
 */
 
 public class funcionesBotonesSprites : MonoBehaviour
@@ -17,6 +17,33 @@ public class funcionesBotonesSprites : MonoBehaviour
 
     // El chasis del automóvil necesario para saber cuál poner si cambia el cuerpo.
     private int spriteChasis = 12;
+
+    // Creo una tabla de hash para mapear las partes del auto con su precio.
+            Hashtable partesAPrecios = new Hashtable()
+        {
+            {"cuerpoSmart", 21},
+            {"cuerpoChallenger", 29},
+            {"cuerpoCybertruck", 35},
+            {"llantas1", 10},
+            {"llantas2", 14},
+            {"llantas3", 24},
+            {"frenos1", 8},
+            {"frenos2", 14},
+            {"frenos3", 22},
+            {"suspension1", 5},
+            {"suspension2", 14},
+            {"suspension3", 20},
+            {"chasis1", 10},
+            {"chasis2", 14},
+            {"chasis3", 25},
+            {"motor1", 8},
+            {"motor2", 14},
+            {"motor3", 20}
+        };
+    // El color rojo para cambiar a color rojo el presupuesto cuando no alcance el presupuesto;
+    public Color rojo;
+
+    public Color negro;
 
     public void CambiaParte(int indiceParte, int indiceSprite) {
         // Función para cambiar todas las partes del automóvil, teniendo una opción de sprite seleccionada.
@@ -81,158 +108,350 @@ public class funcionesBotonesSprites : MonoBehaviour
         }
     }
 
-    private void UpdateBudget(string parteYSprite) {
-
-        Hashtable partesAPrecios = new Hashtable()
+    private bool UpdateBudget(string parteYSprite) {
+        // Si el presupuesto no se puede actualizar (no alcanza el dinero), regreso un false, si sí, lo actualizo.
+        if (parteYSprite == "cuerpoSmart" || parteYSprite == "cuerpoChallenger" || parteYSprite == "cuerpoCybertruck")
         {
-            {"cuerpoSmart", 21},
-            {"cuerpoChallenger", 29},
-            {"cuerpoCybertruck", 35},
-            {"llantas1", 10},
-            {"llantas2", 14},
-            {"llantas3", 24},
-            {"frenos1", 8},
-            {"frenos2", 14},
-            {"frenos3", 22},
-            {"suspension1", 5},
-            {"suspension2", 14},
-            {"suspension3", 20},
-            {"chasis1", 10},
-            {"chasis2", 14},
-            {"chasis3", 25},
-            {"motor1", 8},
-            {"motor2", 14},
-            {"motor3", 20}
-        };
+            if (GameManager.budget + GameManager.precioCuerpo - (int)partesAPrecios[parteYSprite] < 0) {
+                return false;
+            }
+
+            GameManager.precioCuerpo = (int)partesAPrecios[parteYSprite];
+        }
+        else if (parteYSprite == "llantas1" || parteYSprite == "llantas2" || parteYSprite == "llantas3")
+        {
+            if (GameManager.budget + GameManager.precioLlantas - (int)partesAPrecios[parteYSprite] < 0)
+            {
+                return false;
+            }
+            GameManager.precioLlantas = (int)partesAPrecios[parteYSprite];
+        }
+        else if (parteYSprite == "frenos1" || parteYSprite == "frenos2" || parteYSprite == "frenos3")
+        {
+            if (GameManager.budget + GameManager.precioFrenos - (int)partesAPrecios[parteYSprite] < 0)
+            {
+                return false;
+            }
+            GameManager.precioFrenos = (int)partesAPrecios[parteYSprite];
+        }
+        else if (parteYSprite == "suspension1" || parteYSprite == "suspension2" || parteYSprite == "suspension3")
+        {
+            if (GameManager.budget + GameManager.precioSuspension - (int)partesAPrecios[parteYSprite] < 0)
+            {
+                return false;
+            }
+            GameManager.precioSuspension = (int)partesAPrecios[parteYSprite];
+        }
+        else if (parteYSprite == "chasis1" || parteYSprite == "chasis2" || parteYSprite == "chasis3")
+        {
+            if (GameManager.budget + GameManager.precioChasis - (int)partesAPrecios[parteYSprite] < 0)
+            {
+                return false;
+            }
+            GameManager.precioChasis = (int)partesAPrecios[parteYSprite];
+        }
+        else if (parteYSprite == "motor1" || parteYSprite == "motor2" || parteYSprite == "motor3")
+        {
+            if (GameManager.budget + GameManager.precioMotor - (int)partesAPrecios[parteYSprite] < 0)
+            {
+                return false;
+            }
+            GameManager.precioMotor = (int)partesAPrecios[parteYSprite];
+        }
+
+        // Actualizo el presupuesto que le queda al usuario.
+        GameManager.budget = 100 - (GameManager.precioCuerpo + GameManager.precioLlantas + GameManager.precioFrenos + GameManager.precioSuspension + GameManager.precioChasis + GameManager.precioMotor);
+
+        // Actualizo el GameObject de texto que muestra el presupuesto.
+        this.transform.GetChild(3).gameObject.GetComponent<Text>().text = "Presupuesto: " + GameManager.budget.ToString() + "$";
+        return true;
+    }
+
+
+    private IEnumerator PresupuestoRojoEspera() {
+        // Creo una corrutina para esperar 5 segundos.
+        this.transform.GetChild(3).gameObject.GetComponent<Text>().color = rojo;
+
+        // Poner mensaje de error.
+
+        yield return new WaitForSeconds(2);
+
+        // Quitar mensaje de error.
+
+        this.transform.GetChild(3).gameObject.GetComponent<Text>().color = negro;
+
+    }
+
+    private void PresupuestoInvalido() {
+        // Marco el presupuesto de rojo para expresar que no le alcanza al usuario cambiar de parte del automovil.
+
+        StartCoroutine(PresupuestoRojoEspera());
 
     }
 
     // Funciones para cambiar todas las partes posibles del automóvil y actualizar el presupuesto.
     public void CambiaCuerpoSmart() {
-        CambiaParte(0, 0);
-        GameManager.budget -= 21;
+        if (UpdateBudget("cuerpoSmart")) {
+            CambiaParte(0, 0);
+        } else {
+            PresupuestoInvalido();
+        }
     }
 
     public void CambiaCuerpoChallenger() {
-        CambiaParte(0, 1);
-        ;
+        if (UpdateBudget("cuerpoChallenger"))
+        {
+            CambiaParte(0, 1);
+        }
+        else {
+            PresupuestoInvalido();
+        }
+        
     }
 
     public void CambiaCuerpoCybertruck() {
-        CambiaParte(0, 2);
-        GameManager.budget -= 35;
+        if (UpdateBudget("cuerpoCybertruck"))
+        {
+            CambiaParte(0, 2);
+        }
+        else {
+            PresupuestoInvalido();
+        }
     }
 
     public void CambiaLlantas1() {
-        CambiaParte(1, 0);
-        GameManager.budget -= 10;
+        if (UpdateBudget("llantas1"))
+        {
+            CambiaParte(1, 0);
+        }
+        else {
+            PresupuestoInvalido();
+        }
     }
 
     public void CambiaLlantas2() {
-        CambiaParte(1, 1);
-        GameManager.budget -= 14;
+        if (UpdateBudget("llantas2")) {
+            CambiaParte(1, 1);
+        } else {
+            PresupuestoInvalido();
+        }
+        
     }
 
     public void CambiaLlantas3() {
-        CambiaParte(1, 2);
-        GameManager.budget -= 24;
+        if (UpdateBudget("llantas3")) {
+            CambiaParte(1, 2);
+        }
+        else {
+            PresupuestoInvalido();
+        }
     }
 
     public void CambiaFrenos1() {
-        CambiaParte(2, 0);
-        //GameManager
+        if (UpdateBudget("frenos1"))
+        {
+            CambiaParte(2, 0);
+        } else
+        {
+            PresupuestoInvalido();
+        }
+        
     }
 
     public void CambiaFrenos2()
     {
-        CambiaParte(2, 1);
+        if (UpdateBudget("frenos2"))
+        {
+            CambiaParte(2, 1);
+        } else
+        {
+            PresupuestoInvalido();
+        }
     }
 
     public void CambiaFrenos3()
     {
-        CambiaParte(2, 2);
+        if (UpdateBudget("frenos3"))
+        {
+            CambiaParte(2, 2);
+        } else
+        {
+            PresupuestoInvalido();
+        }
     }
 
     public void CambiaSuspensiones1() {
-        CambiaParte(3, 0);
+        if (UpdateBudget("suspension1"))
+        {
+            CambiaParte(3, 0);
+        } else
+        {
+            PresupuestoInvalido();
+        }
     }
 
     public void CambiaSuspensiones2()
     {
-        CambiaParte(3, 1);
+        if (UpdateBudget("suspension2"))
+        {
+            CambiaParte(3, 1);
+        } else {
+            PresupuestoInvalido();
+        }
     }
 
     public void CambiaSuspensiones3()
     {
-        CambiaParte(3, 2);
+        if (UpdateBudget("suspension3"))
+        {
+            CambiaParte(3, 2);
+        } else
+        {
+            PresupuestoInvalido();
+        }
     }
 
     public void CambiaChasis1() {
-        CambiaParte(4, 0);
-        spriteChasis = 12;
+        if (UpdateBudget("chasis1"))
+        {
+            CambiaParte(4, 0);
+            spriteChasis = 12;
+        } else
+        {
+            PresupuestoInvalido();
+        }
     }
 
     public void CambiaChasis2()
     {
-        CambiaParte(4, 1);
-        spriteChasis = 13;
+        if (UpdateBudget("chasis2"))
+        {
+            CambiaParte(4, 1);
+            spriteChasis = 13;
+        } else
+        {
+            PresupuestoInvalido();
+        }
     }
 
     public void CambiaChasis3()
     {
-        CambiaParte(4, 2);
-        spriteChasis = 14;
+        if (UpdateBudget("chasis3"))
+        {
+            CambiaParte(4, 2);
+            spriteChasis = 14;
+        } else
+        {
+            PresupuestoInvalido();
+        }
     }
 
     public void CambiaChasis4()
     {
-        CambiaParte(4, 3);
-        spriteChasis = 15;
+        if (UpdateBudget("chasis1"))
+        {
+            CambiaParte(4, 3);
+            spriteChasis = 15;
+        } else
+        {
+            PresupuestoInvalido();
+        }
     }
 
     public void CambiaChasis5()
     {
-        CambiaParte(4, 4);
-        spriteChasis = 16;
+        if (UpdateBudget("chasis2"))
+        {
+            CambiaParte(4, 4);
+            spriteChasis = 16;
+        } else {
+            PresupuestoInvalido();
+        }
     }
 
     public void CambiaChasis6()
     {
-        CambiaParte(4, 5);
-        spriteChasis = 17;
+        if (UpdateBudget("chasis3"))
+        {
+            CambiaParte(4, 5);
+            spriteChasis = 17;
+        } else {
+            PresupuestoInvalido();
+        }
     }
 
     public void CambiaChasis7()
     {
-        CambiaParte(4, 6);
-        spriteChasis = 18;
+        if (UpdateBudget("chasis1")) {
+            CambiaParte(4, 6);
+            spriteChasis = 18;
+        } else
+        {
+            PresupuestoInvalido();
+        }
     }
 
     public void CambiaChasis8()
     {
-        CambiaParte(4, 7);
-        spriteChasis = 19;
+        if (UpdateBudget("chasis2"))
+        {
+            CambiaParte(4, 7);
+            spriteChasis = 19;
+        } else
+        {
+            PresupuestoInvalido();
+        }
     }
 
     public void CambiaChasis9()
     {
-        CambiaParte(4, 8);
-        spriteChasis = 20;
+        if (UpdateBudget("chasis3"))
+        {
+            CambiaParte(4, 8);
+            spriteChasis = 20;
+        } else
+        {
+            PresupuestoInvalido();
+        }
     }
 
     public void CambiaMotor1() {
-        CambiaParte(5, 6);
+        if (UpdateBudget("motor1"))
+        {
+            CambiaParte(5, 6);
+        } else
+        {
+            PresupuestoInvalido();
+        }
     }
 
     public void CambiaMotor2() {
-        CambiaParte(5, 7);
+        if (UpdateBudget("motor2"))
+        {
+            CambiaParte(5, 7);
+        }
+        else
+        {
+            PresupuestoInvalido();
+        }
     }
 
     public void CambiaMotor3()
     {
-        CambiaParte(5, 8);
+        if (UpdateBudget("motor3"))
+        {
+            CambiaParte(5, 8);
+        } else
+        {
+            PresupuestoInvalido();
+        }
     }
 
+    // Comienzo mostrando el presupuesto inicial.
+    private void Start()
+    {
+        this.transform.GetChild(3).gameObject.GetComponent<Text>().text = "Presupuesto: " + GameManager.budget.ToString() + "$";
+    }
 }
 
 
