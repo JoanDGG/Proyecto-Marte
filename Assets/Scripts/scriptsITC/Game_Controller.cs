@@ -9,7 +9,7 @@ public class Game_Controller : MonoBehaviour
     public bool oleada = false;
     public int puertas_abiertas = 0;
     public int fuegos_activos = 0;
-    private int nivel = 1;
+    public int nivel = 1;
     //Puertas nivel 1
     public GameObject puerta1;
 
@@ -66,14 +66,19 @@ public class Game_Controller : MonoBehaviour
     {
         constante_original = constante;
         aviso = GameObject.Find("Aviso").GetComponent<Text>();
-        nivel = PlayerPrefs.GetInt("Nivel3", 1);
+        int niv = PlayerPrefs.GetInt("Nivel3", 1);
         final = PlayerPrefs.GetString("Nivel3Fin", "false");
-        if(final == "true")
+        if(final == "true" || niv >= 4)
         {
             final = "false";
             nivel = 1;
         }
-        Spawn(PlayerPrefs.GetInt("Nivel3", nivel));
+        else
+        {
+            nivel = niv;
+        }
+        //print(nivel);
+        Spawn(nivel);
         Pausar();
     }
 
@@ -124,6 +129,14 @@ public class Game_Controller : MonoBehaviour
         {
             integridad--;
             print(integridad);
+            if(puertas_abiertas > 0)
+            {
+                aviso.text = "Puerta Abierta!";
+            }
+            else if (fuegos_activos > 0)
+            {
+                aviso.text = "Fuego!!";
+            }
         }
         if (integridad <= 0)
         {
@@ -162,13 +175,12 @@ public class Game_Controller : MonoBehaviour
         }
 
         float x = Mathf.Clamp(player.transform.position.x + Random.Range(-8.0f, 8.0f), xMin, xMax);
-        float y = player.transform.position.y + Random.Range(0.0f, 2.0f);
+        float y = player.transform.position.y + Random.Range(0.0f, 4.0f);
 
         Vector3 spawn = new Vector3(x, y, 0);
         Instantiate(FireEffect.transform, spawn, player.transform.rotation);
         fuegos_activos++;
         //Debug.Log("Fuego!!");
-        aviso.text = "Fuego!!";
     }
 
     public void Puerta(int nivel)
@@ -176,12 +188,12 @@ public class Game_Controller : MonoBehaviour
         if(nivel == 1)
         {
             puerta1.GetComponent<GateAnimation>().Open();
-            Debug.Log("Puerta 1 Abierta!");
+            //Debug.Log("Puerta 1 Abierta!");
         }
         else if(nivel == 2)
         {
             puerta2.GetComponent<GateAnimation>().Open();
-            Debug.Log("Puerta 2 Abierta!");
+            //Debug.Log("Puerta 2 Abierta!");
         }
         else if(nivel == 3)
         {
@@ -190,15 +202,15 @@ public class Game_Controller : MonoBehaviour
             if(puerta == 1)
             {
                 puerta3.GetComponent<GateAnimation>().Open();
-                Debug.Log("Puerta 3 Abierta!");
+                //Debug.Log("Puerta 3 Abierta!");
             }
             else
             {
                 puerta4.GetComponent<GateAnimation>().Open();
-                Debug.Log("Puerta 4 Abierta!");
+                //Debug.Log("Puerta 4 Abierta!");
             }
         }
-        aviso.text = "Puerta Abierta!";
+        
     }
 
     public float Choose(float[] probs)
@@ -284,9 +296,10 @@ public class Game_Controller : MonoBehaviour
 
     public void Spawn(int lugar)
     {
-        nivel = lugar;
         integridad = 5000.0f;
         imagen_alerta.SetActive(false);
+        print("Spawn " + lugar);
+        nivel = lugar;
         if (lugar == 1)
         {
             oleada = true;

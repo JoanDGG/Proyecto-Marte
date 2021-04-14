@@ -47,14 +47,7 @@ public class GateAnimation : MonoBehaviour
     {
         if (other.CompareTag("Llave"))
         {
-            if (!is_open)
-            {
-                Open();
-            }
-            else
-            {
-                Close();
-            }
+            Close();
         }
     }
 }
