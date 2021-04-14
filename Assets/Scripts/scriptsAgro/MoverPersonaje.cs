@@ -12,7 +12,6 @@ public class MoverPersonaje : MonoBehaviour
     private Image img;
     public GameObject go;
     public GameObject osc;
-    //public GameObject tor;
     public GameObject alarma;
     public GameObject[] evento = new GameObject[4];
     public Text tempo;
@@ -121,23 +120,24 @@ public class MoverPersonaje : MonoBehaviour
                 for (int i = 0; i < GameManager.oleada; i++)
                 {
                     Instantiate(tor[i]);
-                    /*if(tor[i].tag == "Calor" || tor[i].tag == "Frio")
+                    if (tor[i].tag == "Calor" || tor[i].tag == "Frio")
                     {
-                        Image image = tor[i].GetComponent<Image>();
-                        Color c = image.color;
-                        image.color = c;
-                        for (float j = 0.0f; j <= 0.75f; j += 0.01f)
-                        {
-                            c.a = j;
-                            image.color = c;
-                        }
-                        for (float j=0.75f; j >= 0.0f; j -= 0.01f)
-                        {
-                            c.a = j;
-                            image.color = c;
-                        }
-                    }*/
-                    yield return new WaitForSeconds(4.0f);
+                        int r = (tor[i].tag == "Calor") ? 255 : 0;
+                        int g = (tor[i].tag == "Calor") ? 216 : 193;
+                        int b = (tor[i].tag == "Calor") ? 6 : 255;
+                        GameObject peligro = GameObject.Find("Canvas/Calor-Frio");
+                        Image image = peligro.GetComponent<Image>();
+                        image.color = new Color32((byte) r, (byte) g, (byte) b, 255);
+                        image.canvasRenderer.SetAlpha(0);
+                        image.CrossFadeAlpha(1, 3, false);
+                        yield return new WaitForSeconds(2.0f);
+                        image.CrossFadeAlpha(0, 3, false);
+                        yield return new WaitForSeconds(2.0f);
+                    }
+                    else
+                    {
+                        yield return new WaitForSeconds(4.0f);
+                    }
                 }
             }
             else if (GameManager.tiempo >= GameManager.tiempoEvento && GameManager.evento)
