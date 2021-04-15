@@ -16,7 +16,7 @@ public class funcionesBotonesSprites : MonoBehaviour
     public GameObject automovil;
 
     // El chasis del automóvil necesario para saber cuál poner si cambia el cuerpo.
-    private int spriteChasis = 12;
+    public static int spriteChasis = 12;
 
     // Creo una tabla de hash para mapear las partes del auto con su precio.
             Hashtable partesAPrecios = new Hashtable()
@@ -205,6 +205,8 @@ public class funcionesBotonesSprites : MonoBehaviour
         if (UpdateBudget("cuerpoChallenger"))
         {
             CambiaParte(0, 1);
+            GameManager.cuerpo[0] = 0;
+            GameManager.cuerpo[1] = 1;
         }
         else {
             PresupuestoInvalido();
@@ -216,6 +218,8 @@ public class funcionesBotonesSprites : MonoBehaviour
         if (UpdateBudget("cuerpoCybertruck"))
         {
             CambiaParte(0, 2);
+            GameManager.cuerpo[0] = 0;
+            GameManager.cuerpo[1] = 2;
         }
         else {
             PresupuestoInvalido();
@@ -226,6 +230,8 @@ public class funcionesBotonesSprites : MonoBehaviour
         if (UpdateBudget("llantas1"))
         {
             CambiaParte(1, 0);
+            GameManager.llantas[0] = 1;
+            GameManager.llantas[1] = 0;
         }
         else {
             PresupuestoInvalido();
@@ -235,6 +241,8 @@ public class funcionesBotonesSprites : MonoBehaviour
     public void CambiaLlantas2() {
         if (UpdateBudget("llantas2")) {
             CambiaParte(1, 1);
+            GameManager.llantas[0] = 1;
+            GameManager.llantas[1] = 1;
         } else {
             PresupuestoInvalido();
         }
@@ -244,6 +252,8 @@ public class funcionesBotonesSprites : MonoBehaviour
     public void CambiaLlantas3() {
         if (UpdateBudget("llantas3")) {
             CambiaParte(1, 2);
+            GameManager.llantas[0] = 1;
+            GameManager.llantas[1] = 2;
         }
         else {
             PresupuestoInvalido();
@@ -254,6 +264,8 @@ public class funcionesBotonesSprites : MonoBehaviour
         if (UpdateBudget("frenos1"))
         {
             CambiaParte(2, 0);
+            GameManager.frenos[0] = 2;
+            GameManager.frenos[1] = 0;
         } else
         {
             PresupuestoInvalido();
@@ -266,6 +278,8 @@ public class funcionesBotonesSprites : MonoBehaviour
         if (UpdateBudget("frenos2"))
         {
             CambiaParte(2, 1);
+            GameManager.frenos[0] = 2;
+            GameManager.frenos[1] = 1;
         } else
         {
             PresupuestoInvalido();
@@ -277,6 +291,8 @@ public class funcionesBotonesSprites : MonoBehaviour
         if (UpdateBudget("frenos3"))
         {
             CambiaParte(2, 2);
+            GameManager.frenos[0] = 2;
+            GameManager.frenos[1] = 2;
         } else
         {
             PresupuestoInvalido();
@@ -287,6 +303,8 @@ public class funcionesBotonesSprites : MonoBehaviour
         if (UpdateBudget("suspension1"))
         {
             CambiaParte(3, 0);
+            GameManager.suspensiones[0] = 3;
+            GameManager.suspensiones[1] = 0;
         } else
         {
             PresupuestoInvalido();
@@ -298,6 +316,8 @@ public class funcionesBotonesSprites : MonoBehaviour
         if (UpdateBudget("suspension2"))
         {
             CambiaParte(3, 1);
+            GameManager.suspensiones[0] = 3;
+            GameManager.suspensiones[1] = 1;
         } else {
             PresupuestoInvalido();
         }
@@ -308,6 +328,8 @@ public class funcionesBotonesSprites : MonoBehaviour
         if (UpdateBudget("suspension3"))
         {
             CambiaParte(3, 2);
+            GameManager.suspensiones[0] = 3;
+            GameManager.suspensiones[1] = 2;
         } else
         {
             PresupuestoInvalido();
@@ -319,6 +341,8 @@ public class funcionesBotonesSprites : MonoBehaviour
         {
             CambiaParte(4, 0);
             spriteChasis = 12;
+            GameManager.chasis[0] = 4;
+            GameManager.chasis[1] = 0;
         } else
         {
             PresupuestoInvalido();
@@ -331,6 +355,8 @@ public class funcionesBotonesSprites : MonoBehaviour
         {
             CambiaParte(4, 1);
             spriteChasis = 13;
+            GameManager.chasis[0] = 4;
+            GameManager.chasis[1] = 1;
         } else
         {
             PresupuestoInvalido();
@@ -343,6 +369,8 @@ public class funcionesBotonesSprites : MonoBehaviour
         {
             CambiaParte(4, 2);
             spriteChasis = 14;
+            GameManager.chasis[0] = 4;
+            GameManager.chasis[1] = 2;
         } else
         {
             PresupuestoInvalido();
@@ -355,6 +383,8 @@ public class funcionesBotonesSprites : MonoBehaviour
         {
             CambiaParte(4, 3);
             spriteChasis = 15;
+            GameManager.chasis[0] = 4;
+            GameManager.chasis[1] = 3;
         } else
         {
             PresupuestoInvalido();
@@ -367,6 +397,8 @@ public class funcionesBotonesSprites : MonoBehaviour
         {
             CambiaParte(4, 4);
             spriteChasis = 16;
+            GameManager.cuerpo[0] = 4;
+            GameManager.cuerpo[1] = 4;
         } else {
             PresupuestoInvalido();
         }
@@ -378,6 +410,8 @@ public class funcionesBotonesSprites : MonoBehaviour
         {
             CambiaParte(4, 5);
             spriteChasis = 17;
+            GameManager.chasis[0] = 4;
+            GameManager.chasis[1] = 5;
         } else {
             PresupuestoInvalido();
         }
@@ -388,6 +422,8 @@ public class funcionesBotonesSprites : MonoBehaviour
         if (UpdateBudget("chasis1")) {
             CambiaParte(4, 6);
             spriteChasis = 18;
+            GameManager.chasis[0] = 4;
+            GameManager.chasis[1] = 6;
         } else
         {
             PresupuestoInvalido();
@@ -400,6 +436,8 @@ public class funcionesBotonesSprites : MonoBehaviour
         {
             CambiaParte(4, 7);
             spriteChasis = 19;
+            GameManager.chasis[0] = 4;
+            GameManager.chasis[1] = 7;
         } else
         {
             PresupuestoInvalido();
@@ -412,6 +450,8 @@ public class funcionesBotonesSprites : MonoBehaviour
         {
             CambiaParte(4, 8);
             spriteChasis = 20;
+            GameManager.chasis[0] = 4;
+            GameManager.chasis[1] = 8;
         } else
         {
             PresupuestoInvalido();
@@ -422,6 +462,8 @@ public class funcionesBotonesSprites : MonoBehaviour
         if (UpdateBudget("motor1"))
         {
             CambiaParte(5, 6);
+            GameManager.motor[0] = 5;
+            GameManager.motor[1] = 6;
         } else
         {
             PresupuestoInvalido();
@@ -432,6 +474,8 @@ public class funcionesBotonesSprites : MonoBehaviour
         if (UpdateBudget("motor2"))
         {
             CambiaParte(5, 7);
+            GameManager.motor[0] = 5;
+            GameManager.motor[1] = 7;
         }
         else
         {
@@ -444,6 +488,8 @@ public class funcionesBotonesSprites : MonoBehaviour
         if (UpdateBudget("motor3"))
         {
             CambiaParte(5, 8);
+            GameManager.motor[0] = 5;
+            GameManager.motor[1] = 8;
         } else
         {
             PresupuestoInvalido();
