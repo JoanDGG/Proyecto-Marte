@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 
 /*
-Script que hace que cambien los sprites del automovil cuando el usuario haga click entre las opciones
+Script que hace que cambien los sprites del automovil cuando el usuario haga click entre las opciones.
 Autor: Luis Ignacio Ferro Salinas A01378248
-Última actualización: 13 de abril 
+Última actualización: 14 de abril 
 */
 
 public class funcionesBotonesSprites : MonoBehaviour
@@ -44,6 +44,9 @@ public class funcionesBotonesSprites : MonoBehaviour
     public Color rojo;
 
     public Color negro;
+
+    // Referencia a un AudioSource para emitir el sonido de error cuando el usuario intenta cambiar una pieza y no le alcanza.
+    public AudioSource sonidoWrong;
 
     public void CambiaParte(int indiceParte, int indiceSprite) {
         // Función para cambiar todas las partes del automóvil, teniendo una opción de sprite seleccionada.
@@ -169,14 +172,12 @@ public class funcionesBotonesSprites : MonoBehaviour
 
 
     private IEnumerator PresupuestoRojoEspera() {
-        // Creo una corrutina para esperar 5 segundos.
+        // Creo una corrutina para esperar 1 segundos.
         this.transform.GetChild(3).gameObject.GetComponent<Text>().color = rojo;
 
-        // Poner mensaje de error.
+        sonidoWrong.Play();
 
-        yield return new WaitForSeconds(2);
-
-        // Quitar mensaje de error.
+        yield return new WaitForSeconds(1);
 
         this.transform.GetChild(3).gameObject.GetComponent<Text>().color = negro;
 
@@ -193,6 +194,8 @@ public class funcionesBotonesSprites : MonoBehaviour
     public void CambiaCuerpoSmart() {
         if (UpdateBudget("cuerpoSmart")) {
             CambiaParte(0, 0);
+            GameManager.cuerpo[0] = 0;
+            GameManager.cuerpo[1] = 0;
         } else {
             PresupuestoInvalido();
         }

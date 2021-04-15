@@ -26,4 +26,10 @@ public class GameManager
     public static int precioMotor = 8;
     public static int budget = 100 - (precioCuerpo + precioLlantas + precioFrenos + precioSuspension + precioChasis + precioMotor);// presupuesto con las partes más baratas en todas las categorías.
 
+    public static int[] cuerpo;
+    public static int[] llantas;
+    public static int[] frenos;
+    public static int[] suspensiones;
+    public static int[] chasis;
+    public static int[] motor;
 }

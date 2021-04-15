@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NivelBio.unity
     guid: e71869eb575c1e14f99f4f55d54b8aa0
+  - enabled: 1
+    path: Assets/Scenes/MenuPersonalizarAuto.unity
+    guid: e5a60aa57f3724225ad775a400a3342f
+  - enabled: 1
+    path: Assets/Scenes/PruebaAutomovil.unity
+    guid: 3352a8c38adff4cd7b24ab1cf3d613ca
   m_configObjects: {}
