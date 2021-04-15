@@ -17,6 +17,9 @@ public class GameManager
     public static int[] clima = new int[3];
     public static int[] genes = new int[3];
     public static int oleada = 1;
+    public static bool respondido = false;
+    public static string[] respuestas = new string[3];
+    public static float puntuacion = 0.0f;
     // variables estáticas de nivel industrial.
     public static int precioCuerpo = 21;
     public static int precioLlantas = 10;

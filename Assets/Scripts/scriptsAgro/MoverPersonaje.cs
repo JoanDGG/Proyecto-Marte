@@ -23,6 +23,7 @@ public class MoverPersonaje : MonoBehaviour
     public GameObject camara;
     private AudioSource musica;
     public GameObject arena;
+    public GameObject cuest;
 
     // Start is called before the first frame update
     void Start()
@@ -90,7 +91,7 @@ public class MoverPersonaje : MonoBehaviour
 
     IEnumerator reloj()
     {
-        while(!GameManager.perder)
+        while(!GameManager.perder && GameManager.oleada<4)
         {
             print(GameManager.tiempo);
             yield return new WaitForSeconds(1.0f);
@@ -152,7 +153,14 @@ public class MoverPersonaje : MonoBehaviour
             }
             else if (GameManager.tiempo >= GameManager.tiempoEvento && GameManager.evento)
             {
+                cuest.SetActive(true);
+                while (!GameManager.respondido)
+                {
+                    yield return new WaitForSeconds(0.1f);
+                }
                 GameManager.oleada++;
+                GameManager.respondido = false;
+                cuest.SetActive(false);
                 if (GameManager.oleada <= 3)
                 {
                     osc.GetComponent<Image>().enabled = true;
@@ -180,8 +188,18 @@ public class MoverPersonaje : MonoBehaviour
             else if(GameManager.oleada>=4) //Ganar
             {
                 print("Felicidades tus patatas sobrevivieron");
+                print(GameManager.respuestas[0]);
+                print(GameManager.respuestas[1]);
+                print(GameManager.respuestas[2]);
                 Application.Quit();
             }
         }
+    }
+
+    public void Responder(string respuesta)
+    {
+        print(respuesta);
+        GameManager.respondido = true;
+        GameManager.respuestas[GameManager.oleada - 1] = respuesta;
     }
 }
