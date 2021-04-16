@@ -175,7 +175,7 @@ public class Game_Controller : MonoBehaviour
         }
 
         float x = Mathf.Clamp(player.transform.position.x + Random.Range(-8.0f, 8.0f), xMin, xMax);
-        float y = player.transform.position.y + Random.Range(0.0f, 4.0f);
+        float y = player.transform.position.y + Random.Range(0.0f, 2.0f);
 
         Vector3 spawn = new Vector3(x, y, 0);
         Instantiate(FireEffect.transform, spawn, player.transform.rotation);

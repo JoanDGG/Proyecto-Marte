@@ -13,4 +13,10 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("EscenaMapa");
     }
 
+    public void MainMenu()
+    {
+        // Cambiar a la escena 'MainMenu'
+        SceneManager.LoadScene("MainMenu");
+    }
+
 }
