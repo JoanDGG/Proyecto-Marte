@@ -54,6 +54,8 @@ public class Game_Controller : MonoBehaviour
     public Transform spawn2;
     public Transform spawn3;
 
+    public float puntaje = 5000.0f;
+
     public static Game_Controller instance;
 
     private void Awake()
@@ -66,6 +68,7 @@ public class Game_Controller : MonoBehaviour
     {
         constante_original = constante;
         aviso = GameObject.Find("Aviso").GetComponent<Text>();
+        puntaje = PlayerPrefs.GetFloat("Nivel3Puntaje", 5000.0f);
         int niv = PlayerPrefs.GetInt("Nivel3", 1);
         final = PlayerPrefs.GetString("Nivel3Fin", "false");
         if(final == "true" || niv >= 4)
@@ -128,6 +131,7 @@ public class Game_Controller : MonoBehaviour
         if ((fuegos_activos > 0 || puertas_abiertas > 0) && integridad >= 0)
         {
             integridad--;
+            puntaje -= 0.5f;
             print(integridad);
             if(puertas_abiertas > 0)
             {
@@ -152,7 +156,7 @@ public class Game_Controller : MonoBehaviour
         barra.value = valor;
         barra.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color =
                 Color.Lerp(Mincolor, Maxcolor, valor);
-        if(integridad < 2000)
+        if(integridad < 1500)
         {
             imagen_alerta.SetActive(true);
             Alerta.enabled = true;
@@ -270,6 +274,7 @@ public class Game_Controller : MonoBehaviour
         imagen_alerta.SetActive(false);
         Alerta.enabled = false;
         Guardar();
+        print("Puntaje: " + puntaje.ToString());
     }
 
     public void Edit()
