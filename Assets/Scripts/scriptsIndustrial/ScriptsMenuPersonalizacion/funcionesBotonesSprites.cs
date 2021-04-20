@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 /*
 Script que hace que cambien los sprites del automovil cuando el usuario haga click entre las opciones.
+Además revisa que el cambio de pieza lo permita su presupuesto.
+Finalmente exporta las funcionalidades de las partes.
 Autor: Luis Ignacio Ferro Salinas A01378248
-Última actualización: 14 de abril 
+Última actualización: 15 de abril 
 */
 
 public class funcionesBotonesSprites : MonoBehaviour
@@ -48,7 +50,7 @@ public class funcionesBotonesSprites : MonoBehaviour
     // Referencia a un AudioSource para emitir el sonido de error cuando el usuario intenta cambiar una pieza y no le alcanza.
     public AudioSource sonidoWrong;
 
-    public void CambiaParte(int indiceParte, int indiceSprite) {
+    private void CambiaParte(int indiceParte, int indiceSprite) {
         // Función para cambiar todas las partes del automóvil, teniendo una opción de sprite seleccionada.
 
         // Para partes que solo se encuentran 1 vez en el auto (cuerpo, motor, chasis)
@@ -196,6 +198,7 @@ public class funcionesBotonesSprites : MonoBehaviour
             CambiaParte(0, 0);
             GameManager.cuerpo[0] = 0;
             GameManager.cuerpo[1] = 0;
+            GameManager.volumen = 65;
         } else {
             PresupuestoInvalido();
         }
@@ -207,6 +210,7 @@ public class funcionesBotonesSprites : MonoBehaviour
             CambiaParte(0, 1);
             GameManager.cuerpo[0] = 0;
             GameManager.cuerpo[1] = 1;
+            GameManager.volumen = 85;
         }
         else {
             PresupuestoInvalido();
@@ -220,6 +224,7 @@ public class funcionesBotonesSprites : MonoBehaviour
             CambiaParte(0, 2);
             GameManager.cuerpo[0] = 0;
             GameManager.cuerpo[1] = 2;
+            GameManager.volumen = 100;
         }
         else {
             PresupuestoInvalido();

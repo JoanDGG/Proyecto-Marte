@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /*
 Script para construir el automóvil igual que como estaba en el menu.
 Autor: Luis Ignacio Ferro Salinas A01378248.
-Última actualización: 15 de abril de 2021.
+Última actualización: 19 de abril de 2021.
 */
 
 public class ConstruyeAutomovil : MonoBehaviour
@@ -14,7 +14,7 @@ public class ConstruyeAutomovil : MonoBehaviour
     public GameObject automovil;
 
     // Copio función para reconstruir auto elegido en el menú en esta escena.
-    public void CambiaParte(int indiceParte, int indiceSprite)
+    private void CambiaParte(int indiceParte, int indiceSprite)
     {
         // Función para cambiar todas las partes del automóvil, teniendo una opción de sprite seleccionada.
 
@@ -82,15 +82,20 @@ public class ConstruyeAutomovil : MonoBehaviour
         }
     }
 
-    // Cambio las partes del automovil.
-    /*
-    CambiaParte(GameManager.cuerpo[0], GameManager.cuerpo[1]);
-    CambiaParte(GameManager.llantas[0], GameManager.llantas[1]);
-    CambiaParte(GameManager.frenos[0], GameManager.frenos[1]);
-    CambiaParte(GameManager.suspension[0], GameManager.suspension[1]);
-    CambiaParte(GameManager.chasis[0], GameManager.chasis[1]);
-    CambiaParte(GameManager.motor[0], GameManager.motor[1]);
-    */
 
 
+    public void Start()
+    {
+        // Cambio las partes del automovil.
+
+        CambiaParte(GameManager.cuerpo[0], GameManager.cuerpo[1]);
+        CambiaParte(GameManager.llantas[0], GameManager.llantas[1]);
+        CambiaParte(GameManager.frenos[0], GameManager.frenos[1]);
+        CambiaParte(GameManager.suspensiones[0], GameManager.suspensiones[1]);
+        CambiaParte(GameManager.chasis[0], GameManager.chasis[1]);
+        CambiaParte(GameManager.motor[0], GameManager.motor[1]);
+
+        // Deshabilitar los paneles con sprites.
+        this.transform.GetChild(1).gameObject.SetActive(false);
+    }
 }
