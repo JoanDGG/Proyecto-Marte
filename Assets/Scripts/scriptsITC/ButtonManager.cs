@@ -20,39 +20,54 @@ public class ButtonManager : MonoBehaviour
     public GameObject texto2;               // Texto de la pagina 2
     public GameObject texto3;               // Texto de la pagina 3
 
-    private int pagina = 1;                 // Valor de la pagina actual
+    private int pagina = 0;                 // Valor de la pagina actual
+    private bool subiendo = true;
+
+    bool inputAvanzar;
+
+    void Update()
+    {
+        inputAvanzar = Input.GetButtonDown("Jump");
+        if (inputAvanzar)
+        {
+            if (subiendo)
+            {
+                Avanzar();
+            }
+            else
+            {
+                Retroceder();
+            }
+        }
+    }
 
     public void Avanzar()                   // Se mueve hacia la pagina siguiente
     {
-        if(pagina == 1)
-        {
-            texto1.SetActive(false);
-            texto2.SetActive(true);
-            boton_izq.SetActive(true);
-        }
-        else if (pagina == 2)
-        {
-            texto2.SetActive(false);
-            texto3.SetActive(true);
-            boton_der.SetActive(false);
-        }
         pagina++;
+        gameObject.transform.GetChild(pagina).gameObject.SetActive(true);
+        gameObject.transform.GetChild(pagina - 1).gameObject.SetActive(false);
+        boton_izq.SetActive(true);
+        subiendo = true;
+        if (pagina == 5)
+        {
+            boton_der.SetActive(false);
+            subiendo = false;
+        }
+        print(pagina);
     }
 
     public void Retroceder()            // Se mueve hacia la pagina anterior
     {
-        if (pagina == 2)
-        {
-            texto1.SetActive(true);
-            texto2.SetActive(false);
-            boton_izq.SetActive(false);
-        }
-        else if (pagina == 3)
-        {
-            texto2.SetActive(true);
-            texto3.SetActive(false);
-            boton_der.SetActive(true);
-        }
         pagina--;
+        gameObject.transform.GetChild(pagina).gameObject.SetActive(true);
+        gameObject.transform.GetChild(pagina + 1).gameObject.SetActive(false);
+        boton_der.SetActive(true);
+        subiendo = false;
+        if (pagina == 0)
+        {
+            boton_izq.SetActive(false);
+            subiendo = true;
+        }
+        print(pagina);
     }
 }

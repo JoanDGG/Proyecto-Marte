@@ -21,6 +21,7 @@ public class EnviarTexto : MonoBehaviour
     string instruccionesUsuario;                    // String del texto ingresado por el usuario
     private PlayerMovement player;                  // Referencia al script PlayerMovement del personaje
     private Dictionary<string, string[]> funciones; // Diccionario con las posibles funciones que declare el usuario
+    public Text textError;
 
     void Start()
     {
@@ -55,8 +56,15 @@ public class EnviarTexto : MonoBehaviour
                     int duracion = 10;
                     if (i < instrucciones.Length - 1)
                     {
-                        // Se convierte la cantidad de string a int
-                        duracion = Int16.Parse(instrucciones[i + 1]);
+                        if (instrucciones[i + 1] == "")
+                        {
+                            textError.text = "Te sobran espacios! (linea " + comando + ")";
+                        }
+                        else
+                        {
+                            // Se convierte la cantidad de string a int
+                            duracion = Mathf.Clamp(Int16.Parse(instrucciones[i + 1]), 0, 50);
+                        }
                     }
                     wait += duracion / 2;
                     player.MoveRight(duracion);
@@ -67,7 +75,15 @@ public class EnviarTexto : MonoBehaviour
                     int duracion = 10;
                     if (i < instrucciones.Length - 1)
                     {
-                        duracion = Int16.Parse(instrucciones[i + 1]);
+                        if (instrucciones[i + 1] == "")
+                        {
+                            textError.text = "Te sobran espacios! (linea " + comando + ")";
+                        }
+                        else
+                        {
+                            // Se convierte la cantidad de string a int
+                            duracion = Mathf.Clamp(Int16.Parse(instrucciones[i + 1]), 0, 50);
+                        }
                     }
                     wait += duracion / 2;
                     player.MoveLeft(duracion);
@@ -77,7 +93,15 @@ public class EnviarTexto : MonoBehaviour
                     int force = 8;
                     if (i < instrucciones.Length - 1)
                     {
-                        force = Int16.Parse(instrucciones[i + 1]);
+                        if (instrucciones[i + 1] == "")
+                        {
+                            textError.text = "Te sobran espacios! (linea " + comando + ")";
+                        }
+                        else
+                        {
+                            // Se convierte la cantidad de string a int
+                            force = Mathf.Clamp(Int16.Parse(instrucciones[i + 1]), 0, 25);
+                        }
                     }
                     //Debug.Log("Esperando...");
 

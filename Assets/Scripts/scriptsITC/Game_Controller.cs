@@ -38,7 +38,7 @@ public class Game_Controller : MonoBehaviour
     private float[] problemas = { 0.99f,       0.0055f,         0.0035f };
     private float problema;
     private int accidentes = 10;
-    private float integridad = 5000.0f;
+    private float integridad = 7000.0f;
     private float valor;
     private Color Maxcolor = Color.green;
     private Color Mincolor = Color.red;
@@ -54,7 +54,7 @@ public class Game_Controller : MonoBehaviour
     public Transform spawn2;
     public Transform spawn3;
 
-    public float puntaje = 5000.0f;
+    public float puntaje = 7000.0f;
 
     public static Game_Controller instance;
 
@@ -68,12 +68,12 @@ public class Game_Controller : MonoBehaviour
     {
         constante_original = constante;
         aviso = GameObject.Find("Aviso").GetComponent<Text>();
-        puntaje = PlayerPrefs.GetFloat("Nivel3Puntaje", 5000.0f);
+        puntaje = PlayerPrefs.GetFloat("Nivel3Puntaje", 7000.0f);
         int niv = PlayerPrefs.GetInt("Nivel3", 1);
         final = PlayerPrefs.GetString("Nivel3Fin", "false");
         if(final == "true" || niv >= 4)
         {
-            puntaje = 5000.0f;
+            puntaje = 7000.0f;
             final = "false";
             nivel = 1;
         }
@@ -153,11 +153,11 @@ public class Game_Controller : MonoBehaviour
 
     private void ActualizarBarra()
     {
-        valor = integridad / 5000;
+        valor = integridad / 7000;
         barra.value = valor;
         barra.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color =
                 Color.Lerp(Mincolor, Maxcolor, valor);
-        if(integridad < 1500)
+        if(integridad < 2000)
         {
             imagen_alerta.SetActive(true);
             Alerta.enabled = true;
@@ -271,7 +271,8 @@ public class Game_Controller : MonoBehaviour
             final = "true";
         }
         nivel += 1;
-        integridad = 5000.0f;
+        integridad = 7000.0f;
+        puntaje += 500;
         imagen_alerta.SetActive(false);
         Alerta.enabled = false;
         Guardar();
@@ -303,7 +304,7 @@ public class Game_Controller : MonoBehaviour
 
     public void Spawn(int lugar)
     {
-        integridad = 5000.0f;
+        integridad = 7000.0f;
         imagen_alerta.SetActive(false);
         print("Spawn " + lugar);
         nivel = lugar;

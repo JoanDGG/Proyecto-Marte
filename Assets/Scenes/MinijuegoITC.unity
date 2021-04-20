@@ -448,25 +448,47 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 2f149ea5ab494834bb51b59cfa3914c6, type: 3}
-    m_FontSize: 36
+    m_FontSize: 110
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 3
-    m_MaxSize: 48
+    m_MaxSize: 120
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Prueba escribir algun comando en el cuadro de texto, recuerda que al final
-    de cada instruccion debes poner un punto \".\"\n\nEnviar instrucciones: \tCtrl+Enter
-    o pulsa el boton Enviar\nVaciar el texto: \t\tCtrl+Regresar o pulsa el boton
-    Vaciar\n\nComandos disponibles:\n\nder #.\nMover a la derecha, es opcional escribir
-    un valor. (ejemplo: der 10.)\n\nizq #.\nMover a la izquierda, es opcional escribir
-    un valor. (ejemplo: izq 10.)\n\nsal #.\nSaltar, es opcional escribir un valor.
-    (ejemplo: sal 8.)\n\natk.\nUtiliza la llave para cerrar puertillas.\n\nfuego.\nUtiliza
-    el extintor para apagar fuego."
+  m_Text: 'Comandos disponibles:
+
+
+    der #.
+
+    Mover a la derecha, es opcional
+    escribir un valor. (ejemplo: der 10.)
+
+
+    izq #.
+
+    Mover a la izquierda,
+    es opcional escribir un valor. (ejemplo: izq 10.)
+
+
+    sal #.
+
+    Saltar, es
+    opcional escribir un valor. (ejemplo: sal 8.)
+
+
+    pow.
+
+    Utiliza la llave
+    para cerrar puertillas.
+
+
+    fuego.
+
+    Utiliza el extintor para apagar fuego.'
 --- !u!222 &43045984
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -487,7 +509,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2123398685}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -525,7 +547,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2123398685}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -556,7 +578,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.19607843, g: 0.47058824, b: 0.8980392, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -782,7 +804,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2123398685}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -811,11 +833,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 2f149ea5ab494834bb51b59cfa3914c6, type: 3}
-    m_FontSize: 36
+    m_FontSize: 110
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 3
-    m_MaxSize: 48
+    m_MaxSize: 120
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1534,7 +1556,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -109, y: -84}
+  m_AnchoredPosition: {x: -484, y: -84}
   m_SizeDelta: {x: 44.1109, y: 49.5875}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &585091053
@@ -1558,7 +1580,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.19607843}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.43137255}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1916,6 +1938,86 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2679340298277001421, guid: 45e13125178945848a355ddb4d95712a, type: 3}
   m_PrefabInstance: {fileID: 1564449927}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &633443425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 633443426}
+  - component: {fileID: 633443428}
+  - component: {fileID: 633443427}
+  m_Layer: 5
+  m_Name: Text_6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &633443426
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633443425}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2123398685}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 11.8093, y: -2.2768}
+  m_SizeDelta: {x: 967.7541, y: 804.35}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &633443427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633443425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.6665005, g: 0.8679245, b: 0.7074882, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 2f149ea5ab494834bb51b59cfa3914c6, type: 3}
+    m_FontSize: 70
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 120
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Prueba escribir algun comando en el cuadro de texto, recuerda que al final
+    de cada instruccion debes poner un punto "."
+--- !u!222 &633443428
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633443425}
+  m_CullTransparentMesh: 1
 --- !u!1 &633919250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1946,7 +2048,7 @@ RectTransform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 2123398685}
-  m_RootOrder: 1
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2575,6 +2677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Instrucciones: {fileID: 8493474763550492176}
+  textError: {fileID: 1445133651}
 --- !u!4 &838815553 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2679340298277001421, guid: 45e13125178945848a355ddb4d95712a, type: 3}
@@ -2645,6 +2748,87 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba6a023425ee94d418a659a03b896d95, type: 3}
+--- !u!1 &866497769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 866497770}
+  - component: {fileID: 866497772}
+  - component: {fileID: 866497771}
+  m_Layer: 5
+  m_Name: Text_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &866497770
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866497769}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2123398685}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 11.8093, y: -2.2768}
+  m_SizeDelta: {x: 967.7541, y: 804.35}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &866497771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866497769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.6665005, g: 0.8679245, b: 0.7074882, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 2f149ea5ab494834bb51b59cfa3914c6, type: 3}
+    m_FontSize: 110
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 3
+    m_MaxSize: 120
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "Comandos disponibles:\n\n\xA1Funciones!\n\nSirven para guardar todas las
+    intrucciones que pongas hasta el final y hace mas facil escribir codigo con muchas
+    instrucciones.\n"
+--- !u!222 &866497772
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866497769}
+  m_CullTransparentMesh: 1
 --- !u!1 &889074814
 GameObject:
   m_ObjectHideFlags: 0
@@ -15061,7 +15245,7 @@ RectTransform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 2123398685}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -15283,6 +15467,85 @@ Transform:
   m_Father: {fileID: 202493273}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1445133649
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1445133650}
+  - component: {fileID: 1445133652}
+  - component: {fileID: 1445133651}
+  m_Layer: 5
+  m_Name: TextError
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1445133650
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445133649}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8493474763528801703}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 87.49831, y: 449.51367}
+  m_SizeDelta: {x: 384.8848, y: 138.3398}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1445133651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445133649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 5ff5cc207298aa4488c13eb323c5058d, type: 3}
+    m_FontSize: 60
+    m_FontStyle: 1
+    m_BestFit: 1
+    m_MinSize: 2
+    m_MaxSize: 300
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &1445133652
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445133649}
+  m_CullTransparentMesh: 1
 --- !u!1 &1455944772
 GameObject:
   m_ObjectHideFlags: 0
@@ -15358,7 +15621,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2123398685}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -15389,7 +15652,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.19784617, g: 0.4703729, b: 0.8962264, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -15643,7 +15906,7 @@ GameObject:
   - component: {fileID: 1595897998}
   - component: {fileID: 1595897997}
   m_Layer: 5
-  m_Name: Text_3
+  m_Name: Text_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15671,11 +15934,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 2f149ea5ab494834bb51b59cfa3914c6, type: 3}
-    m_FontSize: 36
+    m_FontSize: 110
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 3
-    m_MaxSize: 48
+    m_MaxSize: 120
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -15690,16 +15953,11 @@ MonoBehaviour:
     alto.
 
     Declarar una funcion.
-    Se debe escribir func y el nombre de la funcion. Se guardaran todas las intrucciones
-    que pongas hasta el final o hasta que escribas el comando alto .
+    Se debe escribir func y el nombre de la funcion. Para cerrar la funcion escribe
+    alto.
 
 
-    Para llamar
-    a la funcion, vuelve a escribir func y el nombre de la funcion.
-
-
-    (Ejemplo
-    para declarar:
+    Ejemplo para declarar una funcion:
 
 
     func Avanzarfuego.
@@ -15708,18 +15966,12 @@ MonoBehaviour:
 
     fuego.
 
-    der 3.
+    der
+    3.
 
     fuego.
 
-    alto.
-
-
-    ejemplo
-    para llamar:
-
-
-    func avanzarfuego.)'
+    alto.'
 --- !u!222 &1595897998
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15740,7 +15992,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2123398685}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -15782,6 +16034,92 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2679340298277001421, guid: 45e13125178945848a355ddb4d95712a, type: 3}
   m_PrefabInstance: {fileID: 10180525}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1630129587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1630129588}
+  - component: {fileID: 1630129590}
+  - component: {fileID: 1630129589}
+  m_Layer: 5
+  m_Name: Text_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1630129588
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630129587}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2123398685}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 11.8093, y: -2.2768}
+  m_SizeDelta: {x: 967.7541, y: 804.35}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1630129589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630129587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.6665005, g: 0.8679245, b: 0.7074882, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 2f149ea5ab494834bb51b59cfa3914c6, type: 3}
+    m_FontSize: 60
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 120
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Para llamar a la funcion, vuelve a escribir func y el nombre de la funcion.
+
+
+    Ejemplo
+    para llamar una funcion:
+
+
+    func avanzarfuego.'
+--- !u!222 &1630129590
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630129587}
+  m_CullTransparentMesh: 1
 --- !u!1 &1689191106
 GameObject:
   m_ObjectHideFlags: 0
@@ -15947,7 +16285,7 @@ RectTransform:
   m_Children:
   - {fileID: 594049588}
   m_Father: {fileID: 2123398685}
-  m_RootOrder: 7
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -26282,11 +26620,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1415719065}
-  - {fileID: 633919251}
   - {fileID: 229038731}
   - {fileID: 43045985}
+  - {fileID: 866497770}
   - {fileID: 1595897999}
+  - {fileID: 1630129588}
+  - {fileID: 633443426}
+  - {fileID: 1415719065}
+  - {fileID: 633919251}
   - {fileID: 1486713589}
   - {fileID: 116686712}
   - {fileID: 1697016274}
@@ -26579,6 +26920,10 @@ PrefabInstance:
     - target: {fileID: 2421656263748562040, guid: 2dba32ba4e3f1064583522f7f2ce7200, type: 3}
       propertyPath: m_Name
       value: ImagenPreguntas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2421656263748562040, guid: 2dba32ba4e3f1064583522f7f2ce7200, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2421656263748562044, guid: 2dba32ba4e3f1064583522f7f2ce7200, type: 3}
       propertyPath: m_Pivot.x
@@ -26901,6 +27246,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cuadro_Aviso_Nivel
       objectReference: {fileID: 0}
+    - target: {fileID: 4952469118295430854, guid: 14e3bc9e33670e64fbcb28af9d178463, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4952469118295430855, guid: 14e3bc9e33670e64fbcb28af9d178463, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -26931,11 +27280,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4952469118295430855, guid: 14e3bc9e33670e64fbcb28af9d178463, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 252.1828
+      value: 1241.1448
       objectReference: {fileID: 0}
     - target: {fileID: 4952469118295430855, guid: 14e3bc9e33670e64fbcb28af9d178463, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 89.044
+      value: 106.9264
       objectReference: {fileID: 0}
     - target: {fileID: 4952469118295430855, guid: 14e3bc9e33670e64fbcb28af9d178463, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26967,11 +27316,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4952469118295430855, guid: 14e3bc9e33670e64fbcb28af9d178463, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -143
+      value: -954.0838
       objectReference: {fileID: 0}
     - target: {fileID: 4952469118295430855, guid: 14e3bc9e33670e64fbcb28af9d178463, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 456
+      value: 447.05884
       objectReference: {fileID: 0}
     - target: {fileID: 4952469118295430855, guid: 14e3bc9e33670e64fbcb28af9d178463, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -27283,8 +27632,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -329}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: -317}
+  m_SizeDelta: {x: 208.9423, y: 49.8828}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8493474763314738402
 GameObject:
@@ -27485,6 +27834,7 @@ RectTransform:
   - {fileID: 8493474764040017860}
   - {fileID: 1455944773}
   - {fileID: 896701595}
+  - {fileID: 1445133650}
   m_Father: {fileID: 8493474763842300822}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -28145,7 +28495,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -448}
-  m_SizeDelta: {x: 86, y: 30}
+  m_SizeDelta: {x: 209.8851, y: 43.765}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8493474764040017861
 GameObject:
