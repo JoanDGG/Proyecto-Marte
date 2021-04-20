@@ -53,7 +53,7 @@ public class EnviarTexto : MonoBehaviour
                 {
                     //Debug.Log("Moviendo derecha...");
                     int duracion = 10;
-                    if (i + 1 < instrucciones.Length - 1)
+                    if (i < instrucciones.Length - 1)
                     {
                         // Se convierte la cantidad de string a int
                         duracion = Int16.Parse(instrucciones[i + 1]);
@@ -65,7 +65,7 @@ public class EnviarTexto : MonoBehaviour
                 {
                     //Debug.Log("Moviendo izquierda...");
                     int duracion = 10;
-                    if (i + 1 < instrucciones.Length - 1)
+                    if (i < instrucciones.Length - 1)
                     {
                         duracion = Int16.Parse(instrucciones[i + 1]);
                     }

@@ -18,8 +18,6 @@ Autor: Joan Daniel Guerrero Garcia
 public class BarraResultados : MonoBehaviour
 {
     public Image mask;
-    private float valorOriginal;
-
     public static BarraResultados instance;
 
     private void Awake()
@@ -27,13 +25,13 @@ public class BarraResultados : MonoBehaviour
         instance = this;
     }
 
-    void Start()
-    {
-        valorOriginal = mask.rectTransform.rect.width;
-    }
-
     public void SetValue(float value)
     {
-        mask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, valorOriginal * value);
+        /* 
+         * Cambia el valor de la longitud de la mascara que cubre la barra, 
+         * eso hace que se oculte parte de esta. Modifica el ancho de la mascara 
+         * conforme a su valor multiplicado por el valor dado.
+        */
+        mask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, mask.rectTransform.rect.width * value);
     }
 }

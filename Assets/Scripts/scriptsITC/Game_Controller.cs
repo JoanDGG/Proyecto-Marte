@@ -73,6 +73,7 @@ public class Game_Controller : MonoBehaviour
         final = PlayerPrefs.GetString("Nivel3Fin", "false");
         if(final == "true" || niv >= 4)
         {
+            puntaje = 5000.0f;
             final = "false";
             nivel = 1;
         }
@@ -80,7 +81,7 @@ public class Game_Controller : MonoBehaviour
         {
             nivel = niv;
         }
-        //print(nivel);
+        print(puntaje);
         Spawn(nivel);
         Pausar();
     }
@@ -131,8 +132,8 @@ public class Game_Controller : MonoBehaviour
         if ((fuegos_activos > 0 || puertas_abiertas > 0) && integridad >= 0)
         {
             integridad--;
-            puntaje -= 0.5f;
-            print(integridad);
+            puntaje -= 0.25f;
+            //print(integridad);
             if(puertas_abiertas > 0)
             {
                 aviso.text = "Puerta Abierta!";
@@ -294,6 +295,7 @@ public class Game_Controller : MonoBehaviour
     public void Guardar()
     {
         print("guardar" + nivel);
+        PlayerPrefs.SetFloat("Nivel3Puntaje", puntaje);
         PlayerPrefs.SetString("Nivel3Fin", final);
         PlayerPrefs.SetInt("Nivel3", nivel);
         PlayerPrefs.Save();
