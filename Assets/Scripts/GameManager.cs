@@ -20,7 +20,9 @@ public class GameManager
     public static bool respondido = false;
     public static string[] respuestas = new string[3];
     public static float puntuacion = 0.0f;
-    // variables estáticas de nivel industrial.
+
+    // Variables estáticas de nivel industrial.
+    // Precios.
     public static int precioCuerpo = 21;
     public static int precioLlantas = 10;
     public static int precioFrenos = 8;
@@ -29,10 +31,19 @@ public class GameManager
     public static int precioMotor = 8;
     public static int budget = 100 - (precioCuerpo + precioLlantas + precioFrenos + precioSuspension + precioChasis + precioMotor);// presupuesto con las partes más baratas en todas las categorías.
 
-    public static int[] cuerpo;
-    public static int[] llantas;
-    public static int[] frenos;
-    public static int[] suspensiones;
-    public static int[] chasis;
-    public static int[] motor;
+    // Índices de partes para reconstruir auto en escena distinta.
+    public static int[] cuerpo = { 0, 0};
+    public static int[] llantas = { 1, 0 };
+    public static int[] frenos = { 2, 0 };
+    public static int[] suspensiones = { 3, 0};
+    public static int[] chasis = { 4, 0};
+    public static int[] motor = { 5, 6};
+
+    // Valores de cualidades asociados con las partes del automóvil.
+    public static int volumen = 65;
+    public static int friccionLlantas;
+    public static int fuerzaFreno;
+    public static int calidadAmortiguamiento;
+    public static int resistencia;
+    public static int fuerzaMotor = 500;
 }
