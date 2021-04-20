@@ -28,7 +28,6 @@ public class MoverPersonaje : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 1;
         rigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprRenderer = GetComponent<SpriteRenderer>();
