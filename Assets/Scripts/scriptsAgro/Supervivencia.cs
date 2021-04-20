@@ -25,20 +25,24 @@ public class Supervivencia : MonoBehaviour
             print("Tormenta");
             anim.SetBool("Vida", false);
             GameManager.perder = true;
+            Time.timeScale = 0;
         }
         else if(other.gameObject.CompareTag("Sequia") && !GameManager.resist[3])
         {
             anim.SetBool("Vida", false);
             GameManager.perder = true;
+            Time.timeScale = 0;
         }
         else if(other.gameObject.CompareTag("Frio") && !GameManager.resist[2]){
             anim.SetBool("Vida", false);
             GameManager.perder = true;
+            Time.timeScale = 0;
         }
         else if(other.gameObject.CompareTag("Calor") && !GameManager.resist[1])
         {
             anim.SetBool("Vida", false);
             GameManager.perder = true;
+            Time.timeScale = 0;
         }
     }
 }

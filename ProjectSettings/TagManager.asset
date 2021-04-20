@@ -15,6 +15,7 @@ TagManager:
   - Enemy
   - Fuego
   - Auto
+  - Tierra
   layers:
   - Default
   - TransparentFX

@@ -7,7 +7,7 @@ public class GameManager
     // variables estáticas de nivel agropecuario
     public static bool primero = true;
     public static int tiempo = 0;
-    public static int tiempoLimite = 15;
+    public static int tiempoLimite = 60;
     public static bool evento = false;
     public static int tiempoEvento = 5;
     public static int reloj = tiempoLimite;

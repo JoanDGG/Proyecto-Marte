@@ -8,5 +8,7 @@ public class Destruye : MonoBehaviour
     {
         print("DESTRUYEEEEEEEE!!!!!!");
         Destroy(other.gameObject);
+        print("Felicidades! Ganaste 0.5 puntos");
+        GameManager.puntuacion += 0.5f;
     }
 }

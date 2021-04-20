@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 193423100}
   - component: {fileID: 193423099}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Listo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,10 +162,10 @@ RectTransform:
   m_Father: {fileID: 758356388}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 771.08704, y: -443.03262}
-  m_SizeDelta: {x: 320.4307, y: 126.2168}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -188.91296, y: 96.96738}
+  m_SizeDelta: {x: 320.43066, y: 126.2168}
   m_Pivot: {x: 0.4999999, y: 0.4999999}
 --- !u!114 &193423099
 MonoBehaviour:
@@ -189,10 +189,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.14915621, g: 0.745283, b: 0.12936985, a: 1}
-    m_HighlightedColor: {r: 0.21122034, g: 0.7169812, b: 0.117693104, a: 1}
-    m_PressedColor: {r: 0.062744714, g: 0.7075472, b: 0.06989621, a: 1}
+    m_HighlightedColor: {r: 0.14901961, g: 0.74509805, b: 0.12941177, a: 1}
+    m_PressedColor: {r: 0.14901961, g: 0.74509805, b: 0.12941177, a: 1}
     m_SelectedColor: {r: 0.09996435, g: 0.735849, b: 0.1101784, a: 1}
-    m_DisabledColor: {r: 0.05071197, g: 0.7264151, b: 0.05820619, a: 0.5019608}
+    m_DisabledColor: {r: 0.098039225, g: 0.7372549, b: 0.10980393, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -3242,7 +3242,7 @@ GameObject:
   - component: {fileID: 859729806}
   m_Layer: 0
   m_Name: DirtRow (2)
-  m_TagString: Untagged
+  m_TagString: Tierra
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3356,7 +3356,7 @@ GameObject:
   - component: {fileID: 901937824}
   m_Layer: 0
   m_Name: DirtRow
-  m_TagString: Untagged
+  m_TagString: Tierra
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18551,7 +18551,7 @@ GameObject:
   - component: {fileID: 1396011483}
   m_Layer: 0
   m_Name: DirtRow (1)
-  m_TagString: Untagged
+  m_TagString: Tierra
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19274,7 +19274,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f503601732e16bf40a6e6a1755db7bae, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7bacea4bdd42cd04a8b7b17d7185f0d1, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.01
   m_Pitch: 1
@@ -20336,7 +20336,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1944618198}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 

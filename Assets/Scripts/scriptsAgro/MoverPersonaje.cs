@@ -28,6 +28,7 @@ public class MoverPersonaje : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         rigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprRenderer = GetComponent<SpriteRenderer>();
@@ -112,6 +113,7 @@ public class MoverPersonaje : MonoBehaviour
             }
             if (GameManager.tiempo >= GameManager.tiempoLimite && !GameManager.evento)
             {
+                GameManager.tiempoLimite += 30;
                 audio.mute = true;
                 musica.mute = true;
                 alarma.GetComponent<Image>().enabled = false;
@@ -132,12 +134,14 @@ public class MoverPersonaje : MonoBehaviour
                         int b = (tor[i].tag == "Calor") ? 6 : 255;
                         GameObject peligro = GameObject.Find("Canvas/Calor-Frio");
                         Image image = peligro.GetComponent<Image>();
+                        image.enabled = true;
                         image.color = new Color32((byte) r, (byte) g, (byte) b, 255);
                         image.canvasRenderer.SetAlpha(0);
                         image.CrossFadeAlpha(1, 3, false);
                         yield return new WaitForSeconds(2.0f);
                         image.CrossFadeAlpha(0, 3, false);
                         yield return new WaitForSeconds(2.0f);
+                        image.enabled = false;
                     }
                     else if (tor[i].tag == "Sequia")
                     {
@@ -183,7 +187,6 @@ public class MoverPersonaje : MonoBehaviour
             if (GameManager.perder) //Perder
             {
                 print("Perdiste, tus patatas murieron");
-                Application.Quit();
             }
             else if(GameManager.oleada>=4) //Ganar
             {
@@ -191,9 +194,13 @@ public class MoverPersonaje : MonoBehaviour
                 print(GameManager.respuestas[0]);
                 print(GameManager.respuestas[1]);
                 print(GameManager.respuestas[2]);
-                Application.Quit();
             }
         }
+        if (GameManager.puntuacion > 5.0f)
+        {
+            GameManager.puntuacion = 5.0f;
+        }
+        print("Tu puntuación fue de " + GameManager.puntuacion.ToString() + " estrellas");
     }
 
     public void Responder(string respuesta)
@@ -201,5 +208,11 @@ public class MoverPersonaje : MonoBehaviour
         print(respuesta);
         GameManager.respondido = true;
         GameManager.respuestas[GameManager.oleada - 1] = respuesta;
+        string correcta = "A"; //Cambiar por respuestas de la base de datos
+        if (respuesta == correcta)
+        {
+            print("Felicidades! Ganaste 0.5 puntos");
+            GameManager.puntuacion += 0.5f;
+        }
     }
 }
