@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Linq;
 
 public class MoverPersonaje : MonoBehaviour
 {
@@ -24,10 +25,13 @@ public class MoverPersonaje : MonoBehaviour
     private AudioSource musica;
     public GameObject arena;
     public GameObject cuest;
+    private GameObject pausa;
 
     // Start is called before the first frame update
     void Start()
     {
+        //PlayerPrefs.DeleteAll();
+        pausa = (GameObject)GameObject.Find("Canvas/Pausar");
         rigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprRenderer = GetComponent<SpriteRenderer>();
@@ -45,11 +49,40 @@ public class MoverPersonaje : MonoBehaviour
         StartCoroutine(reloj());
         if (GameManager.primero)
         {
+            GameManager.tiempo = PlayerPrefs.GetInt("tiempo", GameManager.tiempo);
+            GameManager.tiempoLimite = PlayerPrefs.GetInt("tiempoLimite", GameManager.tiempoLimite);
+            GameManager.evento = (PlayerPrefs.GetInt("evento", 0)) == 1 ? true : false;
+            GameManager.reloj = PlayerPrefs.GetInt("reloj", GameManager.reloj);
+            GameManager.resist[0] = (PlayerPrefs.GetInt("resist0", 0)) == 1 ? true : GameManager.resist[0];
+            GameManager.resist[1] = (PlayerPrefs.GetInt("resist1", 0)) == 1 ? true : GameManager.resist[1];
+            GameManager.resist[2] = (PlayerPrefs.GetInt("resist2", 0)) == 1 ? true : GameManager.resist[2];
+            GameManager.resist[3] = (PlayerPrefs.GetInt("resist3", 0)) == 1 ? true : GameManager.resist[3];
+            GameManager.pagina = PlayerPrefs.GetInt("pagina", GameManager.pagina);
+            GameManager.genes[0] = PlayerPrefs.GetInt("genes0", GameManager.genes[0]);
+            GameManager.genes[1] = PlayerPrefs.GetInt("genes1", GameManager.genes[1]);
+            GameManager.genes[2] = PlayerPrefs.GetInt("genes2", GameManager.genes[2]);
+            GameManager.oleada = PlayerPrefs.GetInt("oleada", GameManager.oleada);
+            GameManager.respondido = (PlayerPrefs.GetInt("respondido", 0)) == 1 ? true : GameManager.respondido;
+            GameManager.respuestas[0] = PlayerPrefs.GetString("respuestas0", GameManager.respuestas[0]);
+            GameManager.respuestas[1] = PlayerPrefs.GetString("respuestas1", GameManager.respuestas[1]);
+            GameManager.respuestas[2] = PlayerPrefs.GetString("respuestas2", GameManager.respuestas[2]);
+            GameManager.puntuacion = PlayerPrefs.GetFloat("puntuacion", GameManager.puntuacion);
+            GameManager.clima[0] = -1;
+            GameManager.clima[1] = -1;
+            GameManager.clima[2] = -1;
             for (int i = 0; i < GameManager.oleada; i++)
             {
-                GameManager.clima[i] = Random.Range(0, evento.Length);
+                int eleccion=-1;
+                while (GameManager.clima.Contains(eleccion))
+                {
+                    eleccion = Random.Range(0, evento.Length);
+                }
+                GameManager.clima[i] = eleccion;
                 print("Elegi " + GameManager.clima[i].ToString());
             }
+            GameManager.clima[0] = PlayerPrefs.GetInt("clima0", GameManager.clima[0]);
+            GameManager.clima[1] = PlayerPrefs.GetInt("clima1", GameManager.clima[1]);
+            GameManager.clima[2] = PlayerPrefs.GetInt("clima0", GameManager.clima[2]);
             GameManager.primero = false;
         }
         for (int i = 0; i < GameManager.oleada; i++)
@@ -110,8 +143,9 @@ public class MoverPersonaje : MonoBehaviour
             {
                 audio.Play();
             }
-            if (GameManager.tiempo >= GameManager.tiempoLimite && !GameManager.evento)
+            if (GameManager.tiempo >= GameManager.tiempoLimite && !GameManager.evento) //Entrar al cuarto de seguridad
             {
+                pausa.SetActive(false);
                 GameManager.tiempoLimite += 30;
                 audio.mute = true;
                 musica.mute = true;
@@ -154,7 +188,7 @@ public class MoverPersonaje : MonoBehaviour
                     }
                 }
             }
-            else if (GameManager.tiempo >= GameManager.tiempoEvento && GameManager.evento)
+            else if (GameManager.tiempo >= GameManager.tiempoEvento && GameManager.evento) //Salir del cuarto de seguridad
             {
                 cuest.SetActive(true);
                 while (!GameManager.respondido)
@@ -164,6 +198,7 @@ public class MoverPersonaje : MonoBehaviour
                 GameManager.oleada++;
                 GameManager.respondido = false;
                 cuest.SetActive(false);
+                pausa.SetActive(true);
                 if (GameManager.oleada <= 3)
                 {
                     osc.GetComponent<Image>().enabled = true;
@@ -175,7 +210,12 @@ public class MoverPersonaje : MonoBehaviour
                     osc.GetComponent<Image>().enabled = false;
                     for (int i = 0; i < GameManager.oleada; i++)
                     {
-                        GameManager.clima[i] = Random.Range(0, evento.Length);
+                        int eleccion = -1;
+                        while (GameManager.clima.Contains(eleccion))
+                        {
+                            eleccion = Random.Range(0, evento.Length);
+                        }
+                        GameManager.clima[i] = eleccion;
                         print("Elegi " + GameManager.clima[i].ToString());
                         tor[i] = evento[GameManager.clima[i]];
                         Prediccion[i].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = eventos[GameManager.clima[i]];
@@ -200,6 +240,7 @@ public class MoverPersonaje : MonoBehaviour
             GameManager.puntuacion = 5.0f;
         }
         print("Tu puntuación fue de " + GameManager.puntuacion.ToString() + " estrellas");
+        PlayerPrefs.DeleteAll();
     }
 
     public void Responder(string respuesta)

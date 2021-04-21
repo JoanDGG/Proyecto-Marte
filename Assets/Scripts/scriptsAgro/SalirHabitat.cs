@@ -35,9 +35,10 @@ public class SalirHabitat : MonoBehaviour
         }
     }
 
-    public void Confirmar()
+    public void Confirmar(AudioSource audio)
     {
         print("GENES CONFIRMADOS");
+        audio.Play();
         for (int i = 0; i < GameManager.resist.Length; i++)
         {
             GameManager.resist[i] = false;
@@ -48,16 +49,76 @@ public class SalirHabitat : MonoBehaviour
             switch (listas[i].value)
             {
                 case 1:
-                    GameManager.resist[0] = true; //Resistencia Tormenta
+                    switch (i)
+                    {
+                        case 0: //+1
+                            GameManager.resist[0] = true; //Resistencia Tormenta
+                            break;
+                        case 1: //+1-1
+                            GameManager.resist[0] = true; //Resistencia Tormenta
+                            GameManager.resist[3] = false; //Debilidad Sequia
+                            break;
+                        case 2: //+2-2
+                            GameManager.resist[0] = true; //Resistencia Tormenta
+                            GameManager.resist[2] = true; //Resistencia Frio
+                            GameManager.resist[1] = false; //Debilidad Calor
+                            GameManager.resist[3] = false; //Debilidad Sequia
+                            break;
+                    }
                     break;
                 case 2:
-                    GameManager.resist[1] = true; //Resistencia Calor
+                    switch (i)
+                    {
+                        case 0: //+1
+                            GameManager.resist[1] = true; //Resistencia Calor
+                            break;
+                        case 1: //+1-1
+                            GameManager.resist[1] = true; //Resistencia Calor
+                            GameManager.resist[2] = false; //Debilidad Frio
+                            break;
+                        case 2: //+2-2
+                            GameManager.resist[1] = true; //Resistencia Calor
+                            GameManager.resist[3] = true; //Resistencia Sequia
+                            GameManager.resist[2] = false; //Debilidad Frio
+                            GameManager.resist[0] = false; //Debilidad Tormenta
+                            break;
+                    }
                     break;
                 case 3:
-                    GameManager.resist[2] = true; //Resistencia Frio
+                    switch (i)
+                    {
+                        case 0: //+1
+                            GameManager.resist[2] = true; //Resistencia Frio
+                            break;
+                        case 1: //+1-1
+                            GameManager.resist[2] = true; //Resistencia Frio
+                            GameManager.resist[0] = false; //Debilidad Tormenta
+                            break;
+                        case 2: //+2-2
+                            GameManager.resist[2] = true; //Resistencia Frio
+                            GameManager.resist[3] = true; //Resistencia Sequia
+                            GameManager.resist[1] = false; //Debilidad Calor
+                            GameManager.resist[0] = false; //Debilidad Tormenta
+                            break;
+                    }
                     break;
                 case 4:
-                    GameManager.resist[3] = true; //Resistencia Sequia
+                    switch (i)
+                    {
+                        case 0: //+1
+                            GameManager.resist[3] = true; //Resistencia Sequia
+                            break;
+                        case 1: //+1-1
+                            GameManager.resist[3] = true; //Resistencia Sequia
+                            GameManager.resist[1] = false; //Debilidad Calor
+                            break;
+                        case 2: //+2-2
+                            GameManager.resist[3] = true; //Resistencia Sequia
+                            GameManager.resist[0] = true; //Resistencia Tormenta
+                            GameManager.resist[2] = false; //Debilidad Frio
+                            GameManager.resist[1] = false; //Debilidad Calor
+                            break;
+                    }
                     break;
             }
         }

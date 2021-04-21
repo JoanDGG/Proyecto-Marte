@@ -2552,7 +2552,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b327bccd894a6d340b96e5fec7ad1679, type: 3}
     m_FontSize: 90
     m_FontStyle: 0
     m_BestFit: 0
@@ -2982,6 +2982,7 @@ GameObject:
   - component: {fileID: 758356385}
   - component: {fileID: 758356384}
   - component: {fileID: 758356389}
+  - component: {fileID: 758356390}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3108,6 +3109,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuPausa: {fileID: 509428024}
+--- !u!114 &758356390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758356383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bf1cbad7d7fb9f4ab4174601c32d54b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &789386856 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7813239934334285933, guid: 55ed45321df512a4789e24f93d748ea6, type: 3}
@@ -18421,7 +18434,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b327bccd894a6d340b96e5fec7ad1679, type: 3}
     m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
@@ -18595,7 +18608,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 68.97983, y: 599.36414}
+  m_AnchoredPosition: {x: 73, y: 599.36414}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1249859887
@@ -18619,8 +18632,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_Font: {fileID: 12800000, guid: b327bccd894a6d340b96e5fec7ad1679, type: 3}
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 8
@@ -18812,7 +18825,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b327bccd894a6d340b96e5fec7ad1679, type: 3}
     m_FontSize: 52
     m_FontStyle: 0
     m_BestFit: 0
@@ -20100,7 +20113,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b327bccd894a6d340b96e5fec7ad1679, type: 3}
     m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
@@ -20607,7 +20620,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b327bccd894a6d340b96e5fec7ad1679, type: 3}
     m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
@@ -21308,6 +21321,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 758356388}
     m_Modifications:
+    - target: {fileID: 578518559742251213, guid: a893984c9587a684f8e49631883cf8de, type: 3}
+      propertyPath: m_Name
+      value: Salir
+      objectReference: {fileID: 0}
     - target: {fileID: 771873572152182714, guid: a893984c9587a684f8e49631883cf8de, type: 3}
       propertyPath: m_Name
       value: menuPausa
@@ -21400,10 +21417,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 771873572312916697, guid: a893984c9587a684f8e49631883cf8de, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: b327bccd894a6d340b96e5fec7ad1679, type: 3}
     - target: {fileID: 771873572630397715, guid: a893984c9587a684f8e49631883cf8de, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 758356389}
+    - target: {fileID: 912920338854085051, guid: a893984c9587a684f8e49631883cf8de, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 912920338854085051, guid: a893984c9587a684f8e49631883cf8de, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 912920338854085051, guid: a893984c9587a684f8e49631883cf8de, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 758356390}
+    - target: {fileID: 912920338854085051, guid: a893984c9587a684f8e49631883cf8de, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 912920338854085051, guid: a893984c9587a684f8e49631883cf8de, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SalirMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 912920338854085051, guid: a893984c9587a684f8e49631883cf8de, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SalirYGuardarNivel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 912920338854085051, guid: a893984c9587a684f8e49631883cf8de, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2716073050344909807, guid: a893984c9587a684f8e49631883cf8de, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: b327bccd894a6d340b96e5fec7ad1679, type: 3}
+    - target: {fileID: 3149056146461408111, guid: a893984c9587a684f8e49631883cf8de, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: b327bccd894a6d340b96e5fec7ad1679, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a893984c9587a684f8e49631883cf8de, type: 3}
 --- !u!1001 &7813239934153694571
