@@ -14,7 +14,7 @@ public class Cuestionario : MonoBehaviour
 
     private string[] preguntas_ITC = { "¿Para que sirven las funciones?",
                                        "¿Que cosas se pueden hacer con la programacion?",
-                                       "¿Que son las cosas mas importantes para dedicarte a esta carrera?",
+                                       "¿Que son las cosas mas importantes para dedicarte a una carrera de programacion o robotica?",
                                        "¿Como se le llama al conjunto de instrucciones que resuelven un problema especifico?"};
     private string[] opcionesA_ITC = { "Para conocer el nombre de un conjunto de instrucciones",
                                        "Robots, videojuegos y paginas de internet",

@@ -37,19 +37,29 @@ public class LevelGateAnimation : MonoBehaviour
         if (other.CompareTag("Llave"))
         {
             // Si se quiere abrir la segunda puerta de la fase, se cierra la puerta anterior y se empieza el nivel
-            if (gameObject.name == "Level_gate 1-2") {
+            if (gameObject.name == "Level_gate 1-2")
+            {
                 GameObject.Find("Level_gate 1").GetComponent<LevelGateAnimation>().Close();
                 GetComponent<Animator>().SetTrigger("Open");
                 print("Empieza el nivel 2!");
                 game_controller.oleada = true;
                 aviso_nivel.SetActive(false);
             }
-            else if (gameObject.name == "Level_gate 2-3") {
+            else if (gameObject.name == "Level_gate 2-3")
+            {
                 GameObject.Find("Level_gate 2").GetComponent<LevelGateAnimation>().Close();
                 GetComponent<Animator>().SetTrigger("Open");
                 print("Empieza el nivel 3!");
                 game_controller.oleada = true;
                 aviso_nivel.SetActive(false);
+            }
+            else if (gameObject.name == "Level_gate 3-3")
+            {
+                if (!game_controller.oleada)
+                {
+                    GetComponent<Animator>().SetTrigger("Open");
+                    aviso_nivel.SetActive(false);
+                }
             }
         }
     }

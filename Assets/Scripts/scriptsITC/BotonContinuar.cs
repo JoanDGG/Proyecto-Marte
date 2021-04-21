@@ -10,6 +10,7 @@ public class BotonContinuar : MonoBehaviour
         if (Game_Controller.instance.nivel == 4)
         {
             Resultados.SetActive(true);
+            print(Game_Controller.instance.puntaje / 7000.0f);
             BarraResultados.instance.SetValue(Game_Controller.instance.puntaje / 7000.0f);
         }
     }

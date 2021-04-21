@@ -215,6 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99c7e5071740d9343a65792344771aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  facingRight: 1
   time: 120
   movementSpeed: 5
   jumpValue: 8

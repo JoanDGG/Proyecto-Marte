@@ -22,6 +22,7 @@ public class EnviarTexto : MonoBehaviour
     private PlayerMovement player;                  // Referencia al script PlayerMovement del personaje
     private Dictionary<string, string[]> funciones; // Diccionario con las posibles funciones que declare el usuario
     public Text textError;
+    private bool ejecucion = false;
 
     void Start()
     {
@@ -37,11 +38,15 @@ public class EnviarTexto : MonoBehaviour
         // Se reciben las instrucciones y se separan por puntos para analizar cada una
         instruccionesUsuario = Instrucciones.text.ToLower();
         string[] lineas = instruccionesUsuario.Split('.');
-        StartCoroutine(EjecutarInstruccion(lineas));
+        if (!ejecucion)
+        {
+            StartCoroutine(EjecutarInstruccion(lineas));
+        }
     }
 
     IEnumerator EjecutarInstruccion(string[] lineas)
     {
+        ejecucion = true;
         // Para cada linea de los comandos, se analiza palabra por palabra para mandar las instrucciones
         for (int comando = 0; comando < lineas.Length; comando++)
         {
@@ -60,11 +65,19 @@ public class EnviarTexto : MonoBehaviour
                         {
                             textError.text = "Te sobran espacios! (linea " + comando + ")";
                         }
+                        else if (instrucciones[i + 1].Length >= 2)
+                        {
+                            textError.text = "Te falta un punto! (linea " + comando + ")";
+                        }
                         else
                         {
                             // Se convierte la cantidad de string a int
                             duracion = Mathf.Clamp(Int16.Parse(instrucciones[i + 1]), 0, 50);
                         }
+                    }
+                    else if (instrucciones[i].Length > 3)
+                    {
+                        textError.text = "Te falta un punto! (linea " + comando + ")";
                     }
                     wait += duracion / 2;
                     player.MoveRight(duracion);
@@ -79,11 +92,19 @@ public class EnviarTexto : MonoBehaviour
                         {
                             textError.text = "Te sobran espacios! (linea " + comando + ")";
                         }
+                        else if (instrucciones[i + 1].Length >= 2)
+                        {
+                            textError.text = "Te falta un punto! (linea " + comando + ")";
+                        }
                         else
                         {
                             // Se convierte la cantidad de string a int
                             duracion = Mathf.Clamp(Int16.Parse(instrucciones[i + 1]), 0, 50);
                         }
+                    }
+                    else if (instrucciones[i].Length > 3)
+                    {
+                        textError.text = "Te falta un punto! (linea " + comando + ")";
                     }
                     wait += duracion / 2;
                     player.MoveLeft(duracion);
@@ -97,11 +118,19 @@ public class EnviarTexto : MonoBehaviour
                         {
                             textError.text = "Te sobran espacios! (linea " + comando + ")";
                         }
+                        else if (instrucciones[i + 1].Length >= 2)
+                        {
+                            textError.text = "Te falta un punto! (linea " + comando + ")";
+                        }
                         else
                         {
                             // Se convierte la cantidad de string a int
                             force = Mathf.Clamp(Int16.Parse(instrucciones[i + 1]), 0, 25);
                         }
+                    }
+                    else if (instrucciones[i].Length > 3)
+                    {
+                        textError.text = "Te falta un punto! (linea " + comando + ")";
                     }
                     //Debug.Log("Esperando...");
 
@@ -112,8 +141,12 @@ public class EnviarTexto : MonoBehaviour
                     player.Jump(force);
                     wait += 5;
                 }
-                else if (instrucciones[i].Contains("atk"))
+                else if (instrucciones[i].Contains("pow"))
                 {
+                    if (instrucciones[i].Length > 3)
+                    {
+                        textError.text = "Te falta un punto! (linea " + comando + ")";
+                    }
                     while (!is_grounded_controller.is_grounded) yield return null;
                     Debug.Log("Atacando...");
                     player.Attack();
@@ -121,6 +154,10 @@ public class EnviarTexto : MonoBehaviour
                 }
                 else if (instrucciones[i].Contains("fuego"))
                 {
+                    if (instrucciones[i].Length > 5)
+                    {
+                        textError.text = "Te falta un punto! (linea " + comando + ")";
+                    }
                     Debug.Log("Apagando fuego...");
                     player.Fire();
                     wait += 4;
@@ -129,7 +166,7 @@ public class EnviarTexto : MonoBehaviour
                 {
                     // El nombre de la funcion es la palabra que va despues de func
                     string nombre_funcion = instrucciones[i + 1];
-                    
+
                     // Se revisa si la funcion aun no existe
                     if (!funciones.ContainsKey(nombre_funcion))
                     {
@@ -139,9 +176,9 @@ public class EnviarTexto : MonoBehaviour
                         while (linea + 1 < lineas.Length)
                         {
                             /* Si se encuentra el comando "alto" o el nombre de la funcion, se detiene.
-                             * Se decidio evitar la recursividad por cualquier loop infinito.
-                             */
-                            if(lineas[linea].Contains("alto") || lineas[linea].Contains(nombre_funcion))
+                                * Se decidio evitar la recursividad por cualquier loop infinito.
+                                */
+                            if (lineas[linea].Contains("alto") || lineas[linea].Contains(nombre_funcion))
                             {
                                 break;
                             }
@@ -154,9 +191,9 @@ public class EnviarTexto : MonoBehaviour
                     StartCoroutine(EjecutarInstruccion(funciones[nombre_funcion]));
                 }
             }
-            
             //Debug.Log(wait * 0.1f);
             yield return new WaitForSeconds(wait * 0.1f);
         }
+        ejecucion = false;
     }
 }

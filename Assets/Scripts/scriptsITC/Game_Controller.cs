@@ -127,7 +127,7 @@ public class Game_Controller : MonoBehaviour
         }
         if (fuegos_activos <= 0 && puertas_abiertas <= 0)
         {
-                aviso.text = "Estable";
+            aviso.text = "Estable";
         }
         if ((fuegos_activos > 0 || puertas_abiertas > 0) && integridad >= 0)
         {
@@ -272,7 +272,7 @@ public class Game_Controller : MonoBehaviour
         }
         nivel += 1;
         integridad = 7000.0f;
-        puntaje += 500;
+        puntaje = Mathf.Clamp(puntaje+50, 0, 7000);
         imagen_alerta.SetActive(false);
         Alerta.enabled = false;
         Guardar();
