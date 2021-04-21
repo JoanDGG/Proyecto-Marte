@@ -6335,7 +6335,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &609392429
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9385,8 +9385,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidadLimiteGas: 20
-  fuerzaArranque: 150
-  fuerzaFreno: -300
+  fuerzaMotor: 200
+  bonusLlantas: 0
+  fuerzaFreno: -150
   reversa: -10
 --- !u!1 &1529088509
 GameObject:
