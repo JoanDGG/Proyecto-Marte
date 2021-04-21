@@ -127,7 +127,7 @@ public class Game_Controller : MonoBehaviour
         }
         if (fuegos_activos <= 0 && puertas_abiertas <= 0)
         {
-                aviso.text = "Estable";
+            aviso.text = "Estable";
         }
         if ((fuegos_activos > 0 || puertas_abiertas > 0) && integridad >= 0)
         {
