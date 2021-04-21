@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PruebaAutomovil.unity
     guid: 3352a8c38adff4cd7b24ab1cf3d613ca
+  - enabled: 1
+    path: Assets/Scenes/MenuMisiones.unity
+    guid: cc83a1fb4dbd44c558f2540d481d7e67
   m_configObjects: {}
