@@ -52,7 +52,18 @@ public class PlayerMovement : MonoBehaviour
             Jump(jumpValue);
         }
 
-        if(inputFire || fire_active)
+        if (rigidbody2d.velocity.y > 0.1)
+        {
+            gameObject.layer = 7;
+            gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        }
+        else
+        {
+            gameObject.layer = 6;
+            gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        }
+
+        if (inputFire || fire_active)
         {
             animator.SetBool("extintor", true);
             //Debug.Log("Apagando fuego...");
@@ -180,7 +191,6 @@ public class PlayerMovement : MonoBehaviour
             //Debug.Log("Jump");
             //Debug.Log(force);
         }
-
     }
 
     public void Release()

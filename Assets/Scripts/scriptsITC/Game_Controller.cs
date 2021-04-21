@@ -272,7 +272,7 @@ public class Game_Controller : MonoBehaviour
         }
         nivel += 1;
         integridad = 7000.0f;
-        puntaje += 500;
+        puntaje = Mathf.Clamp(puntaje+50, 0, 7000);
         imagen_alerta.SetActive(false);
         Alerta.enabled = false;
         Guardar();
