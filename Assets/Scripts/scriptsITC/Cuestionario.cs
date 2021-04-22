@@ -15,6 +15,7 @@ public class Cuestionario : MonoBehaviour
     public Text opcionC;
     public Text respuestaTexto;
     private string[] preguntas = new string[4];
+    private string[] idpreguntas = new string[4];
     private string[] opciones = new string[12];
     private string[] opciones_correctas = new string[4];
     private string respuesta;
@@ -22,8 +23,15 @@ public class Cuestionario : MonoBehaviour
 
     public void DesbloquearPreguntas()
     {
-        GetJSON.instance.LeerJSON("pregunta/verPreguntasDato?dato=texto");
+        print("Nivel Global: " + GameManager.nivelGlobal);
+        GetJSON.instance.LeerJSON("pregunta/verPreguntasDato?dato=texto&NivelIdNivel=" + GameManager.nivelGlobal);
         StartCoroutine(EsperarPregunta());
+    }
+
+    public void DesbloquearIdPreguntas()
+    {
+        GetJSON.instance.LeerJSON("pregunta/verPreguntasDato?dato=id&NivelIdNivel=" + GameManager.nivelGlobal);
+        StartCoroutine(EsperarIdPregunta());
     }
 
     public void DesbloquearOpciones(int pregunta)
@@ -35,7 +43,7 @@ public class Cuestionario : MonoBehaviour
 
     public void DesbloquearOpcionCorrecta()
     {
-        GetJSON.instance.LeerJSON("pregunta/verPreguntasDato?dato=opcion_correcta");
+        GetJSON.instance.LeerJSON("pregunta/verPreguntasDato?dato=opcion_correcta&NivelIdNivel=" + GameManager.nivelGlobal);
         StartCoroutine(EsperarOpcionCorrecta());
     }
 
@@ -58,7 +66,7 @@ public class Cuestionario : MonoBehaviour
 
     private IEnumerator EsperarPregunta()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         preguntas = GetJSON.instance.elementos.ToArray();
         print(preguntas.Length);
         nivel = Game_Controller.instance.nivel - 2;
@@ -69,12 +77,20 @@ public class Cuestionario : MonoBehaviour
         }
         print("pregunta: " + preguntas[nivel]);
         pregunta.text = preguntas[nivel];
+        DesbloquearIdPreguntas();
+    }
+
+    private IEnumerator EsperarIdPregunta()
+    {
+        yield return new WaitForSeconds(0.3f);
+        idpreguntas = GetJSON.instance.elementos.ToArray();
+        print(idpreguntas.Length);
         DesbloquearOpciones(nivel + 1);
     }
 
     private IEnumerator EsperarOpciones()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         opciones = GetJSON.instance.elementos.ToArray();
         print(opciones.Length);
         opcionA.text = opciones[0];
@@ -85,7 +101,7 @@ public class Cuestionario : MonoBehaviour
 
     private IEnumerator EsperarOpcionCorrecta()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         opciones_correctas = GetJSON.instance.elementos.ToArray();
         print(opciones_correctas.Length);
         opcion_correcta = opciones_correctas[nivel];

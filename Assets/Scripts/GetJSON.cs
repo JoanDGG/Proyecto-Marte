@@ -26,6 +26,7 @@ public class GetJSON : MonoBehaviour
     // Inicio es síncrono, pero termina antes del codigo asíncrono
     private IEnumerator DescargarJSON(String ruta)
     {
+        print("http://localhost:8080/" + ruta);
         UnityWebRequest request = UnityWebRequest.Get("http://localhost:8080/" + ruta);
         yield return request.SendWebRequest(); //Ejecuta, regresa, espera...
         //Ya regresó... continuar...
