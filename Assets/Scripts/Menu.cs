@@ -9,8 +9,8 @@ public class Menu : MonoBehaviour
     // Metodo que atiende al boton
     public void Jugar()
     {
-        // Cambiar a la escena 'EscenaMapa'
-        SceneManager.LoadScene("EscenaMapa");
+        // Cambiar a la escena 'EscenaTransicion'
+        SceneManager.LoadScene("EscenaTransicion");
     }
 
     public void MainMenu()
