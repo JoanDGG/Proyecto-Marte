@@ -16,6 +16,10 @@ TagManager:
   - Fuego
   - Auto
   - Tierra
+  - SeleccionCohete
+  - SeleccionLab
+  - SeleccionMaquinas
+  - SeleccionTaller
   layers:
   - Default
   - TransparentFX
