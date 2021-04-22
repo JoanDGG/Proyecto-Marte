@@ -11,6 +11,6 @@ public class Moneda : MonoBehaviour
     {
         gameObject.SetActive(false);
         imagenPreguntas.SetActive(true);
-        cuestionario.Desbloquear();
+        cuestionario.DesbloquearPreguntas();
     }
 }

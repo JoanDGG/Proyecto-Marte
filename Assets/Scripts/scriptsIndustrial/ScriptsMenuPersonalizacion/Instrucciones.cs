@@ -23,9 +23,4 @@ public class Instrucciones : MonoBehaviour
         this.transform.GetChild(22).gameObject.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
