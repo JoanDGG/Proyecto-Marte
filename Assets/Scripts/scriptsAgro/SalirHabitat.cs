@@ -58,10 +58,9 @@ public class SalirHabitat : MonoBehaviour
                             GameManager.resist[0] = true; //Resistencia Tormenta
                             GameManager.resist[3] = false; //Debilidad Sequia
                             break;
-                        case 2: //+2-2
+                        case 2: //+2-1
                             GameManager.resist[0] = true; //Resistencia Tormenta
                             GameManager.resist[2] = true; //Resistencia Frio
-                            GameManager.resist[1] = false; //Debilidad Calor
                             GameManager.resist[3] = false; //Debilidad Sequia
                             break;
                     }
@@ -76,10 +75,9 @@ public class SalirHabitat : MonoBehaviour
                             GameManager.resist[1] = true; //Resistencia Calor
                             GameManager.resist[2] = false; //Debilidad Frio
                             break;
-                        case 2: //+2-2
+                        case 2: //+2-1
                             GameManager.resist[1] = true; //Resistencia Calor
                             GameManager.resist[3] = true; //Resistencia Sequia
-                            GameManager.resist[2] = false; //Debilidad Frio
                             GameManager.resist[0] = false; //Debilidad Tormenta
                             break;
                     }
@@ -94,11 +92,10 @@ public class SalirHabitat : MonoBehaviour
                             GameManager.resist[2] = true; //Resistencia Frio
                             GameManager.resist[0] = false; //Debilidad Tormenta
                             break;
-                        case 2: //+2-2
+                        case 2: //+2-1
                             GameManager.resist[2] = true; //Resistencia Frio
                             GameManager.resist[3] = true; //Resistencia Sequia
                             GameManager.resist[1] = false; //Debilidad Calor
-                            GameManager.resist[0] = false; //Debilidad Tormenta
                             break;
                     }
                     break;
@@ -112,11 +109,10 @@ public class SalirHabitat : MonoBehaviour
                             GameManager.resist[3] = true; //Resistencia Sequia
                             GameManager.resist[1] = false; //Debilidad Calor
                             break;
-                        case 2: //+2-2
+                        case 2: //+2-1
                             GameManager.resist[3] = true; //Resistencia Sequia
                             GameManager.resist[0] = true; //Resistencia Tormenta
                             GameManager.resist[2] = false; //Debilidad Frio
-                            GameManager.resist[1] = false; //Debilidad Calor
                             break;
                     }
                     break;

@@ -96,6 +96,15 @@ public class MoverPersonaje : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown("space")) //Herramienta de desarrollador
+        {
+            print("Hackerman");
+            for (int i = 0; i < 4; i++) //Para hacer pruebas
+            {
+                GameManager.resist[i] = true;
+            }
+
+        }
         float movHorizontal = Input.GetAxis("Horizontal");
         float movVertical = Input.GetAxis("Vertical");
         rigidbody.velocity = new Vector2(movHorizontal * velocidad, movVertical * velocidad);
@@ -239,6 +248,7 @@ public class MoverPersonaje : MonoBehaviour
         {
             GameManager.puntuacion = 5.0f;
         }
+        pausa.SetActive(false);
         print("Tu puntuación fue de " + GameManager.puntuacion.ToString() + " estrellas");
         PlayerPrefs.DeleteAll();
     }

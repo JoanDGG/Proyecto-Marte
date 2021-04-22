@@ -6480,13 +6480,13 @@ MonoBehaviour:
     m_Options:
     - m_Text: NInguno
       m_Image: {fileID: 0}
-    - m_Text: TOR/FRIOcal/seq
+    - m_Text: TOR/FRIOseq
       m_Image: {fileID: 0}
-    - m_Text: CAL/SEQfrio/tor
+    - m_Text: CAL/SEQtor
       m_Image: {fileID: 0}
-    - m_Text: FRIO/SEQcal/tor
+    - m_Text: FRIO/SEQcal
       m_Image: {fileID: 0}
-    - m_Text: SEQ/TORfrio/cal
+    - m_Text: SEQ/TORfrio
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
