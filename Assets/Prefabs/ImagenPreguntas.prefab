@@ -157,7 +157,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Para cambiar los valores de las instrucciones por el nombre de la funci\xF3n"
+  m_Text: Opcion
 --- !u!1 &2421656263748562040
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,13 +171,14 @@ GameObject:
   - component: {fileID: 2421656263748562042}
   - component: {fileID: 2421656263748562041}
   - component: {fileID: 2421656263748562045}
+  - component: {fileID: 146230750}
   m_Layer: 5
   m_Name: ImagenPreguntas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2421656263748562044
 RectTransform:
   m_ObjectHideFlags: 0
@@ -271,7 +272,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04a18d60abccaf84d99e5d086c29d2d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Resultados: {fileID: 6528107461448040421, guid: 3008c526a56c5f747aff2694322eb148, type: 3}
+  Resultados: {fileID: 0}
+--- !u!114 &146230750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2421656263748562040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6453915e427c18c4ca2e46475f0d28a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementos: []
 --- !u!1 &2421656263986378312
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,7 +416,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: a
+          m_StringArgument: A
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 2421656264302589514}
@@ -942,7 +956,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Para conocer el nombre de un conjunto de instrucciones\r"
+  m_Text: Opcion
 --- !u!1 &2421656264705261893
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,7 +1087,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: c
+          m_StringArgument: C
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 2421656264302589514}
@@ -1226,7 +1240,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Para tener una forma mas facil y rapida de acceder a varias instrucciones
+  m_Text: Opcion
 --- !u!1 &2421656264920145174
 GameObject:
   m_ObjectHideFlags: 0
@@ -1436,7 +1450,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b
+          m_StringArgument: B
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 2421656264302589514}
