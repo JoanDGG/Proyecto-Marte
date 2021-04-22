@@ -29,5 +29,3 @@ public class AstronautaMenu : MonoBehaviour
         }
     }
 }
-
-//AstronautaMenu
