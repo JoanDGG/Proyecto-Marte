@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking; //Para red
 
 public class Cuestionario : MonoBehaviour
 {
@@ -11,117 +14,80 @@ public class Cuestionario : MonoBehaviour
     public Text opcionB;
     public Text opcionC;
     public Text respuestaTexto;
-
-    private string[] preguntas_ITC = { "¿Para que sirven las funciones?",
-                                       "¿Que cosas se pueden hacer con la programacion?",
-                                       "¿Que son las cosas mas importantes para dedicarte a una carrera de programacion o robotica?",
-                                       "¿Como se le llama al conjunto de instrucciones que resuelven un problema especifico?"};
-    private string[] opcionesA_ITC = { "Para conocer el nombre de un conjunto de instrucciones",
-                                       "Robots, videojuegos y paginas de internet",
-                                       "Paciencia y Originalidad",
-                                       "Programa"};
-    private string[] opcionesB_ITC = { "Para tener una forma mas facil y rapida de acceder a varias instrucciones",
-                                       "Construir edificios, viajar al espacio y crear musica",
-                                       "Creatividad, Determinacion, y Pensamiento logico",
-                                       "Software"};
-    private string[] opcionesC_ITC = { "Para cambiar los valores de las instrucciones por el nombre de la función",
-                                       "Viajar en el tiempo, crear aplicaciones y crear inteligencia artificial",
-                                       "Pensamiento rapido y trabajo en equipo",
-                                       "Computadora"};
-
+    private string[] preguntas = new string[4];
+    private string[] opciones = new string[12];
+    private string[] opciones_correctas = new string[4];
     private string respuesta;
-    
-    // Update is called once per frame
-    public void Desbloquear()
-    {
-        //StartCoroutine(DescargarTextoPlano());
-        nivel = Game_Controller.instance.nivel - 2;
-        print("pregunta del nivel " + nivel);
-        if(nivel == 2)
-        {
-            Random.Range(2, 3);
-        }
-        pregunta.text = preguntas_ITC[nivel];
-        opcionA.text = opcionesA_ITC[nivel];
-        opcionB.text = opcionesB_ITC[nivel];
-        opcionC.text = opcionesC_ITC[nivel];
+    private string opcion_correcta;
 
+    public void DesbloquearPreguntas()
+    {
+        GetJSON.instance.LeerJSON("pregunta/verPreguntasDato?dato=texto");
+        StartCoroutine(EsperarPregunta());
+    }
+
+    public void DesbloquearOpciones(int pregunta)
+    {
+        print("PreguntaId: " + pregunta);
+        GetJSON.instance.LeerJSON("opcion/verOpcionPregunta?PreguntumId=" + pregunta);
+        StartCoroutine(EsperarOpciones());
+    }
+
+    public void DesbloquearOpcionCorrecta()
+    {
+        GetJSON.instance.LeerJSON("pregunta/verPreguntasDato?dato=opcion_correcta");
+        StartCoroutine(EsperarOpcionCorrecta());
     }
 
     public void Responder(string res)
     {
         respuesta = res;
         print("Respondío: " + respuesta);
-        if(nivel == 0)
+        print(opcion_correcta);
+        if (respuesta == opcion_correcta)
         {
-            if(respuesta == "b")
-            {
-                print("Respuesta correcta!");
-                respuestaTexto.text = "Respuesta correcta!";
-            }
-            else
-            {
-                print("Respuesta incorrecta :(");
-                respuestaTexto.text = "Respuesta incorrecta :(";
-            }
+            print("Respuesta correcta!");
+            respuestaTexto.text = "Respuesta correcta!";
         }
-        else if (nivel == 1)
+        else
         {
-            if (respuesta == "a")
-            {
-                print("Respuesta correcta!");
-                respuestaTexto.text = "Respuesta correcta!";
-            }
-            else
-            {
-                print("Respuesta incorrecta :(");
-                respuestaTexto.text = "Respuesta incorrecta :(";
-            }
-        }
-        else if (nivel == 2)
-        {
-            if (respuesta == "b")
-            {
-                print("Respuesta correcta!");
-                respuestaTexto.text = "Respuesta correcta!";
-            }
-            else
-            {
-                print("Respuesta incorrecta :(");
-                respuestaTexto.text = "Respuesta incorrecta :(";
-            }
-        }
-        else if (nivel == 3)
-        {
-            if (respuesta == "a")
-            {
-                print("Respuesta correcta!");
-                respuestaTexto.text = "Respuesta correcta!";
-            }
-            else
-            {
-                print("Respuesta incorrecta :(");
-                respuestaTexto.text = "Respuesta incorrecta :(";
-            }
+            print("Respuesta incorrecta :(");
+            respuestaTexto.text = "Respuesta incorrecta :(";
         }
     }
 
-    //PENDIENTE RECIBIR DATOS DE BASE DE DATOS
+    private IEnumerator EsperarPregunta()
+    {
+        yield return new WaitForSeconds(0.1f);
+        preguntas = GetJSON.instance.elementos.ToArray();
+        print(preguntas.Length);
+        nivel = Game_Controller.instance.nivel - 2;
+        print("pregunta del nivel " + nivel);
+        if (nivel == 2)
+        {
+            nivel = UnityEngine.Random.Range(2, 3);
+        }
+        print("pregunta: " + preguntas[nivel]);
+        pregunta.text = preguntas[nivel];
+        DesbloquearOpciones(nivel + 1);
+    }
 
-    //// Inicio es síncrono, pero termina antes del codigo asíncrono
-    //private IEnumerator DescargarTextoPlano()
-    //{
-    //    UnityWebRequest request = UnityWebRequest.Get("http://localhost:8080/plantillaEJS");
-    //    yield return request.SendWebRequest(); //Ejecuta, regresa, espera...
-    //    //Ya regresó... continuar...
-    //    if (request.result == UnityWebRequest.Result.Success)
-    //    {   //Procesar resultados
-    //        string textoPlano = request.downloadHandler.text;
-    //        resultado.text = textoPlano;
-    //    }
-    //    else
-    //    {
-    //        resultado.text = "Error en la descarga " + request.responseCode.ToString();
-    //    }
-    //}
+    private IEnumerator EsperarOpciones()
+    {
+        yield return new WaitForSeconds(0.1f);
+        opciones = GetJSON.instance.elementos.ToArray();
+        print(opciones.Length);
+        opcionA.text = opciones[0];
+        opcionB.text = opciones[1];
+        opcionC.text = opciones[2];
+        DesbloquearOpcionCorrecta();
+    }
+
+    private IEnumerator EsperarOpcionCorrecta()
+    {
+        yield return new WaitForSeconds(0.1f);
+        opciones_correctas = GetJSON.instance.elementos.ToArray();
+        print(opciones_correctas.Length);
+        opcion_correcta = opciones_correctas[nivel];
+    }
 }
