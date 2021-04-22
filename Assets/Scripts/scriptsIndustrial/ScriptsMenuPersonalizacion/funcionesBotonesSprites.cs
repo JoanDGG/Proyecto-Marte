@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 
 /*
-Script que hace que cambien los sprites del automovil cuando el usuario haga click entre las opciones.
+Script que hace que cambien los sprites del automovil cuando el usuario haga click entre las opciones y el sonido.
 Además revisa que el cambio de pieza lo permita su presupuesto.
 Finalmente exporta las funcionalidades de las partes.
 Autor: Luis Ignacio Ferro Salinas A01378248
-Última actualización: 15 de abril 
+Última actualización: 21 de abril 
 */
 
 public class funcionesBotonesSprites : MonoBehaviour
@@ -50,8 +50,14 @@ public class funcionesBotonesSprites : MonoBehaviour
     // Referencia a un AudioSource para emitir el sonido de error cuando el usuario intenta cambiar una pieza y no le alcanza.
     public AudioSource sonidoWrong;
 
+    // Referencia a un AudioSource para el sonido de cambio de parte.
+    public AudioSource sonidoCambioParte;
+
     private void CambiaParte(int indiceParte, int indiceSprite) {
         // Función para cambiar todas las partes del automóvil, teniendo una opción de sprite seleccionada.
+
+        // Se emite el sonido de cambio de parte.
+        sonidoCambioParte.Play();
 
         // Para partes que solo se encuentran 1 vez en el auto (cuerpo, motor, chasis)
         if (indiceParte == 0 || (indiceParte >= 4 && indiceParte <= 5))

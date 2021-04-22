@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /*
 Este script sirve para darle movimiento al automóvil y su sonido al moverse.
@@ -55,6 +56,14 @@ public class MovimientoAutimovil : MonoBehaviour
     private AudioSource sonidoArranque;
     private AudioSource sonidoFinal;
 
+    // Las imágenes para expresar si el jugador puede cambiar de velocidad.
+    public Image imagenAcelera;
+    public Image imagenFrena;
+    public Image imagenReversa;
+
+    // Los colores para indicar si puede cambiar de velocidad;
+    public Color rojo;
+    public Color verde;
 
     private void ApagaSonidosAutomovil()
     {
@@ -83,6 +92,11 @@ public class MovimientoAutimovil : MonoBehaviour
 
         // Sonido de idle al inicio.
         sonidoIdle.Play();
+
+        // Siempre se puede frenar.
+        imagenFrena.color = verde;
+        imagenAcelera.color = verde;
+        imagenReversa.color = verde;
     }
 
     private void Update()
@@ -126,6 +140,13 @@ public class MovimientoAutimovil : MonoBehaviour
             reversando = true;
             frenando = false;
 
+            // En reversa y idle dejo el mismo sonido.
+            if (!sonidoIdle.isPlaying)
+            {
+                ApagaSonidosAutomovil();
+                sonidoIdle.Play();
+            }
+
             // La velocidad de reversa.
             this.GetComponent<Rigidbody2D>().velocity = new Vector2(reversa, 0f);
         }
@@ -156,7 +177,7 @@ public class MovimientoAutimovil : MonoBehaviour
             }
         } 
 
-        // Cuando el usuario no frena lo suficiente para cambiar de velocidad.
+        // Usuario no entra en ningún estado anterior pero el auto se sigue moviendo.
         else if (Mathf.Abs(velocidadActualX) > 5)
         {
             // Usuario no presiona ningún botón de movimiento (idle)
@@ -165,16 +186,20 @@ public class MovimientoAutimovil : MonoBehaviour
                 ApagaSonidosAutomovil();
                 sonidoIdle.Play();
             }
-            print("Frena lo suficiente para cambiar de velocidad");
+            //print("Frena lo suficiente para cambiar de velocidad");
         } else
         {
+            acelerando = false;
+            frenando = false;
+            reversando = false;
+
             // Usuario no presiona ningún botón de movimiento (idle)
             if (!sonidoIdle.isPlaying)
             {
                 ApagaSonidosAutomovil();
                 sonidoIdle.Play();
             }
-            print("idle");
+            //print("idle");
         }
 
         // Animaciones de girar las llantas. (Gas)
@@ -183,6 +208,23 @@ public class MovimientoAutimovil : MonoBehaviour
             this.transform.GetChild(1).GetChild(0).GetComponent<Transform>().Rotate(0f, 0f, -velocidadActualX, Space.Self);
             this.transform.GetChild(1).GetChild(1).GetComponent<Transform>().Rotate(0f, 0f, -velocidadActualX, Space.Self);
         }
+
+        print(velocidadActualX);
+        // Convierto los colores de las imágenes.
+        if (velocidadActualX > 5)
+        {
+            print("no reversa");
+            imagenReversa.color = rojo;
+        }
+        else if (velocidadActualX < -5) {
+            print("no acelera");
+            imagenAcelera.color = rojo;
+        } else
+        {
+            imagenAcelera.color = verde;
+            imagenReversa.color = verde;
+        }
+
     }
 
 }
