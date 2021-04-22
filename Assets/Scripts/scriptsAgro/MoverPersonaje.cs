@@ -96,7 +96,7 @@ public class MoverPersonaje : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space")) //Herramienta de desarrollador
+        if (Input.GetKey("h") && Input.GetKey("a") && Input.GetKey("c") && Input.GetKey("k")) //Herramienta de desarrollador
         {
             print("Hackerman");
             for (int i = 0; i < 4; i++) //Para hacer pruebas

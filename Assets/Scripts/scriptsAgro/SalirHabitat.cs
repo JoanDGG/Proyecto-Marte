@@ -110,7 +110,7 @@ public class SalirHabitat : MonoBehaviour
                             GameManager.resist[1] = false; //Debilidad Calor
                             break;
                         case 2: //+2-1
-                            GameManager.resist[3] = true; //Resistencia Sequia
+                            GameManager.resist[1] = true; //Resistencia Calor
                             GameManager.resist[0] = true; //Resistencia Tormenta
                             GameManager.resist[2] = false; //Debilidad Frio
                             break;
