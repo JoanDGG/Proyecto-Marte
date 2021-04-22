@@ -219,7 +219,7 @@ public class MoverPersonaje : MonoBehaviour
                     osc.GetComponent<Image>().enabled = false;
                     for (int i = 0; i < GameManager.oleada; i++)
                     {
-                        int eleccion = -1;
+                        int eleccion = Random.Range(0, evento.Length);
                         while (GameManager.clima.Contains(eleccion))
                         {
                             eleccion = Random.Range(0, evento.Length);

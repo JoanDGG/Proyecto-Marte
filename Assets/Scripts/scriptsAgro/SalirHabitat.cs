@@ -11,7 +11,7 @@ public class SalirHabitat : MonoBehaviour
     public GameObject adn;
     public GameObject info;
     public GameObject main;
-    public GameObject[] paginas = new GameObject[2];
+    public GameObject[] paginas = new GameObject[4];
 
     void Start()
     {
