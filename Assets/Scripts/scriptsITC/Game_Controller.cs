@@ -66,6 +66,7 @@ public class Game_Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.nivelGlobal = 2;
         constante_original = constante;
         aviso = GameObject.Find("Aviso").GetComponent<Text>();
         puntaje = PlayerPrefs.GetFloat("Nivel3Puntaje", 7000.0f);

@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class GameManager
 {
+    // Variables globales
+    public static int nivelGlobal = 0;
+    //          1 -> Nivel Nave
+    //          2 -> Nivel Robot
+    //          3 -> Nivel Coche
+    //          4 -> Nivel Agro
+
     // variables estáticas de nivel agropecuario
     public static bool primero = true;
     public static int tiempo = 0;
