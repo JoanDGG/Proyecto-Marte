@@ -41,7 +41,7 @@ public class LogIn : MonoBehaviour
             }
             else
             {
-
+                GameManager.GamerTag = Gamertag.text;
             }
             resultado.text = texto;
         }
@@ -53,7 +53,7 @@ public class LogIn : MonoBehaviour
         {
             yield return new WaitForSeconds(3.0f);
             inicio = System.DateTime.Now;
-            SceneManager.LoadScene("ColoniaMarte");
+            SceneManager.LoadScene("EscenaTransicion");
         }
     }
 }

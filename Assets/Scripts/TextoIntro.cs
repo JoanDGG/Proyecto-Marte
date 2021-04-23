@@ -44,7 +44,6 @@ public class TextoIntro : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.GamerTag = "GG";
         if (GameManager.nivelGlobal == 0)
         {
             TextoActivo = Textos[0] + GameManager.GamerTag + Textos[1];
