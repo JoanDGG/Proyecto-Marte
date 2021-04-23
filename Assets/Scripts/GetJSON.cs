@@ -10,6 +10,7 @@ public class GetJSON : MonoBehaviour
 {
     public static GetJSON instance;
     public List<string> elementos = new List<string>();
+    public bool ejecucion = true;
 
     private void Awake()
     {
@@ -19,6 +20,7 @@ public class GetJSON : MonoBehaviour
     // Update is called once per frame
     public void LeerJSON(String ruta)
     {
+        ejecucion = true;
         elementos.Clear();
         StartCoroutine(DescargarJSON(ruta));
     }
@@ -53,5 +55,6 @@ public class GetJSON : MonoBehaviour
         {
             print("Error en la descarga " + request.responseCode.ToString());
         }
+        ejecucion = false;
     }
 }

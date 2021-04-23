@@ -13,7 +13,9 @@ public class GameManager
     //          3 -> Nivel Coche
     //          4 -> Nivel Agro
     //          5 -> Colonia
-
+    public static string[] preguntas = new string[16];
+    public static List<string[]> opciones = new List<string[]>();
+    public static string[] opciones_correctas = new string[16];
 
     // variables estáticas de nivel agropecuario
     public static bool primero = true;

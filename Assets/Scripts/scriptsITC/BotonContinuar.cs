@@ -12,7 +12,7 @@ public class BotonContinuar : MonoBehaviour
         string sceneName = currentScene.name;
         if (sceneName == "MinijuegoITC")
         {
-            if (Game_Controller.instance.nivel == 4)
+            if (GameManager.oleada >= 3)
             {
                 Resultados.SetActive(true);
                 print(Game_Controller.instance.puntaje / 7000.0f);

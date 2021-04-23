@@ -16,7 +16,7 @@ public class Menu : MonoBehaviour
     public void MainMenu()
     {
         // Cambiar a la escena 'MainMenu'
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("ColoniaMarte");
     }
 
 }

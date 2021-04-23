@@ -22,7 +22,7 @@ public class BotonManager : MonoBehaviour
         {
             if(GameManager.nivelGlobal == 0)
             {
-                SceneManager.LoadScene("MisionCohete-1");
+                SceneManager.LoadScene("MinijuegoITC");
             }
         }
     }

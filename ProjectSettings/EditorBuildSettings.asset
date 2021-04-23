@@ -6,14 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: a28e50a67bd0a4904a7823a90564317c
+    path: Assets/Scenes/MenuPrincipal.unity
+    guid: af1de3412a67e4c609694bc5d3cc51af
+  - enabled: 1
+    path: Assets/Scenes/EscenaTransicion.unity
+    guid: b2a21da71b4732e42b980c9597a6daff
   - enabled: 1
     path: Assets/Scenes/Laboratorio.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/MinijuegoITC.unity
     guid: c5363809a43702046b5dce8dc9319279
+  - enabled: 1
+    path: Assets/Scenes/ColoniaMarte.unity
+    guid: ef36853cfd94e4dce837e42928194568
   - enabled: 1
     path: Assets/Scenes/NivelBio.unity
     guid: e71869eb575c1e14f99f4f55d54b8aa0

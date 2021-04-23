@@ -14,37 +14,65 @@ public class Cuestionario : MonoBehaviour
     public Text opcionB;
     public Text opcionC;
     public Text respuestaTexto;
-    private string[] preguntas = new string[4];
-    private string[] idpreguntas = new string[4];
-    private string[] opciones = new string[12];
-    private string[] opciones_correctas = new string[4];
+    private string[] preguntas;
+    private string[] opciones1;
+    private string[] opciones2;
+    private string[] opciones3;
+    private string[] opciones4;
+    private string[] opciones_correctas;
     private string respuesta;
     private string opcion_correcta;
 
     public void DesbloquearPreguntas()
     {
-        print("Nivel Global: " + GameManager.nivelGlobal);
-        GetJSON.instance.LeerJSON("pregunta/verPreguntasDato?dato=texto&NivelIdNivel=" + GameManager.nivelGlobal);
-        StartCoroutine(EsperarPregunta());
-    }
+        preguntas = new string[4] { GameManager.preguntas[((GameManager.nivelGlobal - 1) * 4)],
+                                    GameManager.preguntas[((GameManager.nivelGlobal - 1) * 4) + 1],
+                                    GameManager.preguntas[((GameManager.nivelGlobal - 1) * 4) + 2],
+                                    GameManager.preguntas[((GameManager.nivelGlobal - 1) * 4) + 3]};
 
-    public void DesbloquearIdPreguntas()
-    {
-        GetJSON.instance.LeerJSON("pregunta/verPreguntasDato?dato=id&NivelIdNivel=" + GameManager.nivelGlobal);
-        StartCoroutine(EsperarIdPregunta());
-    }
+        opciones1 = GameManager.opciones[((GameManager.nivelGlobal - 1) * 4)];
+        opciones2 = GameManager.opciones[((GameManager.nivelGlobal - 1) * 4) + 1];
+        opciones3 = GameManager.opciones[((GameManager.nivelGlobal - 1) * 4) + 2];
+        opciones4 = GameManager.opciones[((GameManager.nivelGlobal - 1) * 4) + 3];
 
-    public void DesbloquearOpciones(int pregunta)
-    {
-        print("PreguntaId: " + pregunta);
-        GetJSON.instance.LeerJSON("opcion/verOpcionPregunta?PreguntumId=" + pregunta);
-        StartCoroutine(EsperarOpciones());
-    }
-
-    public void DesbloquearOpcionCorrecta()
-    {
-        GetJSON.instance.LeerJSON("pregunta/verPreguntasDato?dato=opcion_correcta&NivelIdNivel=" + GameManager.nivelGlobal);
-        StartCoroutine(EsperarOpcionCorrecta());
+        opciones_correctas = new string[4] { GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4)],
+                                             GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4) + 1],
+                                             GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4) + 2],
+                                             GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4) + 3]};
+        
+        nivel = GameManager.oleada - 1;
+        print("pregunta del nivel " + nivel);
+        if (nivel == 2)
+        {
+            nivel = UnityEngine.Random.Range(2, 3);
+        }
+        print("pregunta: " + preguntas[nivel]);
+        pregunta.text = preguntas[nivel];
+        if(nivel == 0)
+        {
+            opcionA.text = opciones1[0];
+            opcionB.text = opciones1[1];
+            opcionC.text = opciones1[2];
+        }
+        else if (nivel == 1)
+        {
+            opcionA.text = opciones2[0];
+            opcionB.text = opciones2[1];
+            opcionC.text = opciones2[2];
+        }
+        else if (nivel == 2)
+        {
+            opcionA.text = opciones3[0];
+            opcionB.text = opciones3[1];
+            opcionC.text = opciones3[2];
+        }
+        else if (nivel == 3)
+        {
+            opcionA.text = opciones4[0];
+            opcionB.text = opciones4[1];
+            opcionC.text = opciones4[2];
+        }
+        opcion_correcta = opciones_correctas[nivel];
     }
 
     public void Responder(string res)
@@ -62,48 +90,5 @@ public class Cuestionario : MonoBehaviour
             print("Respuesta incorrecta :(");
             respuestaTexto.text = "Respuesta incorrecta :(";
         }
-    }
-
-    private IEnumerator EsperarPregunta()
-    {
-        yield return new WaitForSeconds(0.5f);
-        preguntas = GetJSON.instance.elementos.ToArray();
-        print(preguntas.Length);
-        nivel = (GameManager.nivelGlobal == 2) ? Game_Controller.instance.nivel - 2 : GameManager.oleada - 1;
-        print("pregunta del nivel " + nivel);
-        if (nivel == 2)
-        {
-            nivel = UnityEngine.Random.Range(2, 3);
-        }
-        print("pregunta: " + preguntas[nivel]);
-        pregunta.text = preguntas[nivel];
-        DesbloquearIdPreguntas();
-    }
-
-    private IEnumerator EsperarIdPregunta()
-    {
-        yield return new WaitForSeconds(0.5f);
-        idpreguntas = GetJSON.instance.elementos.ToArray();
-        print(idpreguntas.Length);
-        DesbloquearOpciones(nivel + 1);
-    }
-
-    private IEnumerator EsperarOpciones()
-    {
-        yield return new WaitForSeconds(0.5f);
-        opciones = GetJSON.instance.elementos.ToArray();
-        print(opciones.Length);
-        opcionA.text = opciones[0];
-        opcionB.text = opciones[1];
-        opcionC.text = opciones[2];
-        DesbloquearOpcionCorrecta();
-    }
-
-    private IEnumerator EsperarOpcionCorrecta()
-    {
-        yield return new WaitForSeconds(0.5f);
-        opciones_correctas = GetJSON.instance.elementos.ToArray();
-        print(opciones_correctas.Length);
-        opcion_correcta = opciones_correctas[nivel];
     }
 }

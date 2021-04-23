@@ -9,7 +9,6 @@ public class Game_Controller : MonoBehaviour
     public bool oleada = false;
     public int puertas_abiertas = 0;
     public int fuegos_activos = 0;
-    public int nivel = 1;
     //Puertas nivel 1
     public GameObject puerta1;
 
@@ -67,23 +66,24 @@ public class Game_Controller : MonoBehaviour
     void Start()
     {
         GameManager.nivelGlobal = 2;
+        GameManager.oleada = 0;
         constante_original = constante;
         aviso = GameObject.Find("Aviso").GetComponent<Text>();
         puntaje = PlayerPrefs.GetFloat("Nivel3Puntaje", 7000.0f);
-        int niv = PlayerPrefs.GetInt("Nivel3", 1);
+        int niv = PlayerPrefs.GetInt("Nivel3", 0);
         final = PlayerPrefs.GetString("Nivel3Fin", "false");
         if(final == "true" || niv >= 4)
         {
             puntaje = 7000.0f;
             final = "false";
-            nivel = 1;
+            GameManager.oleada = 0;
         }
         else
         {
-            nivel = niv;
+            GameManager.oleada = niv;
         }
         print(puntaje);
-        Spawn(nivel);
+        Spawn(GameManager.oleada);
         Pausar();
     }
 
@@ -96,18 +96,18 @@ public class Game_Controller : MonoBehaviour
             problema = Choose(problemas);
             if (problema == 1)
             {
-                Fuego(nivel);
+                Fuego(GameManager.oleada);
                 --accidentes;
             }
             else if (problema == 2)
             {
-                Puerta(nivel);
+                Puerta(GameManager.oleada);
                 --accidentes;
             }
             --constante;
             if (constante == 0)
             {
-                Fuego(nivel);
+                Fuego(GameManager.oleada);
                 --accidentes;
                 constante = constante_original;
                 //print("Constante");
@@ -122,7 +122,7 @@ public class Game_Controller : MonoBehaviour
                 {
                     print("Nivel terminado!!");
                     aviso_nivel.SetActive(true);
-                    Desbloquear(nivel);
+                    Desbloquear(GameManager.oleada);
                 }
             }
         }
@@ -169,12 +169,12 @@ public class Game_Controller : MonoBehaviour
     {
         float xMin = -9.0f;
         float xMax = 10.0f;
-        if(nivel == 2)
+        if(nivel == 1)
         {
             xMin = 11.0f;
             xMax = 26.0f;
         }
-        else if(nivel == 3)
+        else if(nivel == 2)
         {
             xMin = 35.0f;
             xMax = 50.0f;
@@ -191,17 +191,17 @@ public class Game_Controller : MonoBehaviour
 
     public void Puerta(int nivel)
     {
-        if(nivel == 1)
+        if(nivel == 0)
         {
             puerta1.GetComponent<GateAnimation>().Open();
             //Debug.Log("Puerta 1 Abierta!");
         }
-        else if(nivel == 2)
+        else if(nivel == 1)
         {
             puerta2.GetComponent<GateAnimation>().Open();
             //Debug.Log("Puerta 2 Abierta!");
         }
-        else if(nivel == 3)
+        else if(nivel == 2)
         {
             float[] puertas = { 0.5f, 0.5f };
             float puerta = Choose(puertas);
@@ -248,30 +248,30 @@ public class Game_Controller : MonoBehaviour
     public void Desbloquear(int llave)
     {
         //Debug.Log("Desbloquear " + llave.ToString());
-        if (llave == 1)
+        if (llave == 0)
         {
             key1.SetActive(true);
             accidentes = 15;
             puertas_abiertas = 0;
             fuegos_activos = 0;
         }
-        else if (llave == 2)
+        else if (llave == 1)
         {
             key2.SetActive(true);
             accidentes = 20;
             puertas_abiertas = 0;
             fuegos_activos = 0;
         }
-        else if(llave == 3)
+        else if(llave == 2)
         {
             key3.SetActive(true);
         }
-        print(nivel);
-        if (nivel >= 3)
+        print(GameManager.oleada);
+        if (GameManager.oleada >= 2)
         {
             final = "true";
         }
-        nivel += 1;
+        GameManager.oleada += 1;
         integridad = 7000.0f;
         puntaje = Mathf.Clamp(puntaje+50, 0, 7000);
         imagen_alerta.SetActive(false);
@@ -296,10 +296,10 @@ public class Game_Controller : MonoBehaviour
 
     public void Guardar()
     {
-        print("guardar" + nivel);
+        print("guardar" + GameManager.oleada);
         PlayerPrefs.SetFloat("Nivel3Puntaje", puntaje);
         PlayerPrefs.SetString("Nivel3Fin", final);
-        PlayerPrefs.SetInt("Nivel3", nivel);
+        PlayerPrefs.SetInt("Nivel3", GameManager.oleada);
         PlayerPrefs.Save();
     }
 
@@ -308,13 +308,13 @@ public class Game_Controller : MonoBehaviour
         integridad = 7000.0f;
         imagen_alerta.SetActive(false);
         print("Spawn " + lugar);
-        nivel = lugar;
-        if (lugar == 1)
+        GameManager.oleada = lugar;
+        if (lugar == 0)
         {
             oleada = true;
             player.transform.position = spawn1.position;
         }
-        else if(lugar == 2)
+        else if(lugar == 1)
         {
             accidentes = 15;
             oleada = false;
@@ -322,7 +322,7 @@ public class Game_Controller : MonoBehaviour
             puertas_abiertas = 0;
             fuegos_activos = 0;
         }
-        else if (lugar == 3)
+        else if (lugar == 2)
         {
             accidentes = 20;
             oleada = false;
