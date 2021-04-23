@@ -461,6 +461,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2421656263748562044, guid: 2dba32ba4e3f1064583522f7f2ce7200, type: 3}
   m_PrefabInstance: {fileID: 1026074527}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &303683933 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2421656263748562041, guid: 2dba32ba4e3f1064583522f7f2ce7200, type: 3}
+  m_PrefabInstance: {fileID: 1026074527}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303683929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73bdd79fa8fa9584bbf7fc2aab83968c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &314239075
 GameObject:
   m_ObjectHideFlags: 0
@@ -3293,6 +3304,10 @@ PrefabInstance:
       propertyPath: camara
       value: 
       objectReference: {fileID: 347263316}
+    - target: {fileID: 6742027268545467226, guid: c1e48c463c4bf8a40b2e2557c734942c, type: 3}
+      propertyPath: cuestionario
+      value: 
+      objectReference: {fileID: 303683933}
     - target: {fileID: 6742027268545467226, guid: c1e48c463c4bf8a40b2e2557c734942c, type: 3}
       propertyPath: evento.Array.data[0]
       value: 

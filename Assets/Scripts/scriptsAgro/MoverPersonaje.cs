@@ -27,6 +27,7 @@ public class MoverPersonaje : MonoBehaviour
     public GameObject cuest;
     public Cuestionario cuestionario;
     private GameObject pausa;
+    public GameObject resultados;
 
     // Start is called before the first frame update
     void Start()
@@ -51,9 +52,9 @@ public class MoverPersonaje : MonoBehaviour
         StartCoroutine(reloj());
         if (GameManager.primero)
         {
-            cuest.SetActive(true);
+            /*cuest.SetActive(true);
             cuestionario.DesbloquearPreguntas();
-            //cuest.SetActive(false);
+            //cuest.SetActive(false);*/
             GameManager.tiempo = PlayerPrefs.GetInt("tiempo", GameManager.tiempo);
             GameManager.tiempoLimite = PlayerPrefs.GetInt("tiempoLimite", GameManager.tiempoLimite);
             GameManager.evento = (PlayerPrefs.GetInt("evento", 0)) == 1 ? true : false;
@@ -240,6 +241,12 @@ public class MoverPersonaje : MonoBehaviour
             if (GameManager.perder) //Perder
             {
                 print("Perdiste, tus patatas murieron");
+                resultados.SetActive(true);
+                resultados.transform.GetChild(2).gameObject.GetComponent<Text>().text = "Has perdido";
+                resultados.transform.GetChild(0).gameObject.SetActive(false);
+                resultados.transform.GetChild(1).gameObject.SetActive(false);
+                float puntos = (float)GameManager.puntuacion;
+                BarraResultados.instance.SetValue(puntos / 5.0f);
             }
             else if(GameManager.oleada>=4) //Ganar
             {

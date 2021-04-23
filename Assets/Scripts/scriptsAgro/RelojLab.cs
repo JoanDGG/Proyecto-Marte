@@ -14,6 +14,7 @@ public class RelojLab : MonoBehaviour
     private AudioSource musica;
     public GameObject[] Prediccion = new GameObject[3];
     public Sprite[] eventos = new Sprite[4];
+    public GameObject nota;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,10 @@ public class RelojLab : MonoBehaviour
         {
             Prediccion[i].SetActive(true);
             Prediccion[i].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = eventos[GameManager.clima[i]];
+        }
+        if (GameManager.oleada >= 2)
+        {
+            nota.GetComponent<Text>().text = "Nota: Algunos genes pueden cancelar los efectos que tendrían otros normalmente (Pista: de derecha a izquierda)";
         }
     }
 
