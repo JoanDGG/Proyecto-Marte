@@ -14,4 +14,14 @@ public class CanvasEjecuta : MonoBehaviour
     {
         SceneManager.LoadScene("MinijuegoITC");
     }
+
+    public void JugarTaller()
+    {
+        SceneManager.LoadScene("MenuPersonalizarAuto");
+    }
+
+    public void JugarBio()
+    {
+        SceneManager.LoadScene("NivelBio");
+    }
 }

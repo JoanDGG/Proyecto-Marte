@@ -6,6 +6,8 @@ public class SeleccionMision : MonoBehaviour
 {
     public Canvas canvasMisionCohete;
     public Canvas canvasMisionRobot;
+    public Canvas canvasMisionTaller;
+    public Canvas canvasMisionLab;
 
     public Canvas canvasBandera;
 
@@ -13,6 +15,8 @@ public class SeleccionMision : MonoBehaviour
     {
         canvasMisionCohete.enabled = false;
         canvasMisionRobot.enabled = false;
+        canvasMisionTaller.enabled = false;
+        canvasMisionLab.enabled = false;
         canvasBandera.enabled = false;
     }
     private void OnTriggerEnter2D(Collider2D collider) 
@@ -27,8 +31,18 @@ public class SeleccionMision : MonoBehaviour
             canvasMisionRobot.enabled = true;
         }
 
-        if (collider.gameObject.CompareTag("AreaBandera")){
+        if (collider.gameObject.CompareTag("SeleccionTaller")){
             print("¿Quieres entrar a esta mision?");
+            canvasMisionTaller.enabled = true;
+        }
+
+        if (collider.gameObject.CompareTag("SeleccionLab")){
+            print("¿Quieres entrar a esta mision?");
+            canvasMisionLab.enabled = true;
+        }
+
+        if (collider.gameObject.CompareTag("AreaBandera")){
+            print("Mexicanos al grito de guerra");
             canvasBandera.enabled = true;
         }
     }
@@ -37,7 +51,9 @@ public class SeleccionMision : MonoBehaviour
     {
         canvasMisionCohete.enabled = false;
         canvasMisionRobot.enabled = false;
-
+        canvasMisionTaller.enabled = false;
+        canvasMisionLab.enabled = false;
+        
         canvasBandera.enabled = false;
     }
 }
