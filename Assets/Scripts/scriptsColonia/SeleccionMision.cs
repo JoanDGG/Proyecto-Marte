@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class SeleccionMision : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter2D(Collider2D collider) 
     {
-        
-    }
+        if (collider.gameObject.CompareTag("SeleccionCohete")){
+            //gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            print("¿Quieres entrar a esta mision?");
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
     }
 }
