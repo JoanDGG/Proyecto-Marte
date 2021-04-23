@@ -13,6 +13,12 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("EscenaTransicion");
     }
 
+    public void InicioSesion()
+    {
+        // Cambiar a la escena 'Log In'
+        SceneManager.LoadScene("Log In");
+    }
+
     public void MainMenu()
     {
         // Cambiar a la escena 'MainMenu'
