@@ -17,7 +17,7 @@ public class MovimientoAutimovil : MonoBehaviour
 
 
     // La velocidad límite del automóvil (motor).
-    public float velocidadLimiteGas = 20f;
+    public float velocidadLimiteGas;
 
     // La fuerza del motor (motor);
     public float fuerzaMotor;
@@ -111,6 +111,8 @@ public class MovimientoAutimovil : MonoBehaviour
         imagenFrena.color = verde;
         imagenAcelera.color = verde;
         imagenReversa.color = verde;
+
+        this.gameObject.GetComponent<Rigidbody2D>().sharedMaterial.friction = 0.2f;
     }
 
     private void Update()
@@ -118,7 +120,7 @@ public class MovimientoAutimovil : MonoBehaviour
         // Actualizo variables cada frame.
         velocidadActualX = this.GetComponent<Rigidbody2D>().velocity.x;
         signoOpuestoVelocidad = velocidadActualX / Mathf.Abs(velocidadActualX);
-        //print(velocidadActualX);
+        print(velocidadActualX);
 
         // Movimiento la derecha. (Gas)
         if (Input.GetAxis("Horizontal") > 0 && (acelerando || (!reversando && Mathf.Abs(velocidadActualX) < 5)))
@@ -145,9 +147,9 @@ public class MovimientoAutimovil : MonoBehaviour
             reversando = false;
 
             // Límite superior de la velocidad.
-            if (velocidadActualX > 20)
+            if (velocidadActualX > velocidadLimiteGas)
             {
-                this.GetComponent<Rigidbody2D>().velocity = new Vector2(20f, 0f);
+                this.GetComponent<Rigidbody2D>().velocity = new Vector2(velocidadLimiteGas, 0f);
             }
         }
 

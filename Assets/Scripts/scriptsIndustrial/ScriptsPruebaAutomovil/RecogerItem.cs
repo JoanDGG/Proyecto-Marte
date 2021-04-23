@@ -17,13 +17,13 @@ public class RecogerItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //print(GameManager.volumen);
     }
 
     // Update is called once per frame
     void Update()
     {
-        print(GameManager.itemsRecolectados);   
+        //print(GameManager.itemsRecolectados);   
     }
 
 
@@ -32,9 +32,12 @@ public class RecogerItem : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Automovil"))
         {
-            sonidoRecoger.Play();
-            GameManager.itemsRecolectados = GameManager.itemsRecolectados + 1;
-            Destroy(this.gameObject, t: 0f);
+            if (GameManager.volumen > GameManager.itemsRecolectados)
+            {
+                sonidoRecoger.Play();
+                GameManager.itemsRecolectados += 1;
+                Destroy(this.gameObject);
+            }
         }
     }
 }
