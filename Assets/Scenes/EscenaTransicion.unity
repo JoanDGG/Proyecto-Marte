@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 563988877}
   - component: {fileID: 563988876}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TextoConsola
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -264,19 +264,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 2f149ea5ab494834bb51b59cfa3914c6, type: 3}
-    m_FontSize: 64
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: 05d37d5be88ccb344853c85f8036c432, type: 3}
+    m_FontSize: 70
+    m_FontStyle: 2
     m_BestFit: 1
-    m_MinSize: 0
-    m_MaxSize: 80
+    m_MinSize: 7
+    m_MaxSize: 100
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Texto
+    m_LineSpacing: 1.5
+  m_Text: 
 --- !u!222 &563988877
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -398,6 +398,7 @@ GameObject:
   - component: {fileID: 636972171}
   - component: {fileID: 636972170}
   - component: {fileID: 636972172}
+  - component: {fileID: 636972173}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -476,6 +477,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dbaca29f11eaf446a8498a78f85d09c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textoConsola: {fileID: 563988876}
+  Continuar: {fileID: 654750115}
+  contadorTexto: 0
+  contadorTextos: 0
+--- !u!114 &636972173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636972168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6f5d3566b2fc3c4e8f602e8735fa708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &654750115
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +511,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &654750116
 RectTransform:
   m_ObjectHideFlags: 0
@@ -558,7 +575,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 654750118}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 636972173}
+        m_TargetAssemblyTypeName: BotonManager, Assembly-CSharp
+        m_MethodName: Boton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &654750118
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,11 +5,15 @@ using UnityEngine;
 public class GameManager
 {
     // Variables globales
+    public static string GamerTag;
     public static int nivelGlobal = 0;
+    //          0 -> MenuPrincipal
     //          1 -> Nivel Nave
     //          2 -> Nivel Robot
     //          3 -> Nivel Coche
     //          4 -> Nivel Agro
+    //          5 -> Colonia
+
 
     // variables estáticas de nivel agropecuario
     public static bool primero = true;
