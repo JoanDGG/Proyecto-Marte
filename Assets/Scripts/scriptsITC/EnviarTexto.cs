@@ -162,6 +162,16 @@ public class EnviarTexto : MonoBehaviour
                     player.Fire();
                     wait += 4;
                 }
+                else if (instrucciones[i].Contains("hack"))
+                {
+                    if (instrucciones[i].Length > 4)
+                    {
+                        textError.text = "Te falta un punto! (linea " + comando + ")";
+                    }
+                    Debug.Log("Hackerman");
+                    Game_Controller.instance.Edit();
+                    wait += 1;
+                }
                 else if (instrucciones[i].Contains("func"))
                 {
                     // El nombre de la funcion es la palabra que va despues de func

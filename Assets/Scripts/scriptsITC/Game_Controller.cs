@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Game_Controller : MonoBehaviour
 {
-    public static bool is_editing = false;
+    public static bool is_editing = true;
     public bool oleada = false;
     public int puertas_abiertas = 0;
     public int fuegos_activos = 0;
