@@ -25,12 +25,14 @@ public class MoverPersonaje : MonoBehaviour
     private AudioSource musica;
     public GameObject arena;
     public GameObject cuest;
+    public Cuestionario cuestionario;
     private GameObject pausa;
 
     // Start is called before the first frame update
     void Start()
     {
         //PlayerPrefs.DeleteAll();
+        GameManager.nivelGlobal = 4;
         pausa = (GameObject)GameObject.Find("Canvas/Pausar");
         rigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -49,6 +51,9 @@ public class MoverPersonaje : MonoBehaviour
         StartCoroutine(reloj());
         if (GameManager.primero)
         {
+            cuest.SetActive(true);
+            cuestionario.DesbloquearPreguntas();
+            //cuest.SetActive(false);
             GameManager.tiempo = PlayerPrefs.GetInt("tiempo", GameManager.tiempo);
             GameManager.tiempoLimite = PlayerPrefs.GetInt("tiempoLimite", GameManager.tiempoLimite);
             GameManager.evento = (PlayerPrefs.GetInt("evento", 0)) == 1 ? true : false;

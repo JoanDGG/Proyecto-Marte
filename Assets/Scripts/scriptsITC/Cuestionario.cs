@@ -66,10 +66,10 @@ public class Cuestionario : MonoBehaviour
 
     private IEnumerator EsperarPregunta()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         preguntas = GetJSON.instance.elementos.ToArray();
         print(preguntas.Length);
-        nivel = Game_Controller.instance.nivel - 2;
+        nivel = (GameManager.nivelGlobal == 2) ? Game_Controller.instance.nivel - 2 : GameManager.oleada - 1;
         print("pregunta del nivel " + nivel);
         if (nivel == 2)
         {
@@ -82,7 +82,7 @@ public class Cuestionario : MonoBehaviour
 
     private IEnumerator EsperarIdPregunta()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         idpreguntas = GetJSON.instance.elementos.ToArray();
         print(idpreguntas.Length);
         DesbloquearOpciones(nivel + 1);
@@ -90,7 +90,7 @@ public class Cuestionario : MonoBehaviour
 
     private IEnumerator EsperarOpciones()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         opciones = GetJSON.instance.elementos.ToArray();
         print(opciones.Length);
         opcionA.text = opciones[0];
@@ -101,7 +101,7 @@ public class Cuestionario : MonoBehaviour
 
     private IEnumerator EsperarOpcionCorrecta()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         opciones_correctas = GetJSON.instance.elementos.ToArray();
         print(opciones_correctas.Length);
         opcion_correcta = opciones_correctas[nivel];
