@@ -3305,6 +3305,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 347263316}
     - target: {fileID: 6742027268545467226, guid: c1e48c463c4bf8a40b2e2557c734942c, type: 3}
+      propertyPath: resultados
+      value: 
+      objectReference: {fileID: 84666784}
+    - target: {fileID: 6742027268545467226, guid: c1e48c463c4bf8a40b2e2557c734942c, type: 3}
       propertyPath: cuestionario
       value: 
       objectReference: {fileID: 303683933}
