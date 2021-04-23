@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using System;
 
-public class Red : MonoBehaviour
+public class LogIn : MonoBehaviour
 {
 
     public Text Gamertag;
