@@ -7,10 +7,13 @@ public class SeleccionMision : MonoBehaviour
     public Canvas canvasMisionCohete;
     public Canvas canvasMisionRobot;
 
+    public Canvas canvasBandera;
+
     void Start()
     {
         canvasMisionCohete.enabled = false;
         canvasMisionRobot.enabled = false;
+        canvasBandera.enabled = false;
     }
     private void OnTriggerEnter2D(Collider2D collider) 
     {
@@ -23,11 +26,18 @@ public class SeleccionMision : MonoBehaviour
             print("¿Quieres entrar a esta mision?");
             canvasMisionRobot.enabled = true;
         }
+
+        if (collider.gameObject.CompareTag("AreaBandera")){
+            print("¿Quieres entrar a esta mision?");
+            canvasBandera.enabled = true;
+        }
     }
 
     private void OnTriggerExit2D() 
     {
         canvasMisionCohete.enabled = false;
         canvasMisionRobot.enabled = false;
+
+        canvasBandera.enabled = false;
     }
 }

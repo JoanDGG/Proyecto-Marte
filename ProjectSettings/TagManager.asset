@@ -21,6 +21,7 @@ TagManager:
   - SeleccionMaquinas
   - SeleccionTaller
   - Automovil
+  - AreaBandera
   layers:
   - Default
   - TransparentFX
