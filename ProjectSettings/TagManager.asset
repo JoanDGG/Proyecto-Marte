@@ -20,6 +20,7 @@ TagManager:
   - SeleccionLab
   - SeleccionMaquinas
   - SeleccionTaller
+  - Automovil
   layers:
   - Default
   - TransparentFX

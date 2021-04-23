@@ -51,10 +51,24 @@ public class GameManager
     public static int[] motor = { 5, 6};
 
     // Valores de cualidades asociados con las partes del automóvil.
-    public static int volumen = 65;
-    public static int friccionLlantas;
-    public static int fuerzaFreno;
-    public static int calidadAmortiguamiento;
-    public static int resistencia;
-    public static int fuerzaMotor = 500;
+    public static float volumen;
+    public static float friccionLlantasEnHielo;
+    public static float friccionLlantasArranque;
+    public static float fuerzaFreno;
+    public static float calidadAmortiguamiento;
+    public static float resistencia;
+    public static float fuerzaMotor;
+    public static float velocidadMaxima;
+
+    // Valores máximos de las cualidades para tener la referencia al establecer las cualidades.
+    public static float volumenMaximo = 10f;
+    public static float friccionLlantasEnHieloMaxima = 0f;
+    public static float friccionLlantasArranqueMaxima = 600f;
+    public static float fuerzaFrenoMaxima = -300f;
+    public static float calidadAmortiguamientoMaxima = 0f;
+    public static float resistenciaMaxima = 0f;
+    public static float fuerzaMotorMaxima = 200f;
+    public static float velocidadMaximaMaxima = 20f;
+
+    public static int itemsRecolectados = 0;
 }

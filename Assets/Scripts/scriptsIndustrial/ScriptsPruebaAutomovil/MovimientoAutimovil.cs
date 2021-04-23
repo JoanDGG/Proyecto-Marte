@@ -15,28 +15,36 @@ public class MovimientoAutimovil : MonoBehaviour
     // La velocidad actual en el eje x.
     private float velocidadActualX;
 
+
     // La velocidad límite del automóvil (motor).
     public float velocidadLimiteGas = 20f;
 
     // La fuerza del motor (motor);
     public float fuerzaMotor;
 
-    // El boost que da la fricción de las llantas (llantas).
-    public float bonusLlantas;
+    // La velocidad de reversa (motor).
+    public float reversa;
+
 
     // La fuerza que proporcionan los frenos (frenos).
     public float fuerzaFreno;
 
-    // La velocidad de reversa (motor).
-    public float reversa;
+    // El material que proporcionan las llantas.
+    public Material materialLlantas;
+
+    // El boost que dan las llantas.
+    public float boostLlantas;
+
 
     // Estados del automóvil.
     private bool frenando = false;
     private bool reversando = false;
     private bool acelerando = false;
 
+
     // El signo opuesto de la velocidad.
     private float signoOpuestoVelocidad;
+
 
     // Sonidos de motor de automóvil.
     public AudioSource sonidoArranque1;
@@ -46,24 +54,30 @@ public class MovimientoAutimovil : MonoBehaviour
     public AudioSource sonidoFinal2;
     public AudioSource sonidoFinal3;
 
+
     // Sonido de automóvil en idle.
     public AudioSource sonidoIdle;
+
 
     // Sonido de freno.
     public AudioSource sonidoFreno;
 
+
     // Sonidos finales de motor.
     private AudioSource sonidoArranque;
     private AudioSource sonidoFinal;
+
 
     // Las imágenes para expresar si el jugador puede cambiar de velocidad.
     public Image imagenAcelera;
     public Image imagenFrena;
     public Image imagenReversa;
 
+
     // Los colores para indicar si puede cambiar de velocidad;
     public Color rojo;
     public Color verde;
+
 
     private void ApagaSonidosAutomovil()
     {
@@ -109,6 +123,11 @@ public class MovimientoAutimovil : MonoBehaviour
         // Movimiento la derecha. (Gas)
         if (Input.GetAxis("Horizontal") > 0 && (acelerando || (!reversando && Mathf.Abs(velocidadActualX) < 5)))
         {
+            // Aplico el boost que dan los frenos en la aceleración.
+            if (velocidadActualX < 5)
+            {
+                this.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(boostLlantas, 0));
+            }
 
             // Prendo sonido adecuado.
             if (!sonidoArranque.isPlaying)
@@ -162,8 +181,12 @@ public class MovimientoAutimovil : MonoBehaviour
                 sonidoFreno.Play();
             }
 
-            // La fuerza de los frenos.
-            this.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(fuerzaFreno * signoOpuestoVelocidad, 0f));
+            // Manejo la división entre 0 del signo opuesto de la velocidad.
+            if (Mathf.Abs(velocidadActualX) > 0.1)
+            {
+                // La fuerza de los frenos.
+                this.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(fuerzaFreno * signoOpuestoVelocidad, 0f));
+            }
 
             // Actualizo los estados.
             acelerando = false;
@@ -209,15 +232,15 @@ public class MovimientoAutimovil : MonoBehaviour
             this.transform.GetChild(1).GetChild(1).GetComponent<Transform>().Rotate(0f, 0f, -velocidadActualX, Space.Self);
         }
 
-        print(velocidadActualX);
+        //print(velocidadActualX);
         // Convierto los colores de las imágenes.
         if (velocidadActualX > 5)
         {
-            print("no reversa");
+            //print("no reversa");
             imagenReversa.color = rojo;
         }
         else if (velocidadActualX < -5) {
-            print("no acelera");
+            //print("no acelera");
             imagenAcelera.color = rojo;
         } else
         {
