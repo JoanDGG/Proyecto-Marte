@@ -17,7 +17,10 @@ public class PostsBaseDatos : MonoBehaviour
     {
         WWWForm forma = new WWWForm();
         //float tiempoFin = PlayerPrefs.GetInt("tiempoFin", 0.0f);
-        forma.AddField("tiempoTotal", (((System.DateTime.Now - LogIn.inicio).TotalSeconds)/60).ToString());
+        int tiempo = (int)(((System.DateTime.Now - LogIn.inicio).TotalSeconds) / 60);
+        print(tiempo);
+        forma.AddField("gamertag", GameManager.GamerTag);
+        forma.AddField("tiempoTotal", tiempo.ToString());
         UnityWebRequest request = UnityWebRequest.Post("http://localhost:8080/jugador/LogOut", forma);
         yield return request.SendWebRequest();
         //bool exito = true;

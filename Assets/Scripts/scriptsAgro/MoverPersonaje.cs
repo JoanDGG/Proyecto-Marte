@@ -88,7 +88,7 @@ public class MoverPersonaje : MonoBehaviour
             }
             GameManager.clima[0] = PlayerPrefs.GetInt("clima0", GameManager.clima[0]);
             GameManager.clima[1] = PlayerPrefs.GetInt("clima1", GameManager.clima[1]);
-            GameManager.clima[2] = PlayerPrefs.GetInt("clima0", GameManager.clima[2]);
+            GameManager.clima[2] = PlayerPrefs.GetInt("clima2", GameManager.clima[2]);
             GameManager.primero = false;
         }
         for (int i = 0; i < GameManager.oleada; i++)
@@ -262,7 +262,24 @@ public class MoverPersonaje : MonoBehaviour
         }
         pausa.SetActive(false);
         print("Tu puntuación fue de " + GameManager.puntuacion.ToString() + " estrellas");
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteKey("tiempo");
+        PlayerPrefs.DeleteKey("tiempoLimite");
+        PlayerPrefs.DeleteKey("evento");
+        PlayerPrefs.DeleteKey("reloj");
+        PlayerPrefs.DeleteKey("resist0");
+        PlayerPrefs.DeleteKey("resist1");
+        PlayerPrefs.DeleteKey("resist2");
+        PlayerPrefs.DeleteKey("resist3");
+        PlayerPrefs.DeleteKey("pagina");
+        PlayerPrefs.DeleteKey("genes0");
+        PlayerPrefs.DeleteKey("genes1");
+        PlayerPrefs.DeleteKey("genes2");
+        PlayerPrefs.DeleteKey("oleada");
+        PlayerPrefs.DeleteKey("respondido");
+        PlayerPrefs.DeleteKey("respuestas0");
+        PlayerPrefs.DeleteKey("respuestas1");
+        PlayerPrefs.DeleteKey("respuestas2");
+        PlayerPrefs.DeleteKey("puntuacion");
     }
 
     public void Responder(string respuesta)

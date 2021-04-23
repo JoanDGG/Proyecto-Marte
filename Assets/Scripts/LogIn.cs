@@ -13,7 +13,6 @@ public class LogIn : MonoBehaviour
     public InputField Contraseña;
     public Text resultado;
     public static DateTime inicio;
-    public static DateTime fin;
     public static string textoPlano;
     
     public void PedirLogIn()
@@ -53,7 +52,7 @@ public class LogIn : MonoBehaviour
         {
             yield return new WaitForSeconds(3.0f);
             inicio = System.DateTime.Now;
-            SceneManager.LoadScene("EscenaTransicion");
+            //SceneManager.LoadScene("EscenaTransicion");
         }
     }
 }
