@@ -13,14 +13,15 @@ public class Red : MonoBehaviour
     public InputField Contraseña;
     public Text resultado;
     public static DateTime inicio;
+    public static DateTime fin;
     public static string textoPlano;
     
-    public void EscribirTextoPlano()
+    public void PedirLogIn()
     {
-        StartCoroutine(SubirTextoPlano());
+        StartCoroutine(ComprobarLogIn());
     }
 
-    private IEnumerator SubirTextoPlano()
+    private IEnumerator ComprobarLogIn()
     {
         WWWForm forma = new WWWForm();
         forma.AddField("gamertag", Gamertag.text);
