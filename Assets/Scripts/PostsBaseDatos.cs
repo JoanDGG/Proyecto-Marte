@@ -65,7 +65,7 @@ public class PostsBaseDatos : MonoBehaviour
 
     public void PedirRespuesta() //Debe llamarse al responder una pregunta y debe enviársele la respuesta, si es correcta y el id de la pregunta a la que corresponde (FORMATO PENDIENTE)
     {
-        StartCoroutine(PublicarRespuestaNivel());
+        StartCoroutine(PublicarRespuesta());
     }
 
     private IEnumerator PublicarRespuesta()
