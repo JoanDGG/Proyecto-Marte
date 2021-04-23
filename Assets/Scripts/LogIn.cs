@@ -52,7 +52,7 @@ public class LogIn : MonoBehaviour
         {
             yield return new WaitForSeconds(3.0f);
             inicio = System.DateTime.Now;
-            //SceneManager.LoadScene("EscenaTransicion");
+            //SceneManager.LoadScene("EscenaTransicion"); //Esto está comentado para poder probar el LogOut antes de ponerlo en la escena de la ColoniaMarte
         }
     }
 }
