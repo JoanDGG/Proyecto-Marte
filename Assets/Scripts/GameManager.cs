@@ -80,4 +80,10 @@ public class GameManager
 
     // El dano que recibe el auto (resistencia).
     public static float dano;
+
+    // Los segundos que tardó.
+    public static float numeroSegundos;
+
+    // La puntuacion del nivel del carro.
+    public static float puntuacionNivelCarro;
 }

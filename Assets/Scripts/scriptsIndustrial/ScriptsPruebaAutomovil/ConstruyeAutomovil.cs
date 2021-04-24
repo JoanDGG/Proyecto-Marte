@@ -24,6 +24,12 @@ public class ConstruyeAutomovil : MonoBehaviour
             // Movemos las partes necesarias si el cuerpo se alarga.
             if (indiceParte == 0 && indiceSprite != 0)
             {
+                // Cambio el collider del auto
+                automovil.GetComponents<CircleCollider2D>()[0].offset = new Vector2(-2.4f, -1.6f);
+                automovil.GetComponents<CircleCollider2D>()[1].offset = new Vector2(2.4f, -1.6f);
+
+                automovil.GetComponent<CapsuleCollider2D>().size = new Vector2(10f, 2.45f);
+
                 // Llantas.
                 automovil.transform.GetChild(1).GetChild(0).localPosition = new Vector3(2.4f, -1.6f, 0);
                 automovil.transform.GetChild(1).GetChild(1).localPosition = new Vector3(-2.4f, -1.6f, 0);

@@ -123,7 +123,7 @@ public class MovimientoAutimovil : MonoBehaviour
         //print(velocidadActualX);
 
         // Antes que nada el auto no se puede mover si las llantas no están tocando el suelo.
-        if (GameManager.tocandoSueloLlantas)
+        if (GameManager.tocandoSueloLlantas || !GameManager.tocandoSueloLlantas)
         {
             // Movimiento la derecha. (Gas)
             if (Input.GetAxis("Horizontal") > 0 && (acelerando || (!reversando && Mathf.Abs(velocidadActualX) < 5)))
@@ -244,7 +244,7 @@ public class MovimientoAutimovil : MonoBehaviour
         //print(velocidadActualX);
         // Convierto los colores de las imágenes.
 
-        if (GameManager.tocandoSueloLlantas)
+        if (GameManager.tocandoSueloLlantas || !GameManager.tocandoSueloLlantas)
         {
             if (velocidadActualX > 5)
             {
