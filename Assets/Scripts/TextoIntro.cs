@@ -51,6 +51,13 @@ public class TextoIntro : MonoBehaviour
             contadorTexto = 3;
             Ejecutar();
         }
+        if (GameManager.nivelGlobal == 1)
+        {
+            TextoActivo = Textos[4] + GameManager.GamerTag + Textos[5];
+            contadorTextos = 1;
+            contadorTexto = 1;
+            Ejecutar();
+        }
         print(TextoActivo);
         
     }
