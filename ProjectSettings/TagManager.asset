@@ -22,6 +22,8 @@ TagManager:
   - SeleccionTaller
   - Automovil
   - AreaBandera
+  - BlackHole
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
