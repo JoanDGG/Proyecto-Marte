@@ -37,19 +37,21 @@ public class PostsBaseDatos : MonoBehaviour
         }
     }
 
-    public void PedirTiempoNivel(DateTime inicio) //Debe llamarse al finalizar el nivel y debe enviársele el tiempo en el que se inicio el nivel
+    public void PedirInfoNivel(DateTime inicio, int resena, float puntuacion) //Debe llamarse al finalizar el nivel y debe enviársele el tiempo en el que se inicio el nivel, la puntuacion y la reseña
     {
-        StartCoroutine(PublicarTiempoNivel(inicio));
+        StartCoroutine(PublicarTiempoNivel(inicio, resena, puntuacion));
     }
 
-    private IEnumerator PublicarTiempoNivel(DateTime inicio)
+    private IEnumerator PublicarTiempoNivel(DateTime inicio, int resena, float puntuacion)
     {
         WWWForm forma = new WWWForm();
         forma.AddField("JugadorGamertag", GameManager.GamerTag);
         forma.AddField("NivelIdNivel", GameManager.nivelGlobal);
         forma.AddField("tiempoInicio", inicio.ToString());
         forma.AddField("tiempoFinal", System.DateTime.Now.ToString());
-        UnityWebRequest request = UnityWebRequest.Post("http://localhost:8080/juega/tiempoNivel", forma); //Falta crearlo en el ServidorProyectoMarte
+        forma.AddField("calificacion", resena.ToString());
+        forma.AddField("puntuacion", puntuacion.ToString());
+        UnityWebRequest request = UnityWebRequest.Post("http://localhost:8080/juega/insertarJuega", forma); //Falta cambiarlo en el ServidorProyectoMarte
         yield return request.SendWebRequest();
         //bool exito = true;
         print(request.result);
@@ -63,18 +65,18 @@ public class PostsBaseDatos : MonoBehaviour
         }
     }
 
-    public void PedirRespuesta() //Debe llamarse al responder una pregunta y debe enviársele la respuesta, si es correcta y el id de la pregunta a la que corresponde (FORMATO PENDIENTE)
+    public void PedirRespuesta(string res, int correct, int pregunta) //Debe llamarse al responder una pregunta y debe enviársele la respuesta, si es correcta y el id de la pregunta a la que corresponde 
     {
-        StartCoroutine(PublicarRespuesta());
+        StartCoroutine(PublicarRespuesta(res, correct, pregunta));
     }
 
-    private IEnumerator PublicarRespuesta()
+    private IEnumerator PublicarRespuesta(string res, int correct, int pregunta)
     {
         WWWForm forma = new WWWForm();
         forma.AddField("JugadorGamertag", GameManager.GamerTag);
-        forma.AddField("PreguntumId", "".ToString()); //Falta
-        forma.AddField("respuesta", ""); //Falta
-        forma.AddField("estado", ""); //Falta
+        forma.AddField("PreguntumId", pregunta.ToString());
+        forma.AddField("respuesta", res);
+        forma.AddField("estado", correct.ToString()); 
         UnityWebRequest request = UnityWebRequest.Post("http://localhost:8080/respuesta/insertarRespuesta", forma); //Falta cambiarlo en el ServidorProyectoMarte
         yield return request.SendWebRequest();
         //bool exito = true;
