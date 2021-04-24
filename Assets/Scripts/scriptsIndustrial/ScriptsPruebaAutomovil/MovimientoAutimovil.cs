@@ -120,112 +120,119 @@ public class MovimientoAutimovil : MonoBehaviour
         // Actualizo variables cada frame.
         velocidadActualX = this.GetComponent<Rigidbody2D>().velocity.x;
         signoOpuestoVelocidad = velocidadActualX / Mathf.Abs(velocidadActualX);
-        print(velocidadActualX);
+        //print(velocidadActualX);
 
-        // Movimiento la derecha. (Gas)
-        if (Input.GetAxis("Horizontal") > 0 && (acelerando || (!reversando && Mathf.Abs(velocidadActualX) < 5)))
+        // Antes que nada el auto no se puede mover si las llantas no están tocando el suelo.
+        if (GameManager.tocandoSueloLlantas)
         {
-            // Aplico el boost que dan los frenos en la aceleración.
-            if (velocidadActualX < 5)
+            // Movimiento la derecha. (Gas)
+            if (Input.GetAxis("Horizontal") > 0 && (acelerando || (!reversando && Mathf.Abs(velocidadActualX) < 5)))
             {
-                this.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(boostLlantas, 0));
+                // Aplico el boost que dan los frenos en la aceleración.
+                if (velocidadActualX < 5)
+                {
+                    this.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(boostLlantas, 0));
+                }
+
+                // Prendo sonido adecuado.
+                if (!sonidoArranque.isPlaying)
+                {
+                    ApagaSonidosAutomovil();
+                    sonidoArranque.Play();
+                }
+
+                // La fuerza del motor.
+                this.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(fuerzaMotor, 0));
+
+                // Actualizo los estados.
+                acelerando = true;
+                frenando = false;
+                reversando = false;
+
+                // Límite superior de la velocidad.
+                if (velocidadActualX > velocidadLimiteGas)
+                {
+                    this.GetComponent<Rigidbody2D>().velocity = new Vector2(velocidadLimiteGas, 0f);
+                }
             }
 
-            // Prendo sonido adecuado.
-            if (!sonidoArranque.isPlaying)
+            // Movimiento a la izquierda (reversa).
+            else if (Input.GetAxis("Horizontal") < 0 && (reversando || (!acelerando && Mathf.Abs(velocidadActualX) < 5)))
             {
-                ApagaSonidosAutomovil();
-                sonidoArranque.Play();
+                // Actualizo los estados.
+                acelerando = false;
+                reversando = true;
+                frenando = false;
+
+                // En reversa y idle dejo el mismo sonido.
+                if (!sonidoIdle.isPlaying)
+                {
+                    ApagaSonidosAutomovil();
+                    sonidoIdle.Play();
+                }
+
+                // La velocidad de reversa.
+                this.GetComponent<Rigidbody2D>().velocity = new Vector2(reversa, 0f);
             }
 
-            // La fuerza del motor.
-            this.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(fuerzaMotor, 0));
-
-            // Actualizo los estados.
-            acelerando = true;
-            frenando = false;
-            reversando = false;
-
-            // Límite superior de la velocidad.
-            if (velocidadActualX > velocidadLimiteGas)
+            // Freno (llantas se detienen).
+            else if (Input.GetAxis("Vertical") < 0)
             {
-                this.GetComponent<Rigidbody2D>().velocity = new Vector2(velocidadLimiteGas, 0f);
+
+                // Prendo el sonido de los frenos.
+                if (!sonidoFreno.isPlaying)
+                {
+                    ApagaSonidosAutomovil();
+                    sonidoFreno.Play();
+                }
+
+                // Manejo la división entre 0 del signo opuesto de la velocidad.
+                if (Mathf.Abs(velocidadActualX) > 0.1)
+                {
+                    // La fuerza de los frenos.
+                    this.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(fuerzaFreno * signoOpuestoVelocidad, 0f));
+                }
+
+                // Actualizo los estados.
+                acelerando = false;
+                reversando = false;
+                frenando = true;
+
+                // Límite inferior del freno.
+                if (velocidadActualX > -1 && velocidadActualX < 1)
+                {
+                    this.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+                }
+            }
+
+            // Usuario no entra en ningún estado anterior pero el auto se sigue moviendo.
+            else if (Mathf.Abs(velocidadActualX) > 5)
+            {
+                // Usuario no presiona ningún botón de movimiento (idle)
+                if (!sonidoIdle.isPlaying)
+                {
+                    ApagaSonidosAutomovil();
+                    sonidoIdle.Play();
+                }
+                //print("Frena lo suficiente para cambiar de velocidad");
+            }
+            else
+            {
+                acelerando = false;
+                frenando = false;
+                reversando = false;
+
+                // Usuario no presiona ningún botón de movimiento (idle)
+                if (!sonidoIdle.isPlaying)
+                {
+                    ApagaSonidosAutomovil();
+                    sonidoIdle.Play();
+                }
+                //print("idle");
             }
         }
 
-        // Movimiento a la izquierda (reversa).
-        else if (Input.GetAxis("Horizontal") < 0 && (reversando || (!acelerando && Mathf.Abs(velocidadActualX) < 5)))
-        {
-            // Actualizo los estados.
-            acelerando = false;
-            reversando = true;
-            frenando = false;
 
-            // En reversa y idle dejo el mismo sonido.
-            if (!sonidoIdle.isPlaying)
-            {
-                ApagaSonidosAutomovil();
-                sonidoIdle.Play();
-            }
-
-            // La velocidad de reversa.
-            this.GetComponent<Rigidbody2D>().velocity = new Vector2(reversa, 0f);
-        }
-
-        // Freno (llantas se detienen).
-        else if (Input.GetAxis("Vertical") < 0)
-        {
-
-            // Prendo el sonido de los frenos.
-            if (!sonidoFreno.isPlaying)
-            {
-                ApagaSonidosAutomovil();
-                sonidoFreno.Play();
-            }
-
-            // Manejo la división entre 0 del signo opuesto de la velocidad.
-            if (Mathf.Abs(velocidadActualX) > 0.1)
-            {
-                // La fuerza de los frenos.
-                this.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(fuerzaFreno * signoOpuestoVelocidad, 0f));
-            }
-
-            // Actualizo los estados.
-            acelerando = false;
-            reversando = false;
-            frenando = true;
-
-            // Límite inferior del freno.
-            if (velocidadActualX > -1 && velocidadActualX < 1)
-            {
-                this.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
-            }
-        } 
-
-        // Usuario no entra en ningún estado anterior pero el auto se sigue moviendo.
-        else if (Mathf.Abs(velocidadActualX) > 5)
-        {
-            // Usuario no presiona ningún botón de movimiento (idle)
-            if (!sonidoIdle.isPlaying)
-            {
-                ApagaSonidosAutomovil();
-                sonidoIdle.Play();
-            }
-            //print("Frena lo suficiente para cambiar de velocidad");
-        } else
-        {
-            acelerando = false;
-            frenando = false;
-            reversando = false;
-
-            // Usuario no presiona ningún botón de movimiento (idle)
-            if (!sonidoIdle.isPlaying)
-            {
-                ApagaSonidosAutomovil();
-                sonidoIdle.Play();
-            }
-            //print("idle");
-        }
 
         // Animaciones de girar las llantas. (Gas)
         if (!frenando || (frenando && Mathf.Abs(velocidadActualX) < 5))
@@ -236,19 +243,31 @@ public class MovimientoAutimovil : MonoBehaviour
 
         //print(velocidadActualX);
         // Convierto los colores de las imágenes.
-        if (velocidadActualX > 5)
+
+        if (GameManager.tocandoSueloLlantas)
         {
-            //print("no reversa");
-            imagenReversa.color = rojo;
-        }
-        else if (velocidadActualX < -5) {
-            //print("no acelera");
-            imagenAcelera.color = rojo;
+            if (velocidadActualX > 5)
+            {
+                //print("no reversa");
+                imagenReversa.color = rojo;
+            }
+            else if (velocidadActualX < -5)
+            {
+                //print("no acelera");
+                imagenAcelera.color = rojo;
+            }
+            else
+            {
+                imagenAcelera.color = verde;
+                imagenReversa.color = verde;
+            }
         } else
         {
-            imagenAcelera.color = verde;
-            imagenReversa.color = verde;
+            imagenAcelera.color = rojo;
+            imagenReversa.color = rojo;
+            imagenFrena.color = rojo;
         }
+
 
     }
 

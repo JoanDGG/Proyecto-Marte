@@ -68,9 +68,16 @@ public class GameManager
     public static float friccionLlantasArranqueMaxima = 600f;
     public static float fuerzaFrenoMaxima = -300f;
     public static float calidadAmortiguamientoMaxima = 0f;
-    public static float resistenciaMaxima = 0f;
+    public static float resistenciaMaxima = 1f;
     public static float fuerzaMotorMaxima = 200f;
     public static float velocidadMaximaMaxima = 20f;
 
+    // Número de items recolectados con automóvil.
     public static int itemsRecolectados = 0;
+
+    // Si el auto está tocando el suelo con alguna de sus llantas.
+    public static bool tocandoSueloLlantas;
+
+    // El dano que recibe el auto (resistencia).
+    public static float dano;
 }
