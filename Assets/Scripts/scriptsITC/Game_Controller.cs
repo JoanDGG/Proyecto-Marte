@@ -47,6 +47,8 @@ public class Game_Controller : MonoBehaviour
     private Text aviso;
     public GameObject aviso_nivel;
     public GameObject imagen_alerta;
+    public BotonContinuar botonContinuar;
+    public Text NivelCompletado;
     public AudioSource Alerta;
 
     public Transform spawn1;
@@ -148,6 +150,10 @@ public class Game_Controller : MonoBehaviour
         {
             print("Perdiste!!");
             aviso.text = "Perdiste!";
+            GameManager.oleada = 3;
+            Desbloquear(GameManager.oleada);
+            botonContinuar.MostrarResultados();
+            NivelCompletado.text = "Perdiste!";
         }
         ActualizarBarra();
     }

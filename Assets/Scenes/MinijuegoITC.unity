@@ -679,6 +679,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bdd79fa8fa9584bbf7fc2aab83968c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &146230746 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2421656263748562045, guid: 2dba32ba4e3f1064583522f7f2ce7200, type: 3}
+  m_PrefabInstance: {fileID: 2421656263606821280}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146230744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04a18d60abccaf84d99e5d086c29d2d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &146230748 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2421656263748562044, guid: 2dba32ba4e3f1064583522f7f2ce7200, type: 3}
@@ -15482,6 +15493,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2679340298277001421, guid: 45e13125178945848a355ddb4d95712a, type: 3}
   m_PrefabInstance: {fileID: 1857655574}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1345694814 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6528107461572357354, guid: 3008c526a56c5f747aff2694322eb148, type: 3}
+  m_PrefabInstance: {fileID: 347694228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1400203419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2679340298277001421, guid: 45e13125178945848a355ddb4d95712a, type: 3}
@@ -26820,9 +26842,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 551881002, guid: 7476c97f35efd504680350156af99bb0, type: 3}
-      propertyPath: m_Volume
-      value: 0.2
+      propertyPath: Loop
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 551881002, guid: 7476c97f35efd504680350156af99bb0, type: 3}
+      propertyPath: m_Volume
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 551881002, guid: 7476c97f35efd504680350156af99bb0, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: afe9cd1a61fcb48c3bac80eaec0454c6, type: 3}
     - target: {fileID: 551881007, guid: 7476c97f35efd504680350156af99bb0, type: 3}
       propertyPath: m_Volume
       value: 0.2
@@ -29542,6 +29572,8 @@ MonoBehaviour:
   texto: {fileID: 2123398684}
   aviso_nivel: {fileID: 896701594}
   imagen_alerta: {fileID: 245791855}
+  botonContinuar: {fileID: 146230746}
+  NivelCompletado: {fileID: 1345694814}
   Alerta: {fileID: 551881002}
   spawn1: {fileID: 1110499225}
   spawn2: {fileID: 1612268354}
