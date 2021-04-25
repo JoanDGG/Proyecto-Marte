@@ -14,7 +14,7 @@ public class ActualizaCronometro : MonoBehaviour
 
     // La variable del tiempo de inicio.
     private float startTime;
-    private float timeElapsed;
+    private  float timeElapsed;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +26,7 @@ public class ActualizaCronometro : MonoBehaviour
     void Update()
     {
         timeElapsed = Time.time - startTime;
+        GameManager.numeroSegundos = timeElapsed;
         string minutes = ((int)timeElapsed / 60).ToString();
         string seconds = (timeElapsed % 60).ToString("f2"); // Dejamos 2 decimales.
         this.transform.GetChild(2).GetChild(0).gameObject.GetComponent<Text>().text = minutes + ":" + seconds;

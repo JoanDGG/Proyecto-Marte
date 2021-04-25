@@ -14,12 +14,19 @@ public class RegistraSuelo : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameManager.tocandoSueloLlantas = true;
+        if (!collision.isTrigger)
+        {
+            GameManager.tocandoSueloLlantas = true;
+
+        }
     }
     
     private void OnTriggerExit2D(Collider2D collision)
     {
-        GameManager.tocandoSueloLlantas = false;
+        if (!collision.isTrigger)
+        {
+            GameManager.tocandoSueloLlantas = false;
+        }
     }
     
     // Start is called before the first frame update
@@ -31,6 +38,6 @@ public class RegistraSuelo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print("llantas: " + GameManager.tocandoSueloLlantas.ToString());
+        //print("llantas: " + GameManager.tocandoSueloLlantas.ToString());
     }
 }

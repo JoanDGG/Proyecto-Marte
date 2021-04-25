@@ -15,7 +15,7 @@ public class EntraHielo : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Automovil"))
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().sharedMaterial.friction = 0f;
+            collision.gameObject.GetComponent<Rigidbody2D>().sharedMaterial.friction = 0.2f * GameManager.friccionLlantasEnHielo;
         }
     }
 

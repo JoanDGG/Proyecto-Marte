@@ -64,7 +64,7 @@ public class GameManager
 
     // Valores máximos de las cualidades para tener la referencia al establecer las cualidades.
     public static float volumenMaximo = 10f;
-    public static float friccionLlantasEnHieloMaxima = 0f;
+    public static float friccionLlantasEnHieloMaxima = 1f;
     public static float friccionLlantasArranqueMaxima = 600f;
     public static float fuerzaFrenoMaxima = -300f;
     public static float calidadAmortiguamientoMaxima = 0f;
