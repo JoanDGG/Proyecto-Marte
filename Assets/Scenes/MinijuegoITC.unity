@@ -1225,6 +1225,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6528107463004094326, guid: 3008c526a56c5f747aff2694322eb148, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resena
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3008c526a56c5f747aff2694322eb148, type: 3}
 --- !u!1 &394135826
@@ -27887,6 +27891,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1143156736686183072, guid: f4df1d12b7d81cc4c9f795bfc8346859, type: 3}
+      propertyPath: m_Size.x
+      value: 0.80120575
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143156736686183072, guid: f4df1d12b7d81cc4c9f795bfc8346859, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.099579394
+      objectReference: {fileID: 0}
     - target: {fileID: 1143156736686183078, guid: f4df1d12b7d81cc4c9f795bfc8346859, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -28119,11 +28131,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7975439206660783032, guid: ba6a023425ee94d418a659a03b896d95, type: 3}
       propertyPath: m_Size.x
-      value: 1.4494247
+      value: 1.3037071
       objectReference: {fileID: 0}
     - target: {fileID: 7975439206660783032, guid: ba6a023425ee94d418a659a03b896d95, type: 3}
       propertyPath: m_Offset.x
-      value: -0.016283989
+      value: -0.0891428
       objectReference: {fileID: 0}
     - target: {fileID: 7975439206660783033, guid: ba6a023425ee94d418a659a03b896d95, type: 3}
       propertyPath: m_RootOrder

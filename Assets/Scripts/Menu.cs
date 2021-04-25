@@ -19,6 +19,12 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("Log In");
     }
 
+    public void Resena()
+    {
+        // Cambiar a la escena 'Log In'
+        SceneManager.LoadScene("Resena");
+    }
+
     public void MainMenu()
     {
         // Cambiar a la escena 'MainMenu'

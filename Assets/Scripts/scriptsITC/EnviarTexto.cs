@@ -65,7 +65,7 @@ public class EnviarTexto : MonoBehaviour
                         {
                             textError.text = "Te sobran espacios! (linea " + comando + ")";
                         }
-                        else if (instrucciones[i + 1].Length >= 2)
+                        else if (instrucciones[i + 1].Length > 3)
                         {
                             textError.text = "Te falta un punto! (linea " + comando + ")";
                         }
@@ -92,7 +92,7 @@ public class EnviarTexto : MonoBehaviour
                         {
                             textError.text = "Te sobran espacios! (linea " + comando + ")";
                         }
-                        else if (instrucciones[i + 1].Length >= 2)
+                        else if (instrucciones[i + 1].Length > 3)
                         {
                             textError.text = "Te falta un punto! (linea " + comando + ")";
                         }
@@ -118,7 +118,7 @@ public class EnviarTexto : MonoBehaviour
                         {
                             textError.text = "Te sobran espacios! (linea " + comando + ")";
                         }
-                        else if (instrucciones[i + 1].Length >= 2)
+                        else if (instrucciones[i + 1].Length > 3)
                         {
                             textError.text = "Te falta un punto! (linea " + comando + ")";
                         }

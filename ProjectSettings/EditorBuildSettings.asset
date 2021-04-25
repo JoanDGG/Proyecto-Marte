@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MisionCohete-1.unity
     guid: 82f3641ef71f94220b0d50aca31aae68
+  - enabled: 1
+    path: Assets/Scenes/Resena.unity
+    guid: 5c02204db2433da48964e4669b265e3f
   m_configObjects: {}
