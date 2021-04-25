@@ -1700,7 +1700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gamertag: {fileID: 1711356304}
-  "Contrase\xF1a": {fileID: 2001153616}
+  Contrasena: {fileID: 2001153616}
   resultado: {fileID: 586352704}
 --- !u!1 &2001153614
 GameObject:
