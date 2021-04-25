@@ -452,7 +452,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4a957bffc15326c4d840b7a05c804ab7, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.417
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -908,6 +908,10 @@ PrefabInstance:
     - target: {fileID: 4813801789705636053, guid: 3d9c0d8cd7c1d483cb848aed62cf6c2f, type: 3}
       propertyPath: m_Name
       value: Satelite
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813801789705636055, guid: 3d9c0d8cd7c1d483cb848aed62cf6c2f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4813801789705636057, guid: 3d9c0d8cd7c1d483cb848aed62cf6c2f, type: 3}
       propertyPath: m_RootOrder
