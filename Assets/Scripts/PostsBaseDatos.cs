@@ -37,18 +37,31 @@ public class PostsBaseDatos : MonoBehaviour
         }
     }
 
-    public void PedirInfoNivel(DateTime inicio, int resena, float puntuacion) //Debe llamarse al finalizar el nivel y debe enviársele el tiempo en el que se inicio el nivel, la puntuacion y la reseña
+    public void PedirInfoNivel() //Debe llamarse al finalizar el nivel y debe enviársele el tiempo en el que se inicio el nivel, la puntuacion y la reseña
     {
+        print("Solicitud confirmada");
+        GameManager.GamerTag = "Diego";
+        GameManager.nivelGlobal = 4;
+        DateTime inicio = System.DateTime.Now;
+        int resena = 0;
+        float puntuacion = GameManager.puntuacion; //Solo funciona con el nivel Agropecuario
         StartCoroutine(PublicarTiempoNivel(inicio, resena, puntuacion));
     }
 
     private IEnumerator PublicarTiempoNivel(DateTime inicio, int resena, float puntuacion)
     {
+        DateTime fin = System.DateTime.Now;
         WWWForm forma = new WWWForm();
-        forma.AddField("JugadorGamertag", GameManager.GamerTag);
-        forma.AddField("NivelIdNivel", GameManager.nivelGlobal);
-        forma.AddField("tiempoInicio", inicio.ToString());
-        forma.AddField("tiempoFinal", System.DateTime.Now.ToString());
+        forma.AddField("JugadorGamertag", GameManager.GamerTag.ToString());
+        forma.AddField("NivelIdNivel", GameManager.nivelGlobal.ToString());
+        forma.AddField("ano", inicio.Year);
+        forma.AddField("mes", inicio.Month);
+        forma.AddField("diaInicio", inicio.Day);
+        forma.AddField("horaInicio", inicio.Hour);
+        forma.AddField("minutoInicio", inicio.Minute);
+        forma.AddField("diaFin", fin.Day);
+        forma.AddField("horaFin", fin.Hour);
+        forma.AddField("minutoFin", fin.Minute);
         forma.AddField("calificacion", resena.ToString());
         forma.AddField("puntuacion", puntuacion.ToString());
         UnityWebRequest request = UnityWebRequest.Post("http://localhost:8080/juega/insertarJuega", forma); //Falta cambiarlo en el ServidorProyectoMarte
@@ -65,8 +78,12 @@ public class PostsBaseDatos : MonoBehaviour
         }
     }
 
-    public void PedirRespuesta(string res, int correct, int pregunta) //Debe llamarse al responder una pregunta y debe enviársele la respuesta, si es correcta y el id de la pregunta a la que corresponde 
+    public void PedirRespuesta() //Debe llamarse al responder una pregunta y debe enviársele la respuesta, si es correcta y el id de la pregunta a la que corresponde 
     {
+        GameManager.GamerTag = "Diego";
+        string res = "Hola";
+        int correct = 1;
+        int pregunta = 1;
         StartCoroutine(PublicarRespuesta(res, correct, pregunta));
     }
 

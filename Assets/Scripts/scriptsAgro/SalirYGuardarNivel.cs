@@ -31,6 +31,6 @@ public class SalirYGuardarNivel : MonoBehaviour
         PlayerPrefs.SetString("respuestas2", GameManager.respuestas[2]);
         PlayerPrefs.SetFloat("puntuacion", GameManager.puntuacion);
         PlayerPrefs.Save();
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("ColoniaMarte");
     }
 }

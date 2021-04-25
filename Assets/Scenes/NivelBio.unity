@@ -19546,6 +19546,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6528107463004094326, guid: 3008c526a56c5f747aff2694322eb148, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resena
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3008c526a56c5f747aff2694322eb148, type: 3}
 --- !u!224 &1486574976 stripped

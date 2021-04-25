@@ -432,6 +432,7 @@ GameObject:
   - component: {fileID: 2421656263748562041}
   - component: {fileID: 2421656263748562045}
   - component: {fileID: 146230750}
+  - component: {fileID: 3853307181241142603}
   m_Layer: 5
   m_Name: ImagenPreguntas
   m_TagString: Untagged
@@ -547,6 +548,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementos: []
+  ejecucion: 1
+--- !u!114 &3853307181241142603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2421656263748562040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9981d53e28f6361449f52b2cbfc11b15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2421656263986378312
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,6 +758,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3853307181241142603}
+        m_TargetAssemblyTypeName: PostsBaseDatos, Assembly-CSharp
+        m_MethodName: PedirRespuesta
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

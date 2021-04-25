@@ -22,7 +22,7 @@ public class BotonManager : MonoBehaviour
         {
             if(GameManager.nivelGlobal == 0)
             {
-                SceneManager.LoadScene("MinijuegoITC");
+                SceneManager.LoadScene("ColoniaMarte");
             }
         }
     }
