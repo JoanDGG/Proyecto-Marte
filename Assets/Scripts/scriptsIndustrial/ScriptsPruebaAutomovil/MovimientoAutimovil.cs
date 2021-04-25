@@ -260,6 +260,7 @@ public class MovimientoAutimovil : MonoBehaviour
             {
                 imagenAcelera.color = verde;
                 imagenReversa.color = verde;
+                imagenFrena.color = verde;
             }
         } else
         {
