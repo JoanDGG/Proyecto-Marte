@@ -22,6 +22,12 @@ public class DescargarDatos : MonoBehaviour
         StartCoroutine(EsperarPregunta());
     }
 
+    public void DesbloquearPreguntasID()
+    {
+        GetJSON.instance.LeerJSON("pregunta/verPreguntasDato?dato=id");
+        StartCoroutine(EsperarPreguntaID());
+    }
+
     public void DesbloquearOpciones()
     {
         GetJSON.instance.LeerJSON("opcion/verOpcionPregunta");
@@ -40,6 +46,15 @@ public class DescargarDatos : MonoBehaviour
         string[] preguntas = GetJSON.instance.elementos.ToArray();
         print(preguntas.Length);
         GameManager.preguntas = preguntas;
+        DesbloquearPreguntasID();
+    }
+
+    private IEnumerator EsperarPreguntaID()
+    {
+        while (GetJSON.instance.ejecucion) yield return null;
+        string[] preguntasID = GetJSON.instance.elementos.ToArray();
+        print(preguntasID.Length);
+        GameManager.preguntasID = preguntasID;
         DesbloquearOpciones();
     }
 
