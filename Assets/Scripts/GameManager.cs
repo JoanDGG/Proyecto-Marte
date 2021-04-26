@@ -15,6 +15,7 @@ public class GameManager
     //          4 -> Nivel Agro
     //          5 -> Colonia
     public static string[] preguntas = new string[16];
+    public static string[] preguntasID = new string[16];
     public static List<string[]> opciones = new List<string[]>();
     public static string[] opciones_correctas = new string[16];
     public static string respuesta_actual;
