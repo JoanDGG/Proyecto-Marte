@@ -39,11 +39,8 @@ public class PostsBaseDatos : MonoBehaviour
 
     public void PedirInfoNivel() //Debe llamarse al finalizar el nivel y debe enviársele el tiempo en el que se inicio el nivel, la puntuacion y la reseña
     {
-        print("Solicitud confirmada");
-        GameManager.GamerTag = "Diego";
-        GameManager.nivelGlobal = 4;
         DateTime inicio = System.DateTime.Now;
-        int resena = 0;
+        int resena = GameManager.resena;
         float puntuacion = GameManager.puntuacion; //Solo funciona con el nivel Agropecuario
         StartCoroutine(PublicarTiempoNivel(inicio, resena, puntuacion));
     }
@@ -80,10 +77,9 @@ public class PostsBaseDatos : MonoBehaviour
 
     public void PedirRespuesta() //Debe llamarse al responder una pregunta y debe enviársele la respuesta, si es correcta y el id de la pregunta a la que corresponde 
     {
-        GameManager.GamerTag = "Diego";
-        string res = "Hola";
-        int correct = 1;
-        int pregunta = 1;
+        string res = GameManager.respuesta_actual;
+        int correct = GameManager.correcta ? 1 : 0;
+        int pregunta = GameManager.pregunta_actual;
         StartCoroutine(PublicarRespuesta(res, correct, pregunta));
     }
 

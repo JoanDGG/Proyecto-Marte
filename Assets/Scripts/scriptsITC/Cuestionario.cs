@@ -48,6 +48,7 @@ public class Cuestionario : MonoBehaviour
         }
         print("pregunta: " + preguntas[nivel]);
         pregunta.text = preguntas[nivel];
+        GameManager.pregunta_actual = preguntas[nivel];
         if(nivel == 0)
         {
             opcionA.text = opciones1[0];
@@ -82,13 +83,74 @@ public class Cuestionario : MonoBehaviour
         print(opcion_correcta);
         if (respuesta == opcion_correcta)
         {
+            GameManager.correcta = true;
             print("Respuesta correcta!");
             respuestaTexto.text = "Respuesta correcta!";
         }
         else
         {
+            GameManager.correcta = false;
             print("Respuesta incorrecta :(");
             respuestaTexto.text = "Respuesta incorrecta :(";
+        }
+        switch (nivel)
+        {
+            case 0:
+                switch (res)
+                {
+                    case "A":
+                        GameManager.respuesta_actual = opciones1[0];
+                        break;
+                    case "B":
+                        GameManager.respuesta_actual = opciones1[1];
+                        break;
+                    case "C":
+                        GameManager.respuesta_actual = opciones1[2];
+                        break;
+                }
+                break;
+            case 1:
+                switch (res)
+                {
+                    case "A":
+                        GameManager.respuesta_actual = opciones2[0];
+                        break;
+                    case "B":
+                        GameManager.respuesta_actual = opciones2[1];
+                        break;
+                    case "C":
+                        GameManager.respuesta_actual = opciones2[2];
+                        break;
+                }
+                break;
+            case 2:
+                switch (res)
+                {
+                    case "A":
+                        GameManager.respuesta_actual = opciones3[0];
+                        break;
+                    case "B":
+                        GameManager.respuesta_actual = opciones3[1];
+                        break;
+                    case "C":
+                        GameManager.respuesta_actual = opciones3[2];
+                        break;
+                }
+                break;
+            case 3:
+                switch (res)
+                {
+                    case "A":
+                        GameManager.respuesta_actual = opciones4[0];
+                        break;
+                    case "B":
+                        GameManager.respuesta_actual = opciones4[1];
+                        break;
+                    case "C":
+                        GameManager.respuesta_actual = opciones4[2];
+                        break;
+                }
+                break;
         }
     }
 }

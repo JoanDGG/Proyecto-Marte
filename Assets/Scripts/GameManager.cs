@@ -16,6 +16,10 @@ public class GameManager
     public static string[] preguntas = new string[16];
     public static List<string[]> opciones = new List<string[]>();
     public static string[] opciones_correctas = new string[16];
+    public static string respuesta_actual;
+    public static string pregunta_actual;
+    public static bool correcta;
+    public static int resena;
 
     // variables estáticas de nivel agropecuario
     public static bool primero = true;
