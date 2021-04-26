@@ -52,9 +52,7 @@ public class MoverPersonaje : MonoBehaviour
         StartCoroutine(reloj());
         if (GameManager.primero)
         {
-            /*cuest.SetActive(true);
-            cuestionario.DesbloquearPreguntas();
-            //cuest.SetActive(false);*/
+            GameManager.tiempoInicioNivel = System.DateTime.Now;
             GameManager.tiempo = PlayerPrefs.GetInt("tiempo", GameManager.tiempo);
             GameManager.tiempoLimite = PlayerPrefs.GetInt("tiempoLimite", GameManager.tiempoLimite);
             GameManager.evento = (PlayerPrefs.GetInt("evento", 0)) == 1 ? true : false;
@@ -69,9 +67,6 @@ public class MoverPersonaje : MonoBehaviour
             GameManager.genes[2] = PlayerPrefs.GetInt("genes2", GameManager.genes[2]);
             GameManager.oleada = PlayerPrefs.GetInt("oleada", GameManager.oleada);
             GameManager.respondido = (PlayerPrefs.GetInt("respondido", 0)) == 1 ? true : GameManager.respondido;
-            GameManager.respuestas[0] = PlayerPrefs.GetString("respuestas0", GameManager.respuestas[0]);
-            GameManager.respuestas[1] = PlayerPrefs.GetString("respuestas1", GameManager.respuestas[1]);
-            GameManager.respuestas[2] = PlayerPrefs.GetString("respuestas2", GameManager.respuestas[2]);
             GameManager.puntuacion = PlayerPrefs.GetFloat("puntuacion", GameManager.puntuacion);
             GameManager.clima[0] = -1;
             GameManager.clima[1] = -1;
@@ -247,14 +242,13 @@ public class MoverPersonaje : MonoBehaviour
                 resultados.transform.GetChild(1).gameObject.SetActive(false);
                 float puntos = (float)GameManager.puntuacion;
                 BarraResultados.instance.SetValue(puntos / 5.0f);
+                GameManager.tiempoFinNivel = System.DateTime.Now;
             }
             else if(GameManager.oleada>=4) //Ganar
             {
-                print("Felicidades tus patatas sobrevivieron");
-                print(GameManager.respuestas[0]);
-                print(GameManager.respuestas[1]);
-                print(GameManager.respuestas[2]);
+                GameManager.tiempoFinNivel = System.DateTime.Now;
             }
+            GameManager.tiempoFinNivel = System.DateTime.Now;
         }
         if (GameManager.puntuacion > 5.0f)
         {
@@ -280,18 +274,5 @@ public class MoverPersonaje : MonoBehaviour
         PlayerPrefs.DeleteKey("respuestas1");
         PlayerPrefs.DeleteKey("respuestas2");
         PlayerPrefs.DeleteKey("puntuacion");
-    }
-
-    public void Responder(string respuesta)
-    {
-        print(respuesta);
-        GameManager.respondido = true;
-        GameManager.respuestas[GameManager.oleada - 1] = respuesta;
-        string correcta = "A"; //Cambiar por respuestas de la base de datos
-        if (respuesta == correcta)
-        {
-            print("Felicidades! Ganaste 0.5 puntos");
-            GameManager.puntuacion += 0.5f;
-        }
     }
 }

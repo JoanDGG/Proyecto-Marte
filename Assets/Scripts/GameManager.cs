@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GameManager
 {
@@ -20,6 +21,8 @@ public class GameManager
     public static int pregunta_actual;
     public static bool correcta;
     public static int resena;
+    public static DateTime tiempoInicioNivel;
+    public static DateTime tiempoFinNivel;
 
     // variables estáticas de nivel agropecuario
     public static bool primero = true;
@@ -35,7 +38,6 @@ public class GameManager
     public static int[] genes = new int[3];
     public static int oleada = 1;
     public static bool respondido = false;
-    public static string[] respuestas = new string[3];
     public static float puntuacion = 0.0f;
 
     // Variables estáticas de nivel industrial.

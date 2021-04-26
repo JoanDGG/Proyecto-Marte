@@ -39,7 +39,7 @@ public class PostsBaseDatos : MonoBehaviour
 
     public void PedirInfoNivel() //Debe llamarse al finalizar el nivel y debe enviársele el tiempo en el que se inicio el nivel, la puntuacion y la reseña
     {
-        DateTime inicio = System.DateTime.Now;
+        DateTime inicio = GameManager.tiempoInicioNivel;
         int resena = GameManager.resena;
         float puntuacion = GameManager.puntuacion; //Solo funciona con el nivel Agropecuario
         StartCoroutine(PublicarTiempoNivel(inicio, resena, puntuacion));
@@ -47,7 +47,7 @@ public class PostsBaseDatos : MonoBehaviour
 
     private IEnumerator PublicarTiempoNivel(DateTime inicio, int resena, float puntuacion)
     {
-        DateTime fin = System.DateTime.Now;
+        DateTime fin = GameManager.tiempoFinNivel;
         WWWForm forma = new WWWForm();
         forma.AddField("JugadorGamertag", GameManager.GamerTag.ToString());
         forma.AddField("NivelIdNivel", GameManager.nivelGlobal.ToString());

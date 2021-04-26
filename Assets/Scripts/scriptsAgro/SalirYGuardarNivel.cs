@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class SalirYGuardarNivel : MonoBehaviour
 {
     public void SalirMenu()
     {
+        GameManager.tiempoFinNivel = System.DateTime.Now;
         PlayerPrefs.SetInt("primero", (GameManager.primero) ? 1:0);
         PlayerPrefs.SetInt("tiempo", GameManager.tiempo);
         PlayerPrefs.SetInt("tiempoLimite", GameManager.tiempoLimite);
@@ -26,11 +28,8 @@ public class SalirYGuardarNivel : MonoBehaviour
         PlayerPrefs.SetInt("genes2", GameManager.genes[2]);
         PlayerPrefs.SetInt("oleada", GameManager.oleada);
         PlayerPrefs.SetInt("respondido", (GameManager.respondido) ? 1:0);
-        PlayerPrefs.SetString("respuestas0", GameManager.respuestas[0]);
-        PlayerPrefs.SetString("respuestas1", GameManager.respuestas[1]);
-        PlayerPrefs.SetString("respuestas2", GameManager.respuestas[2]);
         PlayerPrefs.SetFloat("puntuacion", GameManager.puntuacion);
         PlayerPrefs.Save();
-        SceneManager.LoadScene("ColoniaMarte");
+        SceneManager.LoadScene("Resena");
     }
 }

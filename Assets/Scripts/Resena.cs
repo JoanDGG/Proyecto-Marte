@@ -15,6 +15,7 @@ public class Resena : MonoBehaviour, IDropHandler
         {
             valor = eventData.pointerDrag.GetComponent<Arrastrar>().resena;
             print(valor);
+            GameManager.resena = valor;
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
             Enviar.SetActive(true);
         }

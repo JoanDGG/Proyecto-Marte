@@ -85,6 +85,10 @@ public class Cuestionario : MonoBehaviour
             GameManager.correcta = true;
             print("Respuesta correcta!");
             respuestaTexto.text = "Respuesta correcta!";
+            if(GameManager.nivelGlobal == 4)
+            {
+                GameManager.puntuacion += 0.5f;
+            }
         }
         else
         {
