@@ -24,6 +24,7 @@ public class GameManager
     public static int resena;
     public static DateTime tiempoInicioNivel;
     public static DateTime tiempoFinNivel;
+    public static DateTime tiempoLogOut;
 
     // variables estáticas de nivel agropecuario
     public static bool primero = true;

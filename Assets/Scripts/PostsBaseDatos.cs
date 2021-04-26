@@ -17,7 +17,7 @@ public class PostsBaseDatos : MonoBehaviour
     {
         WWWForm forma = new WWWForm();
         //float tiempoFin = PlayerPrefs.GetInt("tiempoFin", 0.0f);
-        int tiempo = (int)(((System.DateTime.Now - LogIn.inicio).TotalSeconds) / 60); //Tiempo en minutos enteros
+        int tiempo = (int)(((GameManager.tiempoLogOut - LogIn.inicio).TotalSeconds) / 60); //Tiempo en minutos enteros
         print(tiempo);
         forma.AddField("gamertag", GameManager.GamerTag);
         forma.AddField("tiempoTotal", tiempo.ToString());
@@ -41,7 +41,7 @@ public class PostsBaseDatos : MonoBehaviour
     {
         DateTime inicio = GameManager.tiempoInicioNivel;
         int resena = GameManager.resena;
-        float puntuacion = GameManager.puntuacion; //Solo funciona con el nivel Agropecuario
+        float puntuacion = GameManager.puntuacion;
         StartCoroutine(PublicarTiempoNivel(inicio, resena, puntuacion));
     }
 

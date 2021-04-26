@@ -9,26 +9,27 @@ public class SalirYGuardarNivel : MonoBehaviour
     public void SalirMenu()
     {
         GameManager.tiempoFinNivel = System.DateTime.Now;
-        PlayerPrefs.SetInt("primero", (GameManager.primero) ? 1:0);
-        PlayerPrefs.SetInt("tiempo", GameManager.tiempo);
-        PlayerPrefs.SetInt("tiempoLimite", GameManager.tiempoLimite);
-        PlayerPrefs.SetInt("evento", (GameManager.evento) ? 1:0);
-        PlayerPrefs.SetInt("tiempoEvento", GameManager.tiempoEvento);
-        PlayerPrefs.SetInt("reloj", GameManager.reloj);
-        PlayerPrefs.SetInt("resist0", (GameManager.resist[0]) ? 1:0);
-        PlayerPrefs.SetInt("resist1", (GameManager.resist[1]) ? 1:0);
-        PlayerPrefs.SetInt("resist2", (GameManager.resist[2]) ? 1:0);
-        PlayerPrefs.SetInt("resist3", (GameManager.resist[3]) ? 1:0);
-        PlayerPrefs.SetInt("pagina", GameManager.pagina);
-        PlayerPrefs.SetInt("clima0", GameManager.clima[0]);
-        PlayerPrefs.SetInt("clima1", GameManager.clima[1]);
-        PlayerPrefs.SetInt("clima2", GameManager.clima[2]);
-        PlayerPrefs.SetInt("genes0", GameManager.genes[0]);
-        PlayerPrefs.SetInt("genes1", GameManager.genes[1]);
-        PlayerPrefs.SetInt("genes2", GameManager.genes[2]);
-        PlayerPrefs.SetInt("oleada", GameManager.oleada);
-        PlayerPrefs.SetInt("respondido", (GameManager.respondido) ? 1:0);
-        PlayerPrefs.SetFloat("puntuacion", GameManager.puntuacion);
+        GameManager.tiempoLogOut = System.DateTime.Now;
+        PlayerPrefs.SetInt("primero", (true) ? 1:0);
+        PlayerPrefs.SetInt("tiempo", 0);
+        PlayerPrefs.SetInt("tiempoLimite", 60);
+        PlayerPrefs.SetInt("evento", (false) ? 1:0);
+        PlayerPrefs.SetInt("tiempoEvento", 5);
+        PlayerPrefs.SetInt("reloj", 60);
+        PlayerPrefs.SetInt("resist0", (false) ? 1:0);
+        PlayerPrefs.SetInt("resist1", (false) ? 1:0);
+        PlayerPrefs.SetInt("resist2", (false) ? 1:0);
+        PlayerPrefs.SetInt("resist3", (false) ? 1:0);
+        PlayerPrefs.SetInt("pagina", 0);
+        PlayerPrefs.SetInt("clima0", 0);
+        PlayerPrefs.SetInt("clima1", 0);
+        PlayerPrefs.SetInt("clima2", 0);
+        PlayerPrefs.SetInt("genes0", 0);
+        PlayerPrefs.SetInt("genes1", 0);
+        PlayerPrefs.SetInt("genes2", 0);
+        PlayerPrefs.SetInt("oleada", 1);
+        PlayerPrefs.SetInt("respondido", (false) ? 1:0);
+        PlayerPrefs.SetFloat("puntuacion", 0.0f);
         PlayerPrefs.Save();
         SceneManager.LoadScene("Resena");
     }

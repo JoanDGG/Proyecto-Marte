@@ -22,6 +22,7 @@ public class Cuestionario : MonoBehaviour
     private string[] opciones_correctas;
     private string respuesta;
     private string opcion_correcta;
+    private int indicePregunta;
 
     public void DesbloquearPreguntas()
     {
@@ -50,24 +51,28 @@ public class Cuestionario : MonoBehaviour
         pregunta.text = preguntas[nivel];
         if(nivel == 0)
         {
+            indicePregunta = ((GameManager.nivelGlobal - 1) * 4);
             opcionA.text = opciones1[0];
             opcionB.text = opciones1[1];
             opcionC.text = opciones1[2];
         }
         else if (nivel == 1)
         {
+            indicePregunta = ((GameManager.nivelGlobal - 1) * 4)+1;
             opcionA.text = opciones2[0];
             opcionB.text = opciones2[1];
             opcionC.text = opciones2[2];
         }
         else if (nivel == 2)
         {
+            indicePregunta = ((GameManager.nivelGlobal - 1) * 4)+2;
             opcionA.text = opciones3[0];
             opcionB.text = opciones3[1];
             opcionC.text = opciones3[2];
         }
         else if (nivel == 3)
         {
+            indicePregunta = ((GameManager.nivelGlobal - 1) * 4)+3;
             opcionA.text = opciones4[0];
             opcionB.text = opciones4[1];
             opcionC.text = opciones4[2];
@@ -77,6 +82,7 @@ public class Cuestionario : MonoBehaviour
 
     public void Responder(string res)
     {
+        GameManager.pregunta_actual = Int32.Parse(GameManager.preguntasID[indicePregunta]);
         respuesta = res;
         print("Respondío: " + respuesta);
         print(opcion_correcta);
