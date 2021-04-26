@@ -48,7 +48,6 @@ public class Cuestionario : MonoBehaviour
         }
         print("pregunta: " + preguntas[nivel]);
         pregunta.text = preguntas[nivel];
-        GameManager.pregunta_actual = preguntas[nivel];
         if(nivel == 0)
         {
             opcionA.text = opciones1[0];

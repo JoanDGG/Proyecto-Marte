@@ -17,7 +17,7 @@ public class GameManager
     public static List<string[]> opciones = new List<string[]>();
     public static string[] opciones_correctas = new string[16];
     public static string respuesta_actual;
-    public static string pregunta_actual;
+    public static int pregunta_actual;
     public static bool correcta;
     public static int resena;
 
