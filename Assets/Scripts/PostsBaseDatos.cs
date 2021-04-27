@@ -37,7 +37,7 @@ public class PostsBaseDatos : MonoBehaviour
         }
     }
 
-    public void PedirInfoNivel() //Debe llamarse al finalizar el nivel y debe envi?rsele el tiempo en el que se inicio el nivel, la puntuacion y la rese?a
+    public void PedirInfoNivel() //Debe llamarse al finalizar el nivel y debe enviarsele el tiempo en el que se inicio el nivel, la puntuacion y la rese?a
     {
         DateTime inicio = GameManager.tiempoInicioNivel;
         int resena = GameManager.resena;
@@ -75,7 +75,7 @@ public class PostsBaseDatos : MonoBehaviour
         }
     }
 
-    public void PedirRespuesta() //Debe llamarse al responder una pregunta y debe envi?rsele la respuesta, si es correcta y el id de la pregunta a la que corresponde 
+    public void PedirRespuesta() //Debe llamarse al responder una pregunta y debe enviarsele la respuesta, si es correcta y el id de la pregunta a la que corresponde 
     {
         string res = GameManager.respuesta_actual;
         int correct = GameManager.correcta ? 1 : 0;
