@@ -186,6 +186,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint
       objectReference: {fileID: 0}
+    - target: {fileID: 89492844008559503, guid: b0fa9a676b8174c2684b5780f74f16b9, type: 3}
+      propertyPath: m_TagString
+      value: Checkpoint-3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0fa9a676b8174c2684b5780f74f16b9, type: 3}
 --- !u!1 &97988790
@@ -1758,7 +1762,7 @@ Transform:
   - {fileID: 2050076112}
   - {fileID: 97988791}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2092495376
 PrefabInstance:

@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 5524630927451167455}
   - component: {fileID: 5524630927451167444}
   - component: {fileID: 5802050480329430124}
+  - component: {fileID: 2718706743105203966}
   m_Layer: 0
   m_Name: Cohete
   m_TagString: Untagged
@@ -363,3 +364,15 @@ MonoBehaviour:
   baseStation: {fileID: 5524630926501999795}
   launchTime: 0.15
   nextRocket: {fileID: 0}
+--- !u!114 &2718706743105203966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5524630927451167454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b6714e52606146aebeff06d074f3cdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
