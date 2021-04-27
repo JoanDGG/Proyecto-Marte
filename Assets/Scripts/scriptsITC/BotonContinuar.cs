@@ -30,6 +30,6 @@ public class BotonContinuar : MonoBehaviour
                 float puntos = (float)GameManager.puntuacion;
                 BarraResultados.instance.SetValue(puntos / 5.0f);
             }
-        }
+        } 
     }
 }

@@ -18,7 +18,7 @@ public class CuestionarioAnalisis : MonoBehaviour
 
     public Text respuestaTexto; // El objeto de respuesta.
 
-    private string respuesta; // La respuesta que da el jugador.
+    //private string respuesta; // La respuesta que da el jugador.
 
     private string opcion_correcta; // La opcion correcta.
 
@@ -42,18 +42,21 @@ public class CuestionarioAnalisis : MonoBehaviour
                                                  GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4) + 2],
                                                  GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4) + 3]};
 
-    public void LlenaPregunta1()
-        {
-            // La llave de la pregunta en la tabla.
-            indicePregunta = ((GameManager.nivelGlobal) - 1) * 4;
-            opcion_correcta = opciones_correctas[0];
+    // Para tener la referencia del numero de pregunta.
+    private int numeroPregunta;
 
-            // Actualizo los valores de la pregunta y las opciones mostradas al jugador.
-            pregunta.text = preguntas[0];
-            opcionA.text = opciones1[0];
-            opcionB.text = opciones1[1];
-            opcionC.text = opciones1[2];
-        }
+    public void LlenaPregunta1()
+    {
+        // La llave de la pregunta en la tabla.
+        indicePregunta = ((GameManager.nivelGlobal) - 1) * 4;
+        opcion_correcta = opciones_correctas[0];
+
+        // Actualizo los valores de la pregunta y las opciones mostradas al jugador.
+        pregunta.text = preguntas[0];
+        opcionA.text = opciones1[0];
+        opcionB.text = opciones1[1];
+        opcionC.text = opciones1[2];
+    }
 
 
     public void LlenaPregunta2()
@@ -61,6 +64,9 @@ public class CuestionarioAnalisis : MonoBehaviour
         // La llave de la pregunta en la tabla.
         indicePregunta = ((GameManager.nivelGlobal) - 1) * 4 + 1;
         opcion_correcta = opciones_correctas[1];
+
+        // El numero de pregunta para saber comparar al responder.
+        numeroPregunta = 0;
 
         // Actualizo los valores de la pregunta y las opciones mostradas al jugador.
         pregunta.text = preguntas[1];
@@ -97,34 +103,23 @@ public class CuestionarioAnalisis : MonoBehaviour
 
     private void Start()
     {
+        // Al iniciar la escena solo quiero la pregunta 1.
         LlenaPregunta1();
-        LlenaPregunta2();
-        LlenaPregunta3();
-        LlenaPregunta4();
+        print(opciones_correctas);
     }
 
-    public void CalificarRespuesta1() {
-        GameManager.pregunta_actual = Int32.Parse(GameManager.preguntasID[indicePregunta]);
-
-
-        if (GameManager.respuesta_actual == opcion_correcta) {
-            GameManager.correcta = true;
-            print("Respuesta correcta!");
-            respuestaTexto.text = "Respuesta correcta!";
-        }
-
-    }
-
-    public void Responder(string res)
+    public void Responder(string respuesta)
     {
+        // La llave primaria de la pregunta para hacer el post.
         GameManager.pregunta_actual = Int32.Parse(GameManager.preguntasID[indicePregunta]);
 
-        respuesta = res;
+        //respuesta = res;
 
         print("Respond?o: " + respuesta);
 
-        print(opcion_correcta);
+        print("La opcion correcta es: " + opcion_correcta);
 
+        // La respuesta correcta.
         if (respuesta == opcion_correcta)
         {
             GameManager.correcta = true;
@@ -144,7 +139,7 @@ public class CuestionarioAnalisis : MonoBehaviour
         switch (nivel)
         {
             case 0:
-                switch (res)
+                switch (respuesta)
                 {
                     case "A":
                         GameManager.respuesta_actual = opciones1[0];
@@ -158,7 +153,7 @@ public class CuestionarioAnalisis : MonoBehaviour
                 }
                 break;
             case 1:
-                switch (res)
+                switch (respuesta)
                 {
                     case "A":
                         GameManager.respuesta_actual = opciones2[0];
@@ -172,7 +167,7 @@ public class CuestionarioAnalisis : MonoBehaviour
                 }
                 break;
             case 2:
-                switch (res)
+                switch (respuesta)
                 {
                     case "A":
                         GameManager.respuesta_actual = opciones3[0];
@@ -186,7 +181,7 @@ public class CuestionarioAnalisis : MonoBehaviour
                 }
                 break;
             case 3:
-                switch (res)
+                switch (respuesta)
                 {
                     case "A":
                         GameManager.respuesta_actual = opciones4[0];

@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MisionCohete-3.unity
     guid: 61bd4af1dfafc46fa80bfc29e078288a
+  - enabled: 1
+    path: Assets/Scenes/PreguntasNivelIndustrial.unity
+    guid: 278e4817b7d144d27a207b824762399a
   m_configObjects: {}
