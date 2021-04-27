@@ -37,7 +37,7 @@ public class PostsBaseDatos : MonoBehaviour
         }
     }
 
-    public void PedirInfoNivel() //Debe llamarse al finalizar el nivel y debe enviársele el tiempo en el que se inicio el nivel, la puntuacion y la reseña
+    public void PedirInfoNivel() //Debe llamarse al finalizar el nivel y debe envi?rsele el tiempo en el que se inicio el nivel, la puntuacion y la rese?a
     {
         DateTime inicio = GameManager.tiempoInicioNivel;
         int resena = GameManager.resena;
@@ -67,7 +67,7 @@ public class PostsBaseDatos : MonoBehaviour
         print(request.result);
         if (request.result == UnityWebRequest.Result.Success)
         {
-            print("Tiempos de nivel registrados con éxito");
+            print("Tiempos de nivel registrados con ?xito");
         }
         else
         {
@@ -75,7 +75,7 @@ public class PostsBaseDatos : MonoBehaviour
         }
     }
 
-    public void PedirRespuesta() //Debe llamarse al responder una pregunta y debe enviársele la respuesta, si es correcta y el id de la pregunta a la que corresponde 
+    public void PedirRespuesta() //Debe llamarse al responder una pregunta y debe envi?rsele la respuesta, si es correcta y el id de la pregunta a la que corresponde 
     {
         string res = GameManager.respuesta_actual;
         int correct = GameManager.correcta ? 1 : 0;
@@ -83,20 +83,22 @@ public class PostsBaseDatos : MonoBehaviour
         StartCoroutine(PublicarRespuesta(res, correct, pregunta));
     }
 
+    // Corrutina para publicar una respuesta del jugador en la base de datos.
     private IEnumerator PublicarRespuesta(string res, int correct, int pregunta)
     {
         WWWForm forma = new WWWForm();
         forma.AddField("JugadorGamertag", GameManager.GamerTag);
         forma.AddField("PreguntumId", pregunta.ToString());
         forma.AddField("respuesta", res);
-        forma.AddField("estado", correct.ToString()); 
+        forma.AddField("estado", correct.ToString());
+
         UnityWebRequest request = UnityWebRequest.Post("http://localhost:8080/respuesta/insertarRespuesta", forma); //Falta cambiarlo en el ServidorProyectoMarte
         yield return request.SendWebRequest();
         //bool exito = true;
         print(request.result);
         if (request.result == UnityWebRequest.Result.Success)
         {
-            print("Respuesta registrada con éxito");
+            print("Respuesta registrada con ?xito");
         }
         else
         {

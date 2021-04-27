@@ -14,13 +14,13 @@ public class GameManager
     //          3 -> Nivel Coche
     //          4 -> Nivel Agro
     //          5 -> Colonia
-    public static string[] preguntas = new string[16];
-    public static string[] preguntasID = new string[16];
-    public static List<string[]> opciones = new List<string[]>();
-    public static string[] opciones_correctas = new string[16];
-    public static string respuesta_actual;
-    public static int pregunta_actual;
-    public static bool correcta;
+    public static string[] preguntas = new string[16]; // Arreglo de 16 strings (4 preguntas por nivel x 4 niveles).
+    public static string[] preguntasID = new string[16]; // Arreglo de 16 strings correspondientes a las ids de las preguntas.
+    public static List<string[]> opciones = new List<string[]>(); // Una lista de arreglos de strings para guardar las opciones.
+    public static string[] opciones_correctas = new string[16]; // Arreglo de 16 strings para guardar las opciones correctas.
+    public static string respuesta_actual; // La respuesta mas reciente que da el usuario.
+    public static int pregunta_actual; // La pregunta que está respondiendo actualmente el usuario.
+    public static bool correcta; // Indica si la respuesta mas reciente a una pregunta es correcta.
     public static int resena;
     public static DateTime tiempoInicioNivel;
     public static DateTime tiempoFinNivel;
@@ -51,6 +51,8 @@ public class GameManager
     public static int precioChasis = 10;
     public static int precioMotor = 8;
     public static int budget = 100 - (precioCuerpo + precioLlantas + precioFrenos + precioSuspension + precioChasis + precioMotor);// presupuesto con las partes más baratas en todas las categorías.
+
+    public static int spriteChasis;
 
     // Índices de partes para reconstruir auto en escena distinta.
     public static int[] cuerpo = { 0, 0};
@@ -94,4 +96,5 @@ public class GameManager
 
     // La puntuacion del nivel del carro.
     public static float puntuacionNivelCarro;
+
 }

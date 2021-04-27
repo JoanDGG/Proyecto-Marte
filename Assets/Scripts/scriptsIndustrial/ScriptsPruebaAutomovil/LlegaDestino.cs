@@ -39,9 +39,13 @@ public class LlegaDestino : MonoBehaviour
             s8.mute = true;
             musicaNivelPasado.Play();
             panelFinNivel.SetActive(true);
-            Time.timeScale = 0;
+            GameManager.puntuacion = GameManager.puntuacionNivelCarro;
+            print(GameManager.puntuacion);
+            BarraResultados.instance.SetValue(GameManager.puntuacion / 5);
+            print("daño: " + Mathf.Abs((GameManager.dano / (GameManager.volumenMaximo) * 0.9f) - 1));
+            print("tiempo: " + Mathf.Pow(0.99f, GameManager.numeroSegundos) * 3);
+            print("items: " + GameManager.itemsRecolectados / GameManager.volumenMaximo);
         }
-    
     }
 
     // Start is called before the first frame update

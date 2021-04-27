@@ -15,13 +15,13 @@ public class EntraHielo : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Automovil"))
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().sharedMaterial.friction = 0.2f * GameManager.friccionLlantasEnHielo;
+            collision.transform.GetComponentInParent<Rigidbody2D>().sharedMaterial.friction = 0.2f * GameManager.friccionLlantasEnHielo;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        collision.gameObject.GetComponent<Rigidbody2D>().sharedMaterial.friction = 0.2f;
+        collision.gameObject.GetComponentInParent<Rigidbody2D>().sharedMaterial.friction = 0.2f;
     }
 
     // Start is called before the first frame update
