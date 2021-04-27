@@ -13,6 +13,7 @@ public class LlegaDestino : MonoBehaviour
     public GameObject panelFinNivel;
 
     // sonidos de motor para quitarlos
+    public AudioSource s0;
     public AudioSource s1;
     public AudioSource s2;
     public AudioSource s3;
@@ -21,19 +22,22 @@ public class LlegaDestino : MonoBehaviour
     public AudioSource s6;
     public AudioSource s7;
     public AudioSource s8;
+    public AudioSource musicaNivelPasado;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Automovil"))
         {
-            s1.Stop();
-            s2.Stop();
-            s3.Stop();
-            s4.Stop();
-            s5.Stop();
-            s6.Stop();
-            s7.Stop();
-            s8.Stop();
+            s0.mute = true;
+            s1.mute = true;
+            s2.mute = true;
+            s3.mute = true;
+            s4.mute = true;
+            s5.mute = true;
+            s6.mute = true;
+            s7.mute = true;
+            s8.mute = true;
+            musicaNivelPasado.Play();
             panelFinNivel.SetActive(true);
             Time.timeScale = 0;
         }

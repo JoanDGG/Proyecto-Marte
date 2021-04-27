@@ -11,9 +11,12 @@ Autor: Luis Ignacio Ferro Salinas A01378248
 public class Instrucciones : MonoBehaviour
 {
 
+    public GameObject botonPausa;
+
     public void DeshabilitarInstrucciones() {
         // Apagar instrucciones.
         this.transform.GetChild(22).gameObject.SetActive(false);
+        botonPausa.SetActive(true);
     }
 
     // Start is called before the first frame update

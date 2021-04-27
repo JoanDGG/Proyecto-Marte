@@ -174,7 +174,7 @@ public class funcionesBotonesSprites : MonoBehaviour
         GameManager.budget = 100 - (GameManager.precioCuerpo + GameManager.precioLlantas + GameManager.precioFrenos + GameManager.precioSuspension + GameManager.precioChasis + GameManager.precioMotor);
 
         // Actualizo el GameObject de texto que muestra el presupuesto.
-        this.transform.GetChild(3).gameObject.GetComponent<Text>().text = "Presupuesto: " + GameManager.budget.ToString() + "$";
+        this.transform.GetChild(3).gameObject.GetComponent<Text>().text = "Presupuesto: " + "$" + GameManager.budget.ToString();
         return true;
     }
 
@@ -510,7 +510,7 @@ public class funcionesBotonesSprites : MonoBehaviour
     // Comienzo mostrando el presupuesto inicial.
     private void Start()
     {
-        this.transform.GetChild(3).gameObject.GetComponent<Text>().text = "Presupuesto: " + GameManager.budget.ToString() + "$";
+        this.transform.GetChild(3).gameObject.GetComponent<Text>().text = "Presupuesto: " + "$" + GameManager.budget.ToString();
     }
 }
 
