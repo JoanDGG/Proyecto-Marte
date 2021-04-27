@@ -15,8 +15,10 @@ public class BotonContinuar : MonoBehaviour
             if (GameManager.oleada >= 3)
             {
                 Resultados.SetActive(true);
-                print(Game_Controller.instance.puntaje / 7000.0f);
-                BarraResultados.instance.SetValue(Game_Controller.instance.puntaje / 7000.0f);
+                float puntuacion = Game_Controller.instance.puntaje / 7000.0f;
+                print(puntuacion);
+                BarraResultados.instance.SetValue(puntuacion);
+                GameManager.puntuacion = puntuacion;
             }
         }
         else if(sceneName == "NivelBio")
