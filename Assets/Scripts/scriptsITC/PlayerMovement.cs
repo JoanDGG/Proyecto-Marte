@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 velocity;
     private Animator animator;
-
+    public AudioSource Caminar;
     // Start is called before the first frame update
     void Start()
     {
@@ -104,6 +104,15 @@ public class PlayerMovement : MonoBehaviour
         {
             is_attacking = false;
             fire_active = false;
+        }
+
+        if(inputMove != 0 || movingLeft || movingRight)
+        {
+            Caminar.enabled = true;
+        }
+        else
+        {
+            Caminar.enabled = false;
         }
     }
 

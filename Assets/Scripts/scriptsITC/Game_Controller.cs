@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Game_Controller : MonoBehaviour
 {
@@ -67,6 +68,7 @@ public class Game_Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.tiempoInicioNivel = System.DateTime.Now;
         GameManager.nivelGlobal = 2;
         GameManager.oleada = 0;
         constante_original = constante;
@@ -186,8 +188,8 @@ public class Game_Controller : MonoBehaviour
             xMax = 50.0f;
         }
 
-        float x = Mathf.Clamp(player.transform.position.x + Random.Range(-8.0f, 8.0f), xMin, xMax);
-        float y = player.transform.position.y + Random.Range(0.0f, 2.0f);
+        float x = Mathf.Clamp(player.transform.position.x + UnityEngine.Random.Range(-8.0f, 8.0f), xMin, xMax);
+        float y = player.transform.position.y + UnityEngine.Random.Range(0.0f, 2.0f);
 
         Vector3 spawn = new Vector3(x, y, 0);
         Instantiate(FireEffect.transform, spawn, player.transform.rotation);
@@ -235,7 +237,7 @@ public class Game_Controller : MonoBehaviour
             total += elem;
         }
 
-        float randomPoint = Random.value * total;
+        float randomPoint = UnityEngine.Random.value * total;
 
         for (int i = 0; i < probs.Length; i++)
         {
@@ -303,6 +305,7 @@ public class Game_Controller : MonoBehaviour
     public void Guardar()
     {
         print("guardar" + GameManager.oleada);
+        GameManager.tiempoFinNivel = System.DateTime.Now;
         PlayerPrefs.SetFloat("Nivel3Puntaje", puntaje);
         PlayerPrefs.SetString("Nivel3Fin", final);
         PlayerPrefs.SetInt("Nivel3", GameManager.oleada);

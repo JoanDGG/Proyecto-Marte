@@ -55,6 +55,7 @@ public class EnviarTexto : MonoBehaviour
             string[] instrucciones = lineas[comando].Split(' ');
             for (int i = 0; i < instrucciones.Length; i++)
             {
+                print(instrucciones[i]);
                 if (instrucciones[i].Contains("der"))
                 {
                     //Debug.Log("Moviendo derecha...");
@@ -68,7 +69,6 @@ public class EnviarTexto : MonoBehaviour
                         else if (instrucciones[i + 1].Length > 3)
                         {
                             textError.text = "Te falta un punto! (linea " + comando + ")";
-                            print(lineas[comando]);
                         }
                         else
                         {
@@ -193,7 +193,7 @@ public class EnviarTexto : MonoBehaviour
                             {
                                 break;
                             }
-                            funcion.Add(lineas[linea] + ".");
+                            funcion.Add(lineas[linea]);
                             linea++;
                         }
                         funciones.Add(nombre_funcion, funcion.ToArray());
