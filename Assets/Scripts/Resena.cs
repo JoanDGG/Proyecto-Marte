@@ -1,13 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class Resena : MonoBehaviour, IDropHandler
 {
     public GameObject Enviar;
+    public Text Nivel;
     public int valor;
     public bool continuar = false;
+    private string[] niveles = {"Blast off", "The robot", "Search and collect", "Grow the crops"};
+
+    void Start()
+    {
+        Nivel.text = niveles[GameManager.nivelGlobal - 1];
+    }
 
     public void OnDrop(PointerEventData eventData)
     {
