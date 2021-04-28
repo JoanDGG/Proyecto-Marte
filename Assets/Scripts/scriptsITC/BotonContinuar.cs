@@ -30,6 +30,18 @@ public class BotonContinuar : MonoBehaviour
                 float puntos = (float)GameManager.puntuacion;
                 BarraResultados.instance.SetValue(puntos / 5.0f);
             }
+        }
+        else if(sceneName == "MisionCohete-1")
+        {
+            SceneManager.LoadScene("MisionCohete-2");
+        }
+        else if(sceneName == "MisionCohete-2")
+        {
+            SceneManager.LoadScene("MisionCohete-3");
+        }
+        else if(sceneName == "MisionCohete-3")
+        {
+            SceneManager.LoadScene("ColoniaMarte");
         } 
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 993724176658615571}
   - component: {fileID: 993724176658615570}
   - component: {fileID: 7074619651935042095}
+  - component: {fileID: 4116974289230879111}
   m_Layer: 0
   m_Name: Asteroide rotando
   m_TagString: Untagged
@@ -102,3 +103,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &4116974289230879111
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993724176658615565}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.01317358, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.17509063
