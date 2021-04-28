@@ -13,7 +13,7 @@ public class Checkpoint : MonoBehaviour
     {
         GameManager.oleada += 1;
         imagenPreguntas.SetActive(true);
-        //cuestionario.DesbloquearPreguntas();
+        cuestionario.DesbloquearPreguntas();
         GameManager.tiempoFinNivel = System.DateTime.Now;
 
         if (collider.gameObject.CompareTag("Checkpoint-1")){

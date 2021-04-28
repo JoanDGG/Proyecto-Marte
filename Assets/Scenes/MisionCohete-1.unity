@@ -202,7 +202,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2718706743105203966, guid: 34c6c21b2c36f41f8986e71e8e4845f2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 34c6c21b2c36f41f8986e71e8e4845f2, type: 3}
 --- !u!1 &161597973
 GameObject:
@@ -413,7 +414,8 @@ PrefabInstance:
       propertyPath: nextRocket
       value: 
       objectReference: {fileID: 1870679491}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2718706743105203966, guid: 34c6c21b2c36f41f8986e71e8e4845f2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 34c6c21b2c36f41f8986e71e8e4845f2, type: 3}
 --- !u!1 &250488138 stripped
 GameObject:

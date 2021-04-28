@@ -41,7 +41,7 @@ public class BotonContinuar : MonoBehaviour
         }
         else if(sceneName == "MisionCohete-3")
         {
-            SceneManager.LoadScene("ColoniaMarte");
+            SceneManager.LoadScene("Resena");
         } 
     }
 }

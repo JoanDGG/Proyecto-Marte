@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System;
 
 public class HUDMisionCohete : MonoBehaviour
@@ -15,9 +16,14 @@ public class HUDMisionCohete : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
         GameManager.nivelGlobal = 1;
         GameManager.tiempoInicioNivel = System.DateTime.Now;
-        GameManager.oleada = 0;
+        if (sceneName == "MisionCohete-1")
+        {
+            GameManager.oleada = 0;
+        }
     }
 
     internal void UpdateLifes()
