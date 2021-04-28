@@ -11,6 +11,7 @@ public class PostsBaseDatos : MonoBehaviour
     public void PedirLogOut()
     {
         StartCoroutine(HacerLogOut());
+        SceneManager.LoadScene("Log in");
     }
 
     private IEnumerator HacerLogOut()
@@ -28,7 +29,6 @@ public class PostsBaseDatos : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             print("Tiempo registrado con exito");
-            Application.Quit(); //Salir del juego
             //SceneManager.LoadScene("Log in"); O regresar a la pantalla del Log In
         }
         else
