@@ -14,6 +14,6 @@ public class CambioEscena : MonoBehaviour
 
     public void ProbarAuto()
     {
-        SceneManager.LoadScene("PruebaAutomovil"); 
+        SceneManager.LoadScene("PreguntasNivelIndustrial"); 
     }
 }

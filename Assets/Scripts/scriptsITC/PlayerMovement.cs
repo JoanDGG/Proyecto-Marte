@@ -27,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 velocity;
     private Animator animator;
+    public AudioSource Caminar;
+    public AudioSource Llave;
+    public AudioSource Extintor;
 
     // Start is called before the first frame update
     void Start()
@@ -65,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (inputFire || fire_active)
         {
+            Extintor.Play();
             animator.SetBool("extintor", true);
             //Debug.Log("Apagando fuego...");
         }
@@ -75,6 +79,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (inputAttack || is_attacking)
         {
+            if (is_grounded_controller.is_grounded)
+            {
+                Llave.Play();
+            }
+
             if (first_attack)
             {
                 animator.SetBool("attacking", true);
@@ -104,6 +113,15 @@ public class PlayerMovement : MonoBehaviour
         {
             is_attacking = false;
             fire_active = false;
+        }
+
+        if((inputMove != 0 || movingLeft || movingRight) && (is_grounded_controller.is_grounded))
+        {
+            Caminar.enabled = true;
+        }
+        else
+        {
+            Caminar.enabled = false;
         }
     }
 

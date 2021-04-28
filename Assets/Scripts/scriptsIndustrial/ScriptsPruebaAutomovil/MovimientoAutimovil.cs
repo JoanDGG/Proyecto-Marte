@@ -14,26 +14,26 @@ public class MovimientoAutimovil : MonoBehaviour
 {
     // La velocidad actual en el eje x.
     private float velocidadActualX;
-
+    
 
     // La velocidad límite del automóvil (motor).
-    public float velocidadLimiteGas;
+    //public float velocidadLimiteGas;
 
     // La fuerza del motor (motor);
-    public float fuerzaMotor;
+    //public float fuerzaMotor;
 
     // La velocidad de reversa (motor).
-    public float reversa;
+    //public float reversa;
 
 
     // La fuerza que proporcionan los frenos (frenos).
-    public float fuerzaFreno;
+    //public float fuerzaFreno;
 
     // El material que proporcionan las llantas.
-    public Material materialLlantas;
+    //public Material materialLlantas;
 
     // El boost que dan las llantas.
-    public float boostLlantas;
+    //public float boostLlantas;
 
 
     // Estados del automóvil.
@@ -131,7 +131,7 @@ public class MovimientoAutimovil : MonoBehaviour
                 // Aplico el boost que dan los frenos en la aceleración.
                 if (velocidadActualX < 5)
                 {
-                    this.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(boostLlantas, 0));
+                    this.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(GameManager.friccionLlantasArranque, 0));
                 }
 
                 // Prendo sonido adecuado.
@@ -142,7 +142,7 @@ public class MovimientoAutimovil : MonoBehaviour
                 }
 
                 // La fuerza del motor.
-                this.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(fuerzaMotor, 0));
+                this.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(GameManager.fuerzaMotor, 0));
 
                 // Actualizo los estados.
                 acelerando = true;
@@ -150,9 +150,9 @@ public class MovimientoAutimovil : MonoBehaviour
                 reversando = false;
 
                 // Límite superior de la velocidad.
-                if (velocidadActualX > velocidadLimiteGas)
+                if (velocidadActualX > 25f)
                 {
-                    this.GetComponent<Rigidbody2D>().velocity = new Vector2(velocidadLimiteGas, 0f);
+                    this.GetComponent<Rigidbody2D>().velocity = new Vector2(25f, 0f);
                 }
             }
 
@@ -172,7 +172,7 @@ public class MovimientoAutimovil : MonoBehaviour
                 }
 
                 // La velocidad de reversa.
-                this.GetComponent<Rigidbody2D>().velocity = new Vector2(reversa, 0f);
+                this.GetComponent<Rigidbody2D>().velocity = new Vector2(-10f, 0f);
             }
 
             // Freno (llantas se detienen).
@@ -190,7 +190,7 @@ public class MovimientoAutimovil : MonoBehaviour
                 if (Mathf.Abs(velocidadActualX) > 0.1)
                 {
                     // La fuerza de los frenos.
-                    this.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(fuerzaFreno * signoOpuestoVelocidad, 0f));
+                    this.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(GameManager.fuerzaFreno * signoOpuestoVelocidad, 0f));
                 }
 
                 // Actualizo los estados.
@@ -268,8 +268,6 @@ public class MovimientoAutimovil : MonoBehaviour
             imagenReversa.color = rojo;
             imagenFrena.color = rojo;
         }
-
-
     }
 
 }

@@ -9,6 +9,7 @@ using System;
 public class LogIn : MonoBehaviour
 {
 
+    // Elementos del canvas para login.
     public Text Gamertag;
     public InputField Contrasena;
     public Text resultado;
@@ -22,13 +23,22 @@ public class LogIn : MonoBehaviour
 
     private IEnumerator ComprobarLogIn()
     {
+        // El objeto form para enviar la información al servidor.
         WWWForm forma = new WWWForm();
+
         forma.AddField("gamertag", Gamertag.text);
         forma.AddField("contrasena", Contrasena.text);
+
+        // Post de login, regresa el nombre de usuario o un texto de login fallido.
         UnityWebRequest request = UnityWebRequest.Post("http://localhost:8080/jugador/LogIn", forma);
         yield return request.SendWebRequest();
+
         bool exito = true;
+
+        // Si existe el usuario en la base de datos se imprime su gamertag.
         print(request.result);
+
+
         if (request.result == UnityWebRequest.Result.Success)
         {
             textoPlano = request.downloadHandler.text;

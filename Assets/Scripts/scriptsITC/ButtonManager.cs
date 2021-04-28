@@ -16,9 +16,7 @@ public class ButtonManager : MonoBehaviour
     public GameObject boton_izq;            // Boton para pagina anterior
     public GameObject boton_der;            // Boton para pagina siguiente
 
-    public GameObject texto1;               // Texto de la pagina 1
-    public GameObject texto2;               // Texto de la pagina 2
-    public GameObject texto3;               // Texto de la pagina 3
+    //public GameObject[] textos = new GameObject[6];
 
     private int pagina = 0;                 // Valor de la pagina actual
     private bool subiendo = true;
@@ -48,7 +46,7 @@ public class ButtonManager : MonoBehaviour
         gameObject.transform.GetChild(pagina - 1).gameObject.SetActive(false);
         boton_izq.SetActive(true);
         subiendo = true;
-        if (pagina == 5)
+        if (pagina == 6)
         {
             boton_der.SetActive(false);
             subiendo = false;

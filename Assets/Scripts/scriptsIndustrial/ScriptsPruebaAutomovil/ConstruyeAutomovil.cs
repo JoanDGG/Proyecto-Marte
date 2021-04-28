@@ -48,11 +48,11 @@ public class ConstruyeAutomovil : MonoBehaviour
                 // Chasis.
                 if (indiceSprite == 1)
                 {
-                    automovil.transform.GetChild(4).gameObject.GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(1).GetChild(15 + (funcionesBotonesSprites.spriteChasis % 3)).gameObject.GetComponent<Image>().sprite;
+                    automovil.transform.GetChild(4).gameObject.GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(1).GetChild(15 + (GameManager.spriteChasis % 3)).gameObject.GetComponent<Image>().sprite;
                 }
                 else
                 {
-                    automovil.transform.GetChild(4).gameObject.GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(1).GetChild(18 + (funcionesBotonesSprites.spriteChasis % 3)).gameObject.GetComponent<Image>().sprite;
+                    automovil.transform.GetChild(4).gameObject.GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(1).GetChild(18 + (GameManager.spriteChasis % 3)).gameObject.GetComponent<Image>().sprite;
                 }
             }
             else if (indiceParte == 0 && indiceSprite == 0)
@@ -73,7 +73,7 @@ public class ConstruyeAutomovil : MonoBehaviour
                 automovil.transform.GetChild(5).localPosition = new Vector3(1.6f, -0.8f, 0);
 
                 // Chasis.
-                automovil.transform.GetChild(4).gameObject.GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(1).GetChild(12 + (funcionesBotonesSprites.spriteChasis % 3)).gameObject.GetComponent<Image>().sprite;
+                automovil.transform.GetChild(4).gameObject.GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(1).GetChild(12 + (GameManager.spriteChasis % 3)).gameObject.GetComponent<Image>().sprite;
 
             }
 
@@ -93,6 +93,13 @@ public class ConstruyeAutomovil : MonoBehaviour
     public void Start()
     {
         // Cambio las partes del automovil.
+
+        /*print(GameManager.cuerpo);
+        print(GameManager.llantas);
+        print(GameManager.frenos);
+        print(GameManager.suspensiones);
+        print(GameManager.chasis);
+        print(GameManager.motor);*/
 
         CambiaParte(GameManager.cuerpo[0], GameManager.cuerpo[1]);
         CambiaParte(GameManager.llantas[0], GameManager.llantas[1]);

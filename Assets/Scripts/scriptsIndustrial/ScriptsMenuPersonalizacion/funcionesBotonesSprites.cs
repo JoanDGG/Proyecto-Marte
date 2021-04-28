@@ -18,7 +18,7 @@ public class funcionesBotonesSprites : MonoBehaviour
     public GameObject automovil;
 
     // El chasis del automóvil necesario para saber cuál poner si cambia el cuerpo.
-    public static int spriteChasis = 12;
+    //public static int spriteChasis = 12;
 
     // Creo una tabla de hash para mapear las partes del auto con su precio.
             Hashtable partesAPrecios = new Hashtable()
@@ -82,10 +82,10 @@ public class funcionesBotonesSprites : MonoBehaviour
                 // Chasis.
                 if (indiceSprite == 1)
                 {
-                    automovil.transform.GetChild(4).gameObject.GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(1).GetChild(15 + (spriteChasis % 3)).gameObject.GetComponent<Image>().sprite;
+                    automovil.transform.GetChild(4).gameObject.GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(1).GetChild(15 + (GameManager.spriteChasis % 3)).gameObject.GetComponent<Image>().sprite;
                 }
                 else {
-                    automovil.transform.GetChild(4).gameObject.GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(1).GetChild(18 + (spriteChasis % 3)).gameObject.GetComponent<Image>().sprite;
+                    automovil.transform.GetChild(4).gameObject.GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(1).GetChild(18 + (GameManager.spriteChasis % 3)).gameObject.GetComponent<Image>().sprite;
                 }
             }
             else if (indiceParte == 0 && indiceSprite == 0){
@@ -105,7 +105,7 @@ public class funcionesBotonesSprites : MonoBehaviour
                 automovil.transform.GetChild(5).localPosition = new Vector3(1.6f, -0.8f, 0);
 
                 // Chasis.
-                automovil.transform.GetChild(4).gameObject.GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(1).GetChild(12 + (spriteChasis % 3)).gameObject.GetComponent<Image>().sprite;
+                automovil.transform.GetChild(4).gameObject.GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(1).GetChild(12 + (GameManager.spriteChasis % 3)).gameObject.GetComponent<Image>().sprite;
 
             }
 
@@ -174,7 +174,7 @@ public class funcionesBotonesSprites : MonoBehaviour
         GameManager.budget = 100 - (GameManager.precioCuerpo + GameManager.precioLlantas + GameManager.precioFrenos + GameManager.precioSuspension + GameManager.precioChasis + GameManager.precioMotor);
 
         // Actualizo el GameObject de texto que muestra el presupuesto.
-        this.transform.GetChild(3).gameObject.GetComponent<Text>().text = "Presupuesto: " + GameManager.budget.ToString() + "$";
+        this.transform.GetChild(3).gameObject.GetComponent<Text>().text = "Presupuesto: " + "$" + GameManager.budget.ToString();
         return true;
     }
 
@@ -204,7 +204,7 @@ public class funcionesBotonesSprites : MonoBehaviour
             CambiaParte(0, 0);
             GameManager.cuerpo[0] = 0;
             GameManager.cuerpo[1] = 0;
-            GameManager.volumen = 65;
+            //GameManager.volumen = 65;
         } else {
             PresupuestoInvalido();
         }
@@ -216,7 +216,7 @@ public class funcionesBotonesSprites : MonoBehaviour
             CambiaParte(0, 1);
             GameManager.cuerpo[0] = 0;
             GameManager.cuerpo[1] = 1;
-            GameManager.volumen = 85;
+            //GameManager.volumen = 85;
         }
         else {
             PresupuestoInvalido();
@@ -230,7 +230,7 @@ public class funcionesBotonesSprites : MonoBehaviour
             CambiaParte(0, 2);
             GameManager.cuerpo[0] = 0;
             GameManager.cuerpo[1] = 2;
-            GameManager.volumen = 100;
+            //GameManager.volumen = 100;
         }
         else {
             PresupuestoInvalido();
@@ -351,7 +351,7 @@ public class funcionesBotonesSprites : MonoBehaviour
         if (UpdateBudget("chasis1"))
         {
             CambiaParte(4, 0);
-            spriteChasis = 12;
+            GameManager.spriteChasis = 12;
             GameManager.chasis[0] = 4;
             GameManager.chasis[1] = 0;
         } else
@@ -365,7 +365,7 @@ public class funcionesBotonesSprites : MonoBehaviour
         if (UpdateBudget("chasis2"))
         {
             CambiaParte(4, 1);
-            spriteChasis = 13;
+            GameManager.spriteChasis = 13;
             GameManager.chasis[0] = 4;
             GameManager.chasis[1] = 1;
         } else
@@ -379,7 +379,7 @@ public class funcionesBotonesSprites : MonoBehaviour
         if (UpdateBudget("chasis3"))
         {
             CambiaParte(4, 2);
-            spriteChasis = 14;
+            GameManager.spriteChasis = 14;
             GameManager.chasis[0] = 4;
             GameManager.chasis[1] = 2;
         } else
@@ -393,7 +393,7 @@ public class funcionesBotonesSprites : MonoBehaviour
         if (UpdateBudget("chasis1"))
         {
             CambiaParte(4, 3);
-            spriteChasis = 15;
+            GameManager.spriteChasis = 15;
             GameManager.chasis[0] = 4;
             GameManager.chasis[1] = 3;
         } else
@@ -407,9 +407,9 @@ public class funcionesBotonesSprites : MonoBehaviour
         if (UpdateBudget("chasis2"))
         {
             CambiaParte(4, 4);
-            spriteChasis = 16;
-            GameManager.cuerpo[0] = 4;
-            GameManager.cuerpo[1] = 4;
+            GameManager.spriteChasis = 16;
+            GameManager.chasis[0] = 4;
+            GameManager.chasis[1] = 4;
         } else {
             PresupuestoInvalido();
         }
@@ -420,7 +420,7 @@ public class funcionesBotonesSprites : MonoBehaviour
         if (UpdateBudget("chasis3"))
         {
             CambiaParte(4, 5);
-            spriteChasis = 17;
+            GameManager.spriteChasis = 17;
             GameManager.chasis[0] = 4;
             GameManager.chasis[1] = 5;
         } else {
@@ -432,7 +432,7 @@ public class funcionesBotonesSprites : MonoBehaviour
     {
         if (UpdateBudget("chasis1")) {
             CambiaParte(4, 6);
-            spriteChasis = 18;
+            GameManager.spriteChasis = 18;
             GameManager.chasis[0] = 4;
             GameManager.chasis[1] = 6;
         } else
@@ -446,7 +446,7 @@ public class funcionesBotonesSprites : MonoBehaviour
         if (UpdateBudget("chasis2"))
         {
             CambiaParte(4, 7);
-            spriteChasis = 19;
+            GameManager.spriteChasis = 19;
             GameManager.chasis[0] = 4;
             GameManager.chasis[1] = 7;
         } else
@@ -460,7 +460,7 @@ public class funcionesBotonesSprites : MonoBehaviour
         if (UpdateBudget("chasis3"))
         {
             CambiaParte(4, 8);
-            spriteChasis = 20;
+            GameManager.spriteChasis = 20;
             GameManager.chasis[0] = 4;
             GameManager.chasis[1] = 8;
         } else
@@ -510,7 +510,34 @@ public class funcionesBotonesSprites : MonoBehaviour
     // Comienzo mostrando el presupuesto inicial.
     private void Start()
     {
-        this.transform.GetChild(3).gameObject.GetComponent<Text>().text = "Presupuesto: " + GameManager.budget.ToString() + "$";
+        UpdateBudget("cuerpoSmart");
+        UpdateBudget("llantas1");
+        UpdateBudget("frenos1");
+        UpdateBudget("suspension1");
+        UpdateBudget("chasis1");
+        UpdateBudget("motor1");
+        this.transform.GetChild(3).gameObject.GetComponent<Text>().text = "Presupuesto: " + "$" + GameManager.budget.ToString();
+        GameManager.spriteChasis = 12;
+
+        // Índices de partes para reconstruir auto en escena distinta.
+        GameManager.cuerpo[0] = 0;
+        GameManager.cuerpo[1] = 1;
+        GameManager.llantas[0] = 1;
+        GameManager.llantas[1] = 0;
+        GameManager.frenos[0] = 2;
+        GameManager.frenos[1] = 0;
+        GameManager.suspensiones[0] = 3;
+        GameManager.suspensiones[1] = 0;
+        GameManager.chasis[0] = 4;
+        GameManager.chasis[1] = 0;
+        GameManager.motor[0] = 5;
+        GameManager.motor[1] = 6;
+        //GameManager.llantas = {1, 0};
+        //GameManager.frenos = {2, 0};
+        //GameManager.suspensiones = {3, 0};
+        //GameManager.chasis = { 4, 0};
+        //GameManager.motor = { 5, 6};
+
     }
 }
 

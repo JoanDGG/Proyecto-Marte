@@ -6,11 +6,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking; //Para red
 
+// Script para obtener de la base de datos las preguntas, los índices de las preguntas, las opciones correspondientes de las preguntas y las opciones correctas para cada nivel.
+
 public class DescargarDatos : MonoBehaviour
 {
     public GameObject Boton;
     public GameObject Cargando;
-    // Start is called before the first frame update
+
     void Start()
     {
         DesbloquearPreguntas();

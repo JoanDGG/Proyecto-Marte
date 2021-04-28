@@ -66,15 +66,29 @@ public class ObtenCualidades : MonoBehaviour
     {
         // Uso las tablas de hash para establecer las cualidades del automóvil.
 
-        GameManager.volumen = GameManager.volumenMaximo * (float)partesAVolumenCuerpo[(int)GameManager.cuerpo[1]];
-        GameManager.friccionLlantasEnHielo = GameManager.friccionLlantasEnHieloMaxima * (float)partesAFriccionAgarreLlantas[(int)GameManager.llantas[1]];
-        GameManager.friccionLlantasEnHielo = GameManager.friccionLlantasEnHieloMaxima * (float)partesAFriccionAgarreLlantas[(int)GameManager.llantas[1]];
-        GameManager.friccionLlantasArranque = GameManager.friccionLlantasArranqueMaxima * (float)partesAFriccionAgarreLlantas[(int)GameManager.llantas[1]];
-        GameManager.fuerzaFreno = GameManager.fuerzaFrenoMaxima * (float)partesAFuerzaFrenos[(int)GameManager.frenos[1]];
-        GameManager.calidadAmortiguamiento = GameManager.calidadAmortiguamientoMaxima * (float)partesAAmortiguamientoSuspension[(int)GameManager.suspensiones[1]];
-        GameManager.resistencia = GameManager.resistenciaMaxima * (float)partesAResistenciaChasis[(int)GameManager.chasis[1]];
-        GameManager.fuerzaMotor = GameManager.fuerzaMotorMaxima * (float)partesAPotenciaMotor[(int)GameManager.motor[1]];
-        GameManager.velocidadMaxima = GameManager.velocidadMaximaMaxima * (float)partesAPotenciaMotor[(int)GameManager.motor[1]];
+        GameManager.volumen = GameManager.volumenMaximo * (float)partesAVolumenCuerpo[GameManager.cuerpo[1]];
+        //print("volumen: " + GameManager.volumen);
+
+        GameManager.friccionLlantasEnHielo = GameManager.friccionLlantasEnHieloMaxima * (float)partesAFriccionAgarreLlantas[GameManager.llantas[1]];
+        //print("friccion en hielo: " + GameManager.friccionLlantasEnHielo);
+
+        GameManager.friccionLlantasArranque = GameManager.friccionLlantasArranqueMaxima * (float)partesAFriccionAgarreLlantas[GameManager.llantas[1]];
+        //print("friccion arranque: " + GameManager.friccionLlantasArranque);
+
+        GameManager.fuerzaFreno = GameManager.fuerzaFrenoMaxima * (float)partesAFuerzaFrenos[GameManager.frenos[1]];
+        //print("fuerza freno: " + GameManager.fuerzaFreno);
+
+        //GameManager.calidadAmortiguamiento = GameManager.calidadAmortiguamientoMaxima * (float)partesAAmortiguamientoSuspension[GameManager.suspensiones[1]];
+        //print("amortiguemiento: " + GameManager.calidadAmortiguamiento);
+
+        GameManager.resistencia = GameManager.resistenciaMaxima * (float)partesAResistenciaChasis[GameManager.chasis[1]];
+        //print("resistencia: " + GameManager.resistencia);
+
+        GameManager.fuerzaMotor = GameManager.fuerzaMotorMaxima * (float)partesAPotenciaMotor[GameManager.motor[1]];
+        //print("fuerza motor: " + GameManager.fuerzaMotor);
+
+
+        //GameManager.velocidadMaxima = GameManager.velocidadMaximaMaxima * (float)partesAPotenciaMotor[(int)GameManager.motor[1]];
     }
 
     // Update is called once per frame
