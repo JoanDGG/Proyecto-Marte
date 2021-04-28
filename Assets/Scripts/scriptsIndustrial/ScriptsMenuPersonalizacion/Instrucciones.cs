@@ -24,6 +24,8 @@ public class Instrucciones : MonoBehaviour
     {
         // Mostrar instrucciones.
         this.transform.GetChild(22).gameObject.SetActive(true);
+        GameManager.nivelGlobal = 3; // actualizo el nivel global para que las preguntas que obtenga sean las correctas.
     }
+
 
 }

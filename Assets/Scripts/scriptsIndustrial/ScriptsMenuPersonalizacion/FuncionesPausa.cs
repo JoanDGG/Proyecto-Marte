@@ -28,6 +28,7 @@ public class FuncionesPausa : MonoBehaviour
     public void CambiarAuto() {
         SceneManager.LoadScene("MenuPersonalizarAuto");
         GameManager.budget = 38;
+        GameManager.tiempoFinNivel = System.DateTime.Now;
     }
 
     // Start is called before the first frame update

@@ -5,11 +5,10 @@ using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking; //Para red
+using UnityEngine.SceneManagement;
 
 public class CuestionarioAnalisis : MonoBehaviour
 {
-    private int nivel = 3; // El nivel en el que estoy.
-
     public Text pregunta; // El objeto de texto de pregunta para cambiar.
 
     public Text opcionA; // Los objetos de opciones de texto para cambiar.
@@ -51,6 +50,8 @@ public class CuestionarioAnalisis : MonoBehaviour
         indicePregunta = ((GameManager.nivelGlobal) - 1) * 4;
         opcion_correcta = opciones_correctas[0];
 
+        numeroPregunta = 0;
+
         // Actualizo los valores de la pregunta y las opciones mostradas al jugador.
         pregunta.text = preguntas[0];
         opcionA.text = opciones1[0];
@@ -61,12 +62,16 @@ public class CuestionarioAnalisis : MonoBehaviour
 
     public void LlenaPregunta2()
     {
+        print("voy a llenar la pregunta 2");
+        print("el texto de la pregunta es ");
+        print(preguntas[1]);
+
         // La llave de la pregunta en la tabla.
         indicePregunta = ((GameManager.nivelGlobal) - 1) * 4 + 1;
         opcion_correcta = opciones_correctas[1];
 
         // El numero de pregunta para saber comparar al responder.
-        numeroPregunta = 0;
+        numeroPregunta = 1;
 
         // Actualizo los valores de la pregunta y las opciones mostradas al jugador.
         pregunta.text = preguntas[1];
@@ -81,6 +86,8 @@ public class CuestionarioAnalisis : MonoBehaviour
         indicePregunta = ((GameManager.nivelGlobal) - 1) * 4 + 2;
         opcion_correcta = opciones_correctas[2];
 
+        numeroPregunta = 2;
+
         // Actualizo los valores de la pregunta y las opciones mostradas al jugador.
         pregunta.text = preguntas[2];
         opcionA.text = opciones3[0];
@@ -90,9 +97,12 @@ public class CuestionarioAnalisis : MonoBehaviour
 
     public void LlenaPregunta4()
     {
+
         // La llave de la pregunta en la tabla.
         indicePregunta = ((GameManager.nivelGlobal) - 1) * 4 + 3;
         opcion_correcta = opciones_correctas[3];
+
+        numeroPregunta = 3;
 
         // Actualizo los valores de la pregunta y las opciones mostradas al jugador.
         pregunta.text = preguntas[3];
@@ -101,11 +111,8 @@ public class CuestionarioAnalisis : MonoBehaviour
         opcionC.text = opciones4[2];
     }
 
-    private void Start()
-    {
-        // Al iniciar la escena solo quiero la pregunta 1.
-        LlenaPregunta1();
-        print(opciones_correctas);
+    public void CambioAPruebaAuto() {
+        SceneManager.LoadScene("PruebaAutomovil");
     }
 
     public void Responder(string respuesta)
@@ -136,7 +143,7 @@ public class CuestionarioAnalisis : MonoBehaviour
             print("Respuesta incorrecta :(");
             respuestaTexto.text = "Respuesta incorrecta :(";
         }
-        switch (nivel)
+        switch (numeroPregunta)
         {
             case 0:
                 switch (respuesta)

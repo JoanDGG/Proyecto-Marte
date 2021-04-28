@@ -538,6 +538,10 @@ public class funcionesBotonesSprites : MonoBehaviour
         //GameManager.chasis = { 4, 0};
         //GameManager.motor = { 5, 6};
 
+        // El tiempo de inicio para los registros en Juega.
+        GameManager.tiempoInicioNivel = System.DateTime.Now;
+
+
     }
 }
 
