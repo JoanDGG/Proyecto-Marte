@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 44929893}
   - component: {fileID: 44929896}
   m_Layer: 5
-  m_Name: suspensiones
+  m_Name: Suspensiones1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -932,7 +932,7 @@ GameObject:
   - component: {fileID: 167753486}
   - component: {fileID: 167753489}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Chasis2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1190,7 +1190,7 @@ GameObject:
   - component: {fileID: 208564535}
   - component: {fileID: 208564538}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Llantas2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1895,7 +1895,7 @@ GameObject:
   - component: {fileID: 441696119}
   - component: {fileID: 441696122}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Llantas3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2074,7 +2074,7 @@ GameObject:
   - component: {fileID: 447063930}
   - component: {fileID: 447063933}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Suspensiones3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2647,7 +2647,7 @@ GameObject:
   - component: {fileID: 521611696}
   - component: {fileID: 521611699}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Chasis6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2826,7 +2826,7 @@ GameObject:
   - component: {fileID: 526154007}
   - component: {fileID: 526154010}
   m_Layer: 5
-  m_Name: Button
+  m_Name: CuerpoChallenger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3083,7 +3083,7 @@ GameObject:
   - component: {fileID: 556534668}
   - component: {fileID: 556534667}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BotonChasis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3217,7 +3217,7 @@ GameObject:
   - component: {fileID: 559693982}
   - component: {fileID: 559693985}
   m_Layer: 5
-  m_Name: chasises
+  m_Name: Chasis1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4164,7 +4164,7 @@ GameObject:
   - component: {fileID: 701041797}
   - component: {fileID: 701041800}
   m_Layer: 5
-  m_Name: llantas
+  m_Name: Llantas1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4456,7 +4456,7 @@ GameObject:
   - component: {fileID: 719708911}
   - component: {fileID: 719708910}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BotonMotor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5398,7 +5398,7 @@ GameObject:
   - component: {fileID: 974682627}
   - component: {fileID: 974682626}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BotonInstrucciones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5693,7 +5693,7 @@ GameObject:
   - component: {fileID: 1061590165}
   - component: {fileID: 1061590164}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BotonCuerpo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6113,7 +6113,7 @@ GameObject:
   - component: {fileID: 1114503814}
   - component: {fileID: 1114503813}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BotonFrenos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6380,7 +6380,7 @@ GameObject:
   - component: {fileID: 1145243754}
   - component: {fileID: 1145243757}
   m_Layer: 5
-  m_Name: cuerpos
+  m_Name: CuerpoSmart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6559,7 +6559,7 @@ GameObject:
   - component: {fileID: 1146104352}
   - component: {fileID: 1146104355}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Motor2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6738,7 +6738,7 @@ GameObject:
   - component: {fileID: 1147855934}
   - component: {fileID: 1147855937}
   m_Layer: 5
-  m_Name: motores
+  m_Name: Motor1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6917,7 +6917,7 @@ GameObject:
   - component: {fileID: 1163102673}
   - component: {fileID: 1163102676}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Chasis3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7174,7 +7174,7 @@ GameObject:
   - component: {fileID: 1183029657}
   - component: {fileID: 1183029656}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BotonSuspension
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7463,7 +7463,7 @@ GameObject:
   - component: {fileID: 1228932166}
   - component: {fileID: 1228932169}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Chasis9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7737,7 +7737,7 @@ GameObject:
   - component: {fileID: 1304247340}
   - component: {fileID: 1304247343}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Chasis8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8153,7 +8153,7 @@ GameObject:
   - component: {fileID: 1388619923}
   - component: {fileID: 1388619926}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Suspensiones2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8538,7 +8538,7 @@ GameObject:
   - component: {fileID: 1418997378}
   - component: {fileID: 1418997381}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Motor3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9703,7 +9703,7 @@ GameObject:
   - component: {fileID: 1624602032}
   - component: {fileID: 1624602031}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BotonLlantas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9916,7 +9916,7 @@ GameObject:
   - component: {fileID: 1649575704}
   - component: {fileID: 1649575707}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Chasis4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10095,7 +10095,7 @@ GameObject:
   - component: {fileID: 1677239173}
   - component: {fileID: 1677239176}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Chasis7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10274,7 +10274,7 @@ GameObject:
   - component: {fileID: 1677761641}
   - component: {fileID: 1677761644}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Frenos3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11088,7 +11088,7 @@ GameObject:
   - component: {fileID: 1853284067}
   - component: {fileID: 1853284070}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Frenos2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11726,7 +11726,7 @@ GameObject:
   - component: {fileID: 1949419231}
   - component: {fileID: 1949419234}
   m_Layer: 5
-  m_Name: Button
+  m_Name: CuerpoCybertruck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11905,7 +11905,7 @@ GameObject:
   - component: {fileID: 1958521988}
   - component: {fileID: 1958521991}
   m_Layer: 5
-  m_Name: frenos
+  m_Name: Frenos1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12084,7 +12084,7 @@ GameObject:
   - component: {fileID: 1979660854}
   - component: {fileID: 1979660857}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Chasis5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12731,7 +12731,7 @@ GameObject:
   - component: {fileID: 2081831054}
   - component: {fileID: 2081831053}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TituloPanelPrincipal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

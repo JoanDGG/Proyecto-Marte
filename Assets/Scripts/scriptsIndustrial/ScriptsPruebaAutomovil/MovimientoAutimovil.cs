@@ -50,9 +50,9 @@ public class MovimientoAutimovil : MonoBehaviour
     public AudioSource sonidoArranque1;
     public AudioSource sonidoArranque2;
     public AudioSource sonidoArranque3;
-    public AudioSource sonidoFinal1;
-    public AudioSource sonidoFinal2;
-    public AudioSource sonidoFinal3;
+    //public AudioSource sonidoFinal1;
+    //public AudioSource sonidoFinal2;
+    //public AudioSource sonidoFinal3;
 
 
     // Sonido de automóvil en idle.
@@ -65,7 +65,7 @@ public class MovimientoAutimovil : MonoBehaviour
 
     // Sonidos finales de motor.
     private AudioSource sonidoArranque;
-    private AudioSource sonidoFinal;
+    //private AudioSource sonidoFinal;
 
 
     // Las imágenes para expresar si el jugador puede cambiar de velocidad.
@@ -83,7 +83,7 @@ public class MovimientoAutimovil : MonoBehaviour
     {
         // Función para apagar todos los sonidos del nivel relacionados con el automovil,
         sonidoArranque.Stop();
-        sonidoFinal.Stop();
+        //sonidoFinal.Stop();
         sonidoIdle.Stop();
         sonidoFreno.Stop();
     }
@@ -94,14 +94,14 @@ public class MovimientoAutimovil : MonoBehaviour
         if (GameManager.motor[1] == 6)
         {
             sonidoArranque = sonidoArranque1;
-            sonidoFinal = sonidoFinal1;
+            //sonidoFinal = sonidoFinal1;
         } else if(GameManager.motor[1] == 7) {
             sonidoArranque = sonidoArranque2;
-            sonidoFinal = sonidoFinal2;
+            //sonidoFinal = sonidoFinal2;
         } else if (GameManager.motor[1] == 8)
         {
             sonidoArranque = sonidoArranque3;
-            sonidoFinal = sonidoFinal3;
+            //sonidoFinal = sonidoFinal3;
         }
 
         // Sonido de idle al inicio.
