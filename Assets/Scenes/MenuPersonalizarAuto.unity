@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2773092486973136553, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Text
-      value: 'Precio: 35$'
+      value: 'Precio: $35'
       objectReference: {fileID: 0}
     - target: {fileID: 2773092488315360909, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Pivot.x
@@ -254,7 +254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2773092486973136553, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Text
-      value: 'Precio: 8$'
+      value: 'Precio: $8'
       objectReference: {fileID: 0}
     - target: {fileID: 2773092487555904491, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -589,7 +589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2773092486973136553, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Text
-      value: 'Precio: 5$'
+      value: 'Precio: $5'
       objectReference: {fileID: 0}
     - target: {fileID: 2773092487555904491, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1504,10 +1504,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Bienvenido al nivel \"En busca de recursos\". Tienes $100 para construir
+  m_Text: "Bienvenido al nivel \"Busca y recolecta\". Tienes $100 para construir
     tu autom\xF3vil con la mejor calidad posible, y despu\xE9s debes aventurarte
-    al exterior de Marte para recolectar la mayor cantidad posible de recursos. \xA1Buena
-    Suerte!"
+    al exterior de Marte para recolectar la mayor cantidad posible de recursos. Pero
+    antes debes responder algunas preguntas por lo que debes exlorar el nivel lo
+    mejor que puedas. \xA1Buena Suerte!"
 --- !u!222 &255114041
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1615,7 +1616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2773092486973136553, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Text
-      value: 'Precio: 10$'
+      value: 'Precio: $10'
       objectReference: {fileID: 0}
     - target: {fileID: 2773092487555904491, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1798,6 +1799,87 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 381988107}
+  m_CullTransparentMesh: 1
+--- !u!1 &416024683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 416024684}
+  - component: {fileID: 416024686}
+  - component: {fileID: 416024685}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &416024684
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416024683}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 753810040}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 600, y: 600}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &416024685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416024683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: d039cedf83ab740429970ddcd3a3f361, type: 3}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 5
+    m_MaxSize: 50
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\xBFSab\xEDas que el pensamiento cr\xEDtico es muy importante para las
+    vocaciones STEAM porque al evaluar y procesar informaci\xF3n se logra crear soluciones
+    valiosas y resolver problemas ?"
+--- !u!222 &416024686
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416024683}
   m_CullTransparentMesh: 1
 --- !u!1 &441696117
 GameObject:
@@ -3528,7 +3610,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2773092486973136553, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Text
-      value: 'Precio: 20$'
+      value: 'Precio: $20'
       objectReference: {fileID: 0}
     - target: {fileID: 2773092488315360909, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Pivot.x
@@ -4264,7 +4346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2773092486973136553, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Text
-      value: 'Precio: 14$'
+      value: 'Precio: $14'
       objectReference: {fileID: 0}
     - target: {fileID: 2773092488315360909, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Pivot.x
@@ -4494,6 +4576,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 719708908}
   m_CullTransparentMesh: 1
+--- !u!1 &753810039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 753810040}
+  - component: {fileID: 753810042}
+  - component: {fileID: 753810041}
+  m_Layer: 5
+  m_Name: SabiasQue2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &753810040
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753810039}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 416024684}
+  m_Father: {fileID: 1233869920}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -550, y: 0}
+  m_SizeDelta: {x: -1300, y: -300}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &753810041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753810039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &753810042
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753810039}
+  m_CullTransparentMesh: 1
 --- !u!1 &776406508
 GameObject:
   m_ObjectHideFlags: 0
@@ -4674,7 +4832,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2773092486973136553, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Text
-      value: 'Precio: 14$'
+      value: 'Precio: $14'
       objectReference: {fileID: 0}
     - target: {fileID: 2773092488315360909, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Pivot.x
@@ -4887,7 +5045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2773092486973136553, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Text
-      value: 'Precio: 14$'
+      value: 'Precio: $14'
       objectReference: {fileID: 0}
     - target: {fileID: 2773092488315360909, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Pivot.x
@@ -4997,7 +5155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2773092486973136553, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Text
-      value: 'Precio: 20$'
+      value: 'Precio: $20'
       objectReference: {fileID: 0}
     - target: {fileID: 2773092488315360909, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Pivot.x
@@ -7215,6 +7373,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1226794748}
   m_CullTransparentMesh: 1
+--- !u!1 &1227313397
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1227313398}
+  - component: {fileID: 1227313400}
+  - component: {fileID: 1227313399}
+  m_Layer: 5
+  m_Name: SabiasQue1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1227313398
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227313397}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1482612400}
+  m_Father: {fileID: 1233869920}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 550, y: 0}
+  m_SizeDelta: {x: -1300, y: -600}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1227313399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227313397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1227313400
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227313397}
+  m_CullTransparentMesh: 1
 --- !u!1 &1228932164
 GameObject:
   m_ObjectHideFlags: 0
@@ -7427,6 +7661,8 @@ RectTransform:
   - {fileID: 1080840283}
   - {fileID: 1137625009}
   - {fileID: 1804202858}
+  - {fileID: 1227313398}
+  - {fileID: 753810040}
   m_Father: {fileID: 1832686371}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8484,7 +8720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2773092486973136553, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Text
-      value: 'Precio: 29$'
+      value: 'Precio: $29'
       objectReference: {fileID: 0}
     - target: {fileID: 2773092488315360909, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Pivot.x
@@ -8602,7 +8838,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2773092486973136553, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Text
-      value: 'Precio: 14$'
+      value: 'Precio: $14'
       objectReference: {fileID: 0}
     - target: {fileID: 2773092488315360909, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Pivot.x
@@ -8857,6 +9093,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1460096967}
   m_CullTransparentMesh: 1
+--- !u!1 &1482612399
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1482612400}
+  - component: {fileID: 1482612402}
+  - component: {fileID: 1482612401}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1482612400
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482612399}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1227313398}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 400}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1482612401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482612399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: d039cedf83ab740429970ddcd3a3f361, type: 3}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 5
+    m_MaxSize: 50
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\xBFSab\xEDas que el salario anual promedio de un ingeniero industrial
+    es de $196,000 en M\xE9xico?"
+--- !u!222 &1482612402
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482612399}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1522947993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8874,7 +9190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2773092486973136553, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Text
-      value: 'Precio: 10$'
+      value: 'Precio: $10'
       objectReference: {fileID: 0}
     - target: {fileID: 2773092487555904491, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -10136,7 +10452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2773092486973136553, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Text
-      value: 'Precio: 25$'
+      value: 'Precio: $25'
       objectReference: {fileID: 0}
     - target: {fileID: 2773092488315360909, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Pivot.x
@@ -10373,11 +10689,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2773092486770067384, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Text
-      value: Freno
+      value: Frenos
       objectReference: {fileID: 0}
     - target: {fileID: 2773092486973136553, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Text
-      value: 'Precio: 8$'
+      value: 'Precio: $8'
       objectReference: {fileID: 0}
     - target: {fileID: 2773092487555904491, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -11031,7 +11347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2773092486973136553, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Text
-      value: 'Precio: 14$'
+      value: 'Precio: $14'
       objectReference: {fileID: 0}
     - target: {fileID: 2773092488315360909, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Pivot.x
@@ -11299,7 +11615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2773092486973136553, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Text
-      value: 'Precio: 24$'
+      value: 'Precio: $24'
       objectReference: {fileID: 0}
     - target: {fileID: 2773092488315360909, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Pivot.x
@@ -12701,7 +13017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2773092486973136553, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Text
-      value: 'Precio: 22$'
+      value: 'Precio: $22'
       objectReference: {fileID: 0}
     - target: {fileID: 2773092488315360909, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Pivot.x
@@ -12815,7 +13131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2773092486973136553, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_Text
-      value: 'Precio: 21$'
+      value: 'Precio: $21'
       objectReference: {fileID: 0}
     - target: {fileID: 2773092487555904491, guid: 5ab56ae1585d440f0be9ea7f39fa0d8c, type: 3}
       propertyPath: m_SizeDelta.x
