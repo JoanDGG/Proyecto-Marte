@@ -14,6 +14,7 @@ public class MovimientoGeneral : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         GameManager.nivelGlobal = 0;
         GameManager.tiempoLogOut = System.DateTime.Now;
         rigidbody = GetComponent<Rigidbody2D>();
