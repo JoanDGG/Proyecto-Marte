@@ -11,10 +11,13 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider) 
     {
-        GameManager.oleada += 1;
-        imagenPreguntas.SetActive(true);
-        cuestionario.DesbloquearPreguntas();
-        GameManager.tiempoFinNivel = System.DateTime.Now;
+        if (collider.gameObject.GetComponent<SpriteRenderer>().enabled == true){
+            Time.timeScale = 0;
+            GameManager.oleada += 1;
+            imagenPreguntas.SetActive(true);
+            cuestionario.DesbloquearPreguntas();
+            GameManager.tiempoFinNivel = System.DateTime.Now;
+        }
 
         if (collider.gameObject.CompareTag("Checkpoint-1")){
             print("Has llegado al checkpoint del nivel 1-1");
