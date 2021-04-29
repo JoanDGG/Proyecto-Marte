@@ -18,6 +18,7 @@ public class PostsBaseDatos : MonoBehaviour
     {
         WWWForm forma = new WWWForm();
         //float tiempoFin = PlayerPrefs.GetInt("tiempoFin", 0.0f);
+        GameManager.tiempoLogOut = System.DateTime.Now;
         int tiempo = (int)(((GameManager.tiempoLogOut - LogIn.inicio).TotalSeconds) / 60); //Tiempo en minutos enteros
         print(tiempo);
         forma.AddField("gamertag", GameManager.GamerTag);
