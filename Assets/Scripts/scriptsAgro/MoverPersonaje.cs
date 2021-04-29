@@ -201,6 +201,7 @@ public class MoverPersonaje : MonoBehaviour
             else if (GameManager.tiempo >= GameManager.tiempoEvento && GameManager.evento) //Salir del cuarto de seguridad
             {
                 cuest.SetActive(true);
+                cuestionario.DesbloquearPreguntas();
                 while (!GameManager.respondido)
                 {
                     yield return new WaitForSeconds(0.1f);

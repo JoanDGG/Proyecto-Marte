@@ -10,7 +10,7 @@ public class Resena : MonoBehaviour, IDropHandler
     public Text Nivel;
     public int valor;
     public bool continuar = false;
-    private string[] niveles = {"Blast off", "The robot", "Search and collect", "Grow the crops"};
+    private string[] niveles = {"Despegue", "El robot", "Busca y recolecta", "Crece la cosecha"};
 
     void Start()
     {

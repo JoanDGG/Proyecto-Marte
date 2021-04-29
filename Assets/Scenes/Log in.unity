@@ -581,7 +581,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &586352705
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -758,7 +758,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Log in
+  m_Text: "Iniciar sesi\xF3n"
 --- !u!222 &988991839
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -916,7 +916,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Log in
+  m_Text: Confirmar
 --- !u!222 &1174316092
 CanvasRenderer:
   m_ObjectHideFlags: 0
