@@ -97,4 +97,7 @@ public class GameManager
     // La puntuacion del nivel del carro.
     public static float puntuacionNivelCarro;
 
+    // La puntuacion del nivel del cohete.
+    public static float puntuacionNivelCohete;
+
 }

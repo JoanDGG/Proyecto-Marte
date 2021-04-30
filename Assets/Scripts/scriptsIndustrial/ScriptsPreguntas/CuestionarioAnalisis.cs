@@ -197,6 +197,9 @@ public class CuestionarioAnalisis : MonoBehaviour
             {
                 GameManager.puntuacion += 0.5f;
             }*/
+            if (GameManager.nivelGlobal == 1){
+                GameManager.puntuacionNivelCohete += 0.41f;
+            }
         }
         else
         {

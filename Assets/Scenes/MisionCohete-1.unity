@@ -903,8 +903,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 809, y: 448}
-  m_SizeDelta: {x: 134.7148, y: 77.4099}
+  m_AnchoredPosition: {x: 687.5779, y: 448}
+  m_SizeDelta: {x: 377.559, y: 77.4099}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1458573329
 MonoBehaviour:
@@ -939,7 +939,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: Puntaje
 --- !u!222 &1458573330
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1477,6 +1477,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3539057028996210849, guid: faf42013a257141ee8c2d20362c83ecc, type: 3}
+      propertyPath: puntajeCoheteTxt
+      value: 
+      objectReference: {fileID: 1458573329}
     - target: {fileID: 3539057028996210860, guid: faf42013a257141ee8c2d20362c83ecc, type: 3}
       propertyPath: m_Name
       value: Canvas

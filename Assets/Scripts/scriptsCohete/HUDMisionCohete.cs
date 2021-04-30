@@ -16,6 +16,7 @@ public class HUDMisionCohete : MonoBehaviour
     public Image Image2;
     public Image Image3;
 
+    public Text puntajeCoheteTxt;
     private void Awake()
     {
         instance = this;
@@ -26,19 +27,23 @@ public class HUDMisionCohete : MonoBehaviour
         if (sceneName == "MisionCohete-1")
         {
             GameManager.oleada = 0;
+            GameManager.puntuacionNivelCohete = 3.77f;
         }
     }
 
     internal void UpdateLifes()
     {
         int vidas = RocketLifes.instance.vidas;
-
+        GameManager.puntuacionNivelCohete -= 0.41f;
         if (vidas == 2){
             Image1.enabled = false;
+            
         } else if (vidas == 1){
             Image2.enabled = false;
         } else if (vidas == 0){
             Image3.enabled = false;
         }
+
+        puntajeCoheteTxt.text = GameManager.puntuacionNivelCohete.ToString();
     }
 }
