@@ -21,7 +21,7 @@ public class GameManager
     public static string respuesta_actual; // La respuesta mas reciente que da el usuario.
     public static int pregunta_actual; // La pregunta que está respondiendo actualmente el usuario.
     public static bool correcta; // Indica si la respuesta mas reciente a una pregunta es correcta.
-    public static int resena;
+    public static int resena = 0;
     public static DateTime tiempoInicioNivel;
     public static DateTime tiempoFinNivel;
     public static DateTime tiempoLogOut;
