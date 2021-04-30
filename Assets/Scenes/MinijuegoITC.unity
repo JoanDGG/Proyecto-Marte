@@ -30204,6 +30204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8493474764675064713}
   - component: {fileID: 8493474764675064715}
+  - component: {fileID: 8493474764675064716}
   m_Layer: 0
   m_Name: Button_system
   m_TagString: Untagged
@@ -30246,6 +30247,18 @@ MonoBehaviour:
   spawn2: {fileID: 1612268354}
   spawn3: {fileID: 1322955329}
   puntaje: 5000
+--- !u!114 &8493474764675064716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8493474764675064714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d047a77a2d10f4cbb2982c968286f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &8493474764747471409
 CanvasRenderer:
   m_ObjectHideFlags: 0
