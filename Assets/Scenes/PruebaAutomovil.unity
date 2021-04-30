@@ -56531,7 +56531,7 @@ GameObject:
   - component: {fileID: 926045256}
   - component: {fileID: 926045255}
   m_Layer: 5
-  m_Name: EscogerSpriteCuerpo
+  m_Name: EscogerSpriteAuto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61404,9 +61404,6 @@ MonoBehaviour:
   sonidoArranque1: {fileID: 2007366404}
   sonidoArranque2: {fileID: 5200888}
   sonidoArranque3: {fileID: 1383210791}
-  sonidoFinal1: {fileID: 1215841307}
-  sonidoFinal2: {fileID: 282755848}
-  sonidoFinal3: {fileID: 706989933}
   sonidoIdle: {fileID: 3570200}
   sonidoFreno: {fileID: 144206383}
   imagenAcelera: {fileID: 515054775}
@@ -62134,7 +62131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1674111037}
   m_Layer: 0
-  m_Name: AudioSources
+  m_Name: Sonidos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63792,24 +63789,32 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6528107463004094326, guid: 3008c526a56c5f747aff2694322eb148, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2027294288}
+    - target: {fileID: 6528107463004094326, guid: 3008c526a56c5f747aff2694322eb148, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2027294289}
     - target: {fileID: 6528107463004094326, guid: 3008c526a56c5f747aff2694322eb148, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6528107463004094326, guid: 3008c526a56c5f747aff2694322eb148, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Resena
-      objectReference: {fileID: 0}
-    - target: {fileID: 6528107463004094326, guid: 3008c526a56c5f747aff2694322eb148, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: CambiaTiempoFin
       objectReference: {fileID: 0}
     - target: {fileID: 6528107463004094326, guid: 3008c526a56c5f747aff2694322eb148, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Resena
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528107463004094326, guid: 3008c526a56c5f747aff2694322eb148, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: RegistraFInNivel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528107463004094326, guid: 3008c526a56c5f747aff2694322eb148, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Menu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6528107463004094326, guid: 3008c526a56c5f747aff2694322eb148, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -63842,6 +63847,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f534dc00ae2649bfb91cb46a4cb3391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2027294289 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 377838060120721295, guid: 3008c526a56c5f747aff2694322eb148, type: 3}
+  m_PrefabInstance: {fileID: 2027294284}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027294286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e322f815a608fd419ca75884b07423e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2089173026
