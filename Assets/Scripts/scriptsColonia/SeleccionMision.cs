@@ -10,6 +10,7 @@ public class SeleccionMision : MonoBehaviour
     public Canvas canvasMisionLab;
 
     public Canvas canvasBandera;
+    public Canvas canvasCreditos;
 
     void Start()
     {
@@ -18,6 +19,7 @@ public class SeleccionMision : MonoBehaviour
         canvasMisionTaller.enabled = false;
         canvasMisionLab.enabled = false;
         canvasBandera.enabled = false;
+        canvasCreditos.enabled = false;
     }
     private void OnTriggerEnter2D(Collider2D collider) 
     {
@@ -45,6 +47,11 @@ public class SeleccionMision : MonoBehaviour
             print("Mexicanos al grito de guerra");
             canvasBandera.enabled = true;
         }
+
+        if (collider.gameObject.CompareTag("AreaCreditos")){
+            print("Creditos");
+            canvasCreditos.enabled = true;
+        }
     }
 
     private void OnTriggerExit2D() 
@@ -55,5 +62,6 @@ public class SeleccionMision : MonoBehaviour
         canvasMisionLab.enabled = false;
         
         canvasBandera.enabled = false;
+        canvasCreditos.enabled = false;
     }
 }
