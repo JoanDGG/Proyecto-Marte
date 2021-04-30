@@ -522,7 +522,7 @@ public class funcionesBotonesSprites : MonoBehaviour
 
         // Índices de partes para reconstruir auto en escena distinta.
         GameManager.cuerpo[0] = 0;
-        GameManager.cuerpo[1] = 1;
+        GameManager.cuerpo[1] = 0;
         GameManager.llantas[0] = 1;
         GameManager.llantas[1] = 0;
         GameManager.frenos[0] = 2;
