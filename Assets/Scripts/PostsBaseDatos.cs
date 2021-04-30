@@ -23,7 +23,7 @@ public class PostsBaseDatos : MonoBehaviour
         print(tiempo);
         forma.AddField("gamertag", GameManager.GamerTag);
         forma.AddField("tiempoTotal", tiempo.ToString());
-        UnityWebRequest request = UnityWebRequest.Post("http://localhost:8080/jugador/LogOut", forma);
+        UnityWebRequest request = UnityWebRequest.Post("http://3.18.216.200:8080/jugador/LogOut", forma);
         yield return request.SendWebRequest();
         //bool exito = true;
         print(request.result);
@@ -93,7 +93,7 @@ public class PostsBaseDatos : MonoBehaviour
         forma.AddField("respuesta", res);
         forma.AddField("estado", correct.ToString());
 
-        UnityWebRequest request = UnityWebRequest.Post("http://localhost:8080/respuesta/insertarRespuesta", forma); //Falta cambiarlo en el ServidorProyectoMarte
+        UnityWebRequest request = UnityWebRequest.Post("http://3.18.216.200:8080/respuesta/insertarRespuesta", forma); //Falta cambiarlo en el ServidorProyectoMarte
         yield return request.SendWebRequest();
         //bool exito = true;
         print(request.result);
