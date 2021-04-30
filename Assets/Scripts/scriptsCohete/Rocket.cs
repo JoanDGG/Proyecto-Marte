@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+/*
+Este script permite controlar el cohete.
+Autor: Daniel García Barajas
+*/
 public class Rocket : MonoBehaviour
 {
     public Rigidbody2D rigidbody;

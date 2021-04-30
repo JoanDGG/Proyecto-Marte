@@ -4,7 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
-
+/*
+* Script para mostrar el HUD en la mision 1
+* Autor: Daniel Garcia Barajas
+*/
 public class HUDMisionCohete : MonoBehaviour
 {
     public static HUDMisionCohete instance;

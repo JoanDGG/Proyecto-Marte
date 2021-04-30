@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 /*
 Script con funciones que se asocian a los botones de la pausa.
@@ -22,6 +23,7 @@ public class FuncionesPausa : MonoBehaviour
     }
 
     public void MenuPrincipal() {
+        GameManager.tiempoFinNivel = System.DateTime.Now;
         SceneManager.LoadScene("Resena");
     }
 

@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
-
+/*
+* Este script detecta si el cohete llego al checkpoint
+* Autor: Daniel Garcia Barajas
+*/
 public class Checkpoint : MonoBehaviour
 {
     public GameObject imagenPreguntas;

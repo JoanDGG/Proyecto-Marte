@@ -1506,9 +1506,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "Bienvenido al nivel \"Busca y recolecta\". Tienes $100 para construir
     tu autom\xF3vil con la mejor calidad posible, y despu\xE9s debes aventurarte
-    al exterior de Marte para recolectar la mayor cantidad posible de recursos. Pero
-    antes debes responder algunas preguntas por lo que debes exlorar el nivel lo
-    mejor que puedas. \xA1Buena Suerte!"
+    al exterior de Marte para recolectar recursos, mu\xE9vete con wasd cuando la
+    pantalla indique que es posible. Pero antes debes responder algunas preguntas
+    por lo que debes exlorar el nivel lo mejor que puedas. \xA1Buena Suerte!"
 --- !u!222 &255114041
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7646,7 +7646,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1233869920
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12659,7 +12659,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2067048899
 RectTransform:
   m_ObjectHideFlags: 0
