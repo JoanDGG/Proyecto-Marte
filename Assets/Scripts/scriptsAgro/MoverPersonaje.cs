@@ -49,25 +49,26 @@ public class MoverPersonaje : MonoBehaviour
         {
             musica.Play();
         }
-        StartCoroutine(reloj());
         if (GameManager.primero)
         {
+            GameManager.tiempo = 0;
+            GameManager.tiempoLimite = 60;
+            GameManager.evento = false;
+            GameManager.tiempoEvento = 5;
+            GameManager.reloj = GameManager.tiempoLimite;
+            GameManager.resist[0] = false;
+            GameManager.resist[1] = false;
+            GameManager.resist[2] = false;
+            GameManager.resist[3] = false;
+            GameManager.perder = false;
+            GameManager.pagina = 0;
+            GameManager.genes[0] = 0;
+            GameManager.genes[1] = 0;
+            GameManager.genes[2] = 0;
+            GameManager.oleada = 1;
+            GameManager.respondido = false;
+            GameManager.puntuacion = 0.0f;
             GameManager.tiempoInicioNivel = System.DateTime.Now;
-            GameManager.tiempo = PlayerPrefs.GetInt("tiempo", GameManager.tiempo);
-            GameManager.tiempoLimite = PlayerPrefs.GetInt("tiempoLimite", GameManager.tiempoLimite);
-            GameManager.evento = (PlayerPrefs.GetInt("evento", 0)) == 1 ? true : false;
-            GameManager.reloj = PlayerPrefs.GetInt("reloj", GameManager.reloj);
-            GameManager.resist[0] = (PlayerPrefs.GetInt("resist0", 0)) == 1 ? true : GameManager.resist[0];
-            GameManager.resist[1] = (PlayerPrefs.GetInt("resist1", 0)) == 1 ? true : GameManager.resist[1];
-            GameManager.resist[2] = (PlayerPrefs.GetInt("resist2", 0)) == 1 ? true : GameManager.resist[2];
-            GameManager.resist[3] = (PlayerPrefs.GetInt("resist3", 0)) == 1 ? true : GameManager.resist[3];
-            GameManager.pagina = PlayerPrefs.GetInt("pagina", GameManager.pagina);
-            GameManager.genes[0] = PlayerPrefs.GetInt("genes0", GameManager.genes[0]);
-            GameManager.genes[1] = PlayerPrefs.GetInt("genes1", GameManager.genes[1]);
-            GameManager.genes[2] = PlayerPrefs.GetInt("genes2", GameManager.genes[2]);
-            GameManager.oleada = PlayerPrefs.GetInt("oleada", GameManager.oleada);
-            GameManager.respondido = (PlayerPrefs.GetInt("respondido", 0)) == 1 ? true : GameManager.respondido;
-            GameManager.puntuacion = PlayerPrefs.GetFloat("puntuacion", GameManager.puntuacion);
             GameManager.clima[0] = -1;
             GameManager.clima[1] = -1;
             GameManager.clima[2] = -1;
@@ -81,9 +82,6 @@ public class MoverPersonaje : MonoBehaviour
                 GameManager.clima[i] = eleccion;
                 print("Elegi " + GameManager.clima[i].ToString());
             }
-            GameManager.clima[0] = PlayerPrefs.GetInt("clima0", GameManager.clima[0]);
-            GameManager.clima[1] = PlayerPrefs.GetInt("clima1", GameManager.clima[1]);
-            GameManager.clima[2] = PlayerPrefs.GetInt("clima2", GameManager.clima[2]);
             GameManager.primero = false;
         }
         for (int i = 0; i < GameManager.oleada; i++)
@@ -92,6 +90,7 @@ public class MoverPersonaje : MonoBehaviour
             Prediccion[i].SetActive(true);
             Prediccion[i].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = eventos[GameManager.clima[i]];
         }
+        StartCoroutine(reloj());
     }
 
     // Update is called once per frame
@@ -244,35 +243,15 @@ public class MoverPersonaje : MonoBehaviour
                 float puntos = (float)GameManager.puntuacion;
                 BarraResultados.instance.SetValue(puntos / 5.0f);
                 GameManager.tiempoFinNivel = System.DateTime.Now;
+                GameManager.primero = true;
             }
             else if(GameManager.oleada>=4) //Ganar
             {
                 GameManager.tiempoFinNivel = System.DateTime.Now;
+                GameManager.primero = true;
             }
             //Después de cada oleada
             GameManager.tiempoFinNivel = System.DateTime.Now;
-            GameManager.tiempoLogOut = System.DateTime.Now;
-            PlayerPrefs.SetInt("primero", (GameManager.primero) ? 1 : 0);
-            PlayerPrefs.SetInt("tiempo", GameManager.tiempo);
-            PlayerPrefs.SetInt("tiempoLimite", GameManager.tiempoLimite);
-            PlayerPrefs.SetInt("evento", (GameManager.evento) ? 1 : 0);
-            PlayerPrefs.SetInt("tiempoEvento", GameManager.tiempoEvento);
-            PlayerPrefs.SetInt("reloj", GameManager.reloj);
-            PlayerPrefs.SetInt("resist0", (GameManager.resist[0]) ? 1 : 0);
-            PlayerPrefs.SetInt("resist1", (GameManager.resist[1]) ? 1 : 0);
-            PlayerPrefs.SetInt("resist2", (GameManager.resist[2]) ? 1 : 0);
-            PlayerPrefs.SetInt("resist3", (GameManager.resist[3]) ? 1 : 0);
-            PlayerPrefs.SetInt("pagina", GameManager.pagina);
-            PlayerPrefs.SetInt("clima0", GameManager.clima[0]);
-            PlayerPrefs.SetInt("clima1", GameManager.clima[1]);
-            PlayerPrefs.SetInt("clima2", GameManager.clima[2]);
-            PlayerPrefs.SetInt("genes0", GameManager.genes[0]);
-            PlayerPrefs.SetInt("genes1", GameManager.genes[1]);
-            PlayerPrefs.SetInt("genes2", GameManager.genes[2]);
-            PlayerPrefs.SetInt("oleada", GameManager.oleada);
-            PlayerPrefs.SetInt("respondido", (GameManager.respondido) ? 1 : 0);
-            PlayerPrefs.SetFloat("puntuacion", GameManager.puntuacion);
-            PlayerPrefs.Save();
         }
         if (GameManager.puntuacion > 5.0f)
         {
@@ -280,23 +259,5 @@ public class MoverPersonaje : MonoBehaviour
         }
         pausa.SetActive(false);
         print("Tu puntuación fue de " + GameManager.puntuacion.ToString() + " estrellas");
-        PlayerPrefs.DeleteKey("tiempo");
-        PlayerPrefs.DeleteKey("tiempoLimite");
-        PlayerPrefs.DeleteKey("evento");
-        PlayerPrefs.DeleteKey("reloj");
-        PlayerPrefs.DeleteKey("resist0");
-        PlayerPrefs.DeleteKey("resist1");
-        PlayerPrefs.DeleteKey("resist2");
-        PlayerPrefs.DeleteKey("resist3");
-        PlayerPrefs.DeleteKey("pagina");
-        PlayerPrefs.DeleteKey("genes0");
-        PlayerPrefs.DeleteKey("genes1");
-        PlayerPrefs.DeleteKey("genes2");
-        PlayerPrefs.DeleteKey("oleada");
-        PlayerPrefs.DeleteKey("respondido");
-        PlayerPrefs.DeleteKey("respuestas0");
-        PlayerPrefs.DeleteKey("respuestas1");
-        PlayerPrefs.DeleteKey("respuestas2");
-        PlayerPrefs.DeleteKey("puntuacion");
     }
 }

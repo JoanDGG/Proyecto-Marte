@@ -11,7 +11,7 @@ public class Salida : MonoBehaviour
 
     void OnApplicationQuit()
     {
-        print("hola");
+        print("Registro Log Out");
         PostsBaseDatos post = gameObject.GetComponent<PostsBaseDatos>();
         if (SceneManager.GetActiveScene().name != "Log in")
         {
