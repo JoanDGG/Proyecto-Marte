@@ -1379,7 +1379,11 @@ PrefabInstance:
       objectReference: {fileID: 3539057026924565226}
     - target: {fileID: 3539057028996210860, guid: faf42013a257141ee8c2d20362c83ecc, type: 3}
       propertyPath: m_Name
-      value: Canvas
+      value: CanvasHUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 4565103737299033456, guid: faf42013a257141ee8c2d20362c83ecc, type: 3}
+      propertyPath: m_Name
+      value: Reanudar
       objectReference: {fileID: 0}
     - target: {fileID: 4896747705400272713, guid: faf42013a257141ee8c2d20362c83ecc, type: 3}
       propertyPath: m_IsActive
