@@ -41,7 +41,12 @@ public class BotonContinuar : MonoBehaviour
         }
         else if(sceneName == "MisionCohete-3")
         {
-            SceneManager.LoadScene("Resena");
+            Resultados.SetActive(true);
+            float puntuacion = GameManager.puntuacionNivelCohete / 5.0f;
+            print(puntuacion);
+            BarraResultados.instance.SetValue(puntuacion);
+            GameManager.puntuacion = puntuacion;
+            //SceneManager.LoadScene("Resena");
         } 
     }
 }

@@ -11,7 +11,7 @@ public class GetJSON : MonoBehaviour
     public static GetJSON instance;
     public List<string> elementos = new List<string>();
     public bool ejecucion = true;
-    public Text texto;
+    //public Text texto;
 
     private void Awake()
     {
@@ -30,7 +30,7 @@ public class GetJSON : MonoBehaviour
     private IEnumerator DescargarJSON(String ruta)
     {
         print("http://3.18.216.200:8080/" + ruta);
-        texto.text = "http://3.18.216.200:8080/" + ruta;
+        //texto.text = "http://3.18.216.200:8080/" + ruta;
         UnityWebRequest request = UnityWebRequest.Get("http://3.18.216.200:8080/" + ruta);
         yield return request.SendWebRequest(); //Ejecuta, regresa, espera...
         //Ya regresó... continuar...
@@ -49,7 +49,7 @@ public class GetJSON : MonoBehaviour
                 foreach (var dato in datos)
                 {
                     print(dato.Value);
-                    texto.text = dato.Value;
+                    //texto.text = dato.Value;
                     elementos.Add(dato.Value);
                 }
             }
