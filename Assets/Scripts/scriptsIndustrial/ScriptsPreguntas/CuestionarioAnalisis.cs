@@ -23,31 +23,41 @@ public class CuestionarioAnalisis : MonoBehaviour
 
     private int indicePregunta; // El indice de la pregunta.
 
-    // Las 4 preguntas de mi nivel.
-    private string[] preguntas = new string[4] { GameManager.preguntas[((GameManager.nivelGlobal - 1) * 4)],
-                                    GameManager.preguntas[((GameManager.nivelGlobal - 1) * 4) + 1],
-                                    GameManager.preguntas[((GameManager.nivelGlobal - 1) * 4) + 2],
-                                    GameManager.preguntas[((GameManager.nivelGlobal - 1) * 4) + 3]};
+    private string[] preguntas;
 
-    // Los 4 arreglos de strings, cada uno contiene las opciones para cada pregunta de mi nivel.
-    private string[] opciones1 = GameManager.opciones[((GameManager.nivelGlobal - 1) * 4)];
-    private string[] opciones2 = GameManager.opciones[((GameManager.nivelGlobal - 1) * 4) + 1];
-    private string[] opciones3 = GameManager.opciones[((GameManager.nivelGlobal - 1) * 4) + 2];
-    private string[] opciones4 = GameManager.opciones[((GameManager.nivelGlobal - 1) * 4) + 3];
+    private string[] opciones1;
+    private string[] opciones2;
+    private string[] opciones3;
+    private string[] opciones4;
 
-    // Las 4 opciones correctas para cada pregunta de mi nivel.
-    private string[] opciones_correctas = new string[4] { GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4)],
-                                                 GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4) + 1],
-                                                 GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4) + 2],
-                                                 GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4) + 3]};
+    private string[] opciones_correctas;
+
 
     // Para tener la referencia del numero de pregunta.
     private int numeroPregunta;
 
     public void LlenaPregunta1()
     {
-        // La llave de la pregunta en la tabla.
-        indicePregunta = ((GameManager.nivelGlobal) - 1) * 4;
+    // Las 4 preguntas de mi nivel.
+    preguntas = new string[4] { GameManager.preguntas[((GameManager.nivelGlobal - 1) * 4)],
+                                                GameManager.preguntas[((GameManager.nivelGlobal - 1) * 4) + 1],
+                                                GameManager.preguntas[((GameManager.nivelGlobal - 1) * 4) + 2],
+                                                GameManager.preguntas[((GameManager.nivelGlobal - 1) * 4) + 3]};
+
+    // Los 4 arreglos de strings, cada uno contiene las opciones para cada pregunta de mi nivel.
+    opciones1 = GameManager.opciones[((GameManager.nivelGlobal - 1) * 4)];
+    opciones2 = GameManager.opciones[((GameManager.nivelGlobal - 1) * 4) + 1];
+    opciones3 = GameManager.opciones[((GameManager.nivelGlobal - 1) * 4) + 2];
+    opciones4 = GameManager.opciones[((GameManager.nivelGlobal - 1) * 4) + 3];
+
+    // Las 4 opciones correctas para cada pregunta de mi nivel.
+    opciones_correctas = new string[4] { GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4)],
+                                                 GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4) + 1],
+                                                 GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4) + 2],
+                                                 GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4) + 3]};
+
+    // La llave de la pregunta en la tabla.
+    indicePregunta = ((GameManager.nivelGlobal) - 1) * 4;
         opcion_correcta = opciones_correctas[0];
 
         numeroPregunta = 0;
@@ -67,7 +77,7 @@ public class CuestionarioAnalisis : MonoBehaviour
         print(preguntas[1]);
 
         // La llave de la pregunta en la tabla.
-        indicePregunta = ((GameManager.nivelGlobal) - 1) * 4 + 1;
+        indicePregunta = ((GameManager.nivelGlobal - 1) * 4) + 1;
         opcion_correcta = opciones_correctas[1];
 
         // El numero de pregunta para saber comparar al responder.
@@ -83,7 +93,7 @@ public class CuestionarioAnalisis : MonoBehaviour
     public void LlenaPregunta3()
     {
         // La llave de la pregunta en la tabla.
-        indicePregunta = ((GameManager.nivelGlobal) - 1) * 4 + 2;
+        indicePregunta = ((GameManager.nivelGlobal - 1) * 4) + 2;
         opcion_correcta = opciones_correctas[2];
 
         numeroPregunta = 2;
@@ -99,7 +109,7 @@ public class CuestionarioAnalisis : MonoBehaviour
     {
 
         // La llave de la pregunta en la tabla.
-        indicePregunta = ((GameManager.nivelGlobal) - 1) * 4 + 3;
+        indicePregunta = ((GameManager.nivelGlobal - 1) * 4) + 3;
         opcion_correcta = opciones_correctas[3];
 
         numeroPregunta = 3;
