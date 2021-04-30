@@ -30,7 +30,7 @@ public class LogIn : MonoBehaviour
         forma.AddField("contrasena", Contrasena.text);
 
         // Post de login, regresa el nombre de usuario o un texto de login fallido.
-        UnityWebRequest request = UnityWebRequest.Post("http://localhost:8080/jugador/LogIn", forma);
+        UnityWebRequest request = UnityWebRequest.Post("http://3.18.216.200:8080/jugador/LogIn", forma);
         yield return request.SendWebRequest();
 
         bool exito = true;
