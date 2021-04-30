@@ -29,10 +29,13 @@ public class HUDMisionCohete : MonoBehaviour
             GameManager.oleada = 0;
             GameManager.puntuacionNivelCohete = 3.77f;
         }
+        
     }
 
     internal void UpdateLifes()
     {
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
         int vidas = RocketLifes.instance.vidas;
         GameManager.puntuacionNivelCohete -= 0.41f;
         if (vidas == 2){
@@ -43,7 +46,18 @@ public class HUDMisionCohete : MonoBehaviour
         } else if (vidas == 0){
             Image3.enabled = false;
         }
-
+        if (sceneName == "MisionCohete-2")
+        {
+            if (GameManager.puntuacionNivelCohete < 2.54f){
+                GameManager.puntuacionNivelCohete = 2.54f;
+            }
+        }
+        if (sceneName == "MisionCohete-3")
+        {
+            if (GameManager.puntuacionNivelCohete < 1.31f){
+                 GameManager.puntuacionNivelCohete = 1.31f;
+            }
+        }
         puntajeCoheteTxt.text = GameManager.puntuacionNivelCohete.ToString();
     }
 }
