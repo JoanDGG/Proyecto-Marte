@@ -62,13 +62,13 @@ public class PostsBaseDatos : MonoBehaviour
         forma.AddField("minutoFin", fin.Minute);
         forma.AddField("calificacion", resena.ToString());
         forma.AddField("puntuacion", puntuacion.ToString());
-        UnityWebRequest request = UnityWebRequest.Post("http://localhost:8080/juega/insertarJuega", forma); //Falta cambiarlo en el ServidorProyectoMarte
+        UnityWebRequest request = UnityWebRequest.Post("http://3.18.216.200:8080/juega/insertarJuega", forma); //Falta cambiarlo en el ServidorProyectoMarte
         yield return request.SendWebRequest();
         //bool exito = true;
         print(request.result);
         if (request.result == UnityWebRequest.Result.Success)
         {
-            print("Tiempos de nivel registrados con ?xito");
+            print("Tiempos de nivel registrados con exito");
         }
         else
         {

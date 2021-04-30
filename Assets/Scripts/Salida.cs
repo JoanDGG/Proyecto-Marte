@@ -9,6 +9,14 @@ using System;
 public class Salida : MonoBehaviour
 {
 
+    void Update()
+    {
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+    }
+
     void OnApplicationQuit()
     {
         print("Registro Log Out");
