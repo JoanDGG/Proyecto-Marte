@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 193423100}
   - component: {fileID: 193423099}
   m_Layer: 5
-  m_Name: Listo
+  m_Name: BotonListo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1884,6 +1884,7 @@ GameObject:
   - component: {fileID: 347263318}
   - component: {fileID: 347263317}
   - component: {fileID: 347263320}
+  - component: {fileID: 347263321}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2052,6 +2053,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &347263321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347263316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d047a77a2d10f4cbb2982c968286f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &347680440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20574,7 +20587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 771873572152182715, guid: a893984c9587a684f8e49631883cf8de, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 771873572152182715, guid: a893984c9587a684f8e49631883cf8de, type: 3}
       propertyPath: m_AnchorMax.x
