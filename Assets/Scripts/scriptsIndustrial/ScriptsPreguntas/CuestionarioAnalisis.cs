@@ -72,6 +72,23 @@ public class CuestionarioAnalisis : MonoBehaviour
 
     public void LlenaPregunta2()
     {
+        // Las 4 preguntas de mi nivel.
+        preguntas = new string[4] { GameManager.preguntas[((GameManager.nivelGlobal - 1) * 4)],
+                                                GameManager.preguntas[((GameManager.nivelGlobal - 1) * 4) + 1],
+                                                GameManager.preguntas[((GameManager.nivelGlobal - 1) * 4) + 2],
+                                                GameManager.preguntas[((GameManager.nivelGlobal - 1) * 4) + 3]};
+
+        // Los 4 arreglos de strings, cada uno contiene las opciones para cada pregunta de mi nivel.
+        opciones1 = GameManager.opciones[((GameManager.nivelGlobal - 1) * 4)];
+        opciones2 = GameManager.opciones[((GameManager.nivelGlobal - 1) * 4) + 1];
+        opciones3 = GameManager.opciones[((GameManager.nivelGlobal - 1) * 4) + 2];
+        opciones4 = GameManager.opciones[((GameManager.nivelGlobal - 1) * 4) + 3];
+
+        // Las 4 opciones correctas para cada pregunta de mi nivel.
+        opciones_correctas = new string[4] { GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4)],
+                                                 GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4) + 1],
+                                                 GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4) + 2],
+                                                 GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4) + 3]};
         print("voy a llenar la pregunta 2");
         print("el texto de la pregunta es ");
         print(preguntas[1]);
@@ -92,6 +109,23 @@ public class CuestionarioAnalisis : MonoBehaviour
 
     public void LlenaPregunta3()
     {
+        // Las 4 preguntas de mi nivel.
+        preguntas = new string[4] { GameManager.preguntas[((GameManager.nivelGlobal - 1) * 4)],
+                                                GameManager.preguntas[((GameManager.nivelGlobal - 1) * 4) + 1],
+                                                GameManager.preguntas[((GameManager.nivelGlobal - 1) * 4) + 2],
+                                                GameManager.preguntas[((GameManager.nivelGlobal - 1) * 4) + 3]};
+
+        // Los 4 arreglos de strings, cada uno contiene las opciones para cada pregunta de mi nivel.
+        opciones1 = GameManager.opciones[((GameManager.nivelGlobal - 1) * 4)];
+        opciones2 = GameManager.opciones[((GameManager.nivelGlobal - 1) * 4) + 1];
+        opciones3 = GameManager.opciones[((GameManager.nivelGlobal - 1) * 4) + 2];
+        opciones4 = GameManager.opciones[((GameManager.nivelGlobal - 1) * 4) + 3];
+
+        // Las 4 opciones correctas para cada pregunta de mi nivel.
+        opciones_correctas = new string[4] { GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4)],
+                                                 GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4) + 1],
+                                                 GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4) + 2],
+                                                 GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4) + 3]};
         // La llave de la pregunta en la tabla.
         indicePregunta = ((GameManager.nivelGlobal - 1) * 4) + 2;
         opcion_correcta = opciones_correctas[2];
@@ -107,6 +141,23 @@ public class CuestionarioAnalisis : MonoBehaviour
 
     public void LlenaPregunta4()
     {
+        // Las 4 preguntas de mi nivel.
+        preguntas = new string[4] { GameManager.preguntas[((GameManager.nivelGlobal - 1) * 4)],
+                                                GameManager.preguntas[((GameManager.nivelGlobal - 1) * 4) + 1],
+                                                GameManager.preguntas[((GameManager.nivelGlobal - 1) * 4) + 2],
+                                                GameManager.preguntas[((GameManager.nivelGlobal - 1) * 4) + 3]};
+
+        // Los 4 arreglos de strings, cada uno contiene las opciones para cada pregunta de mi nivel.
+        opciones1 = GameManager.opciones[((GameManager.nivelGlobal - 1) * 4)];
+        opciones2 = GameManager.opciones[((GameManager.nivelGlobal - 1) * 4) + 1];
+        opciones3 = GameManager.opciones[((GameManager.nivelGlobal - 1) * 4) + 2];
+        opciones4 = GameManager.opciones[((GameManager.nivelGlobal - 1) * 4) + 3];
+
+        // Las 4 opciones correctas para cada pregunta de mi nivel.
+        opciones_correctas = new string[4] { GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4)],
+                                                 GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4) + 1],
+                                                 GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4) + 2],
+                                                 GameManager.opciones_correctas[((GameManager.nivelGlobal - 1) * 4) + 3]};
 
         // La llave de la pregunta en la tabla.
         indicePregunta = ((GameManager.nivelGlobal - 1) * 4) + 3;
